@@ -78,6 +78,8 @@ const Blog = () => {
             <time dateTime="2023-02-23">Feb 23, 2023</time>
           </p>
         </div>
+
+      
       </div>
       <div className="blog-card">
         <a href="#">

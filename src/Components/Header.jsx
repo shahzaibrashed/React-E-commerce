@@ -2,7 +2,24 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import './Style.css'
+import { Link, useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+
 const Header = () => {
+const navigate = useNavigate()
+
+ const goToCart = ()=>{
+  navigate("/carts")
+ }
+ const goToWishlist = ()=>{
+  navigate("/wishlist")
+ }
+
+  const { cart } = useSelector((state) => state.cartsItem);
+
+ 
+
+
   return (
  <>
  <header>
@@ -73,13 +90,13 @@ const Header = () => {
         <button className="action-btn">
           <ion-icon name="person-outline" />
         </button>
-        <button className="action-btn">
+        <button onClick={goToWishlist} className="action-btn">
           <ion-icon name="heart-outline" />
-          <span className="count">0</span>
+          <span className="count">5</span>
         </button>
-        <button className="action-btn">
+        <button onClick={goToCart} className="action-btn">
           <ion-icon name="bag-handle-outline" />
-          <span className="count">0</span>
+          <span className="count">{cart.length === 0 ? "0" : cart.length}</span>
         </button>
       </div>
     </div>
@@ -88,9 +105,9 @@ const Header = () => {
     <div className="container">
       <ul className="desktop-menu-category-list">
         <li className="menu-category">
-          <a href="#" className="menu-title">
+          <Link to="/" className="menu-title">
             Home
-          </a>
+          </Link>
         </li>
         <li className="menu-category">
           <a href="#" className="menu-title">
@@ -306,14 +323,14 @@ const Header = () => {
     </button>
     <button className="action-btn">
       <ion-icon name="bag-handle-outline" />
-      <span className="count">0</span>
+      <span className="count">4</span>
     </button>
     <button className="action-btn">
       <ion-icon name="home-outline" />
     </button>
     <button className="action-btn">
       <ion-icon name="heart-outline" />
-      <span className="count">0</span>
+      <span className="count">7</span>
     </button>
     <button className="action-btn" data-mobile-menu-open-btn="">
       <ion-icon name="grid-outline" />

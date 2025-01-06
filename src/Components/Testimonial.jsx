@@ -33,7 +33,7 @@ const Testimonial = () => {
       </div>
       <div className="cta-container">
         <img
-          src="https://i.postimg.cc/G2xsTd3b/cta-banner.jpg"
+          src="https://i.postimg.cc/43Jskdjc/blog-4.jpg"
           alt="summer collection"
           className="cta-banner"
         />
