@@ -2,10 +2,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import './Style.css'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import  { useState } from "react";
 
 const Header = () => {
+  const location = useLocation();
 const navigate = useNavigate()
 
  const goToCart = ()=>{
@@ -16,8 +18,21 @@ const navigate = useNavigate()
  }
 
   const { cart } = useSelector((state) => state.cartsItem);
+  const wishlistItem = useSelector((state) => state.wishlist.wishlistItem);
 
- 
+  const [isActive, setIsActive] = useState(false);
+
+  const handleOpenButtonClick = () => {
+    setIsActive(true);
+  };
+  const handleCloseButtonClick = () => {
+    setIsActive(false);
+  };
+
+  const goHome = ()=>{
+    setIsActive(false)
+    navigate('/')
+}
 
 
   return (
@@ -27,24 +42,24 @@ const navigate = useNavigate()
     <div className="container">
       <ul className="header-social-container">
         <li>
-          <a href="#" className="social-link">
+          <Link href="#" className="social-link">
             <ion-icon name="logo-facebook" />
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#" className="social-link">
+          <Link href="#" className="social-link">
             <ion-icon name="logo-twitter" />
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#" className="social-link">
+          <Link href="#" className="social-link">
             <ion-icon name="logo-instagram" />
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#" className="social-link">
+          <Link href="#" className="social-link">
             <ion-icon name="logo-linkedin" />
-          </a>
+          </Link>
         </li>
       </ul>
       <div className="header-alert-news">
@@ -67,14 +82,14 @@ const navigate = useNavigate()
   </div>
   <div className="header-main">
     <div className="container">
-      <a href="#" className="header-logo">
+      <Link href="#" className="header-logo">
         <img
           src="https://i.postimg.cc/XYYNC3X8/logo.png"
           alt="logo"
           width={120}
           height={36}
         />
-      </a>
+      </Link>
       <div className="header-search-container">
         <input
           type="search"
@@ -87,16 +102,14 @@ const navigate = useNavigate()
         </button>
       </div>
       <div className="header-user-actions">
-        <button className="action-btn">
-          <ion-icon name="person-outline" />
-        </button>
+       
         <button onClick={goToWishlist} className="action-btn">
           <ion-icon name="heart-outline" />
-          <span className="count">5</span>
+          <span className="count">{wishlistItem.length}</span>
         </button>
         <button onClick={goToCart} className="action-btn">
           <ion-icon name="bag-handle-outline" />
-          <span className="count">{cart.length === 0 ? "0" : cart.length}</span>
+          <span className="count">{cart.length}</span>
         </button>
       </div>
     </div>
@@ -104,34 +117,34 @@ const navigate = useNavigate()
   <nav className="desktop-navigation-menu">
     <div className="container">
       <ul className="desktop-menu-category-list">
-        <li className="menu-category">
+        <li className={`menu-category ${location.pathname === '/' ? 'active' : ''}`}>
           <Link to="/" className="menu-title">
             Home
           </Link>
         </li>
         <li className="menu-category">
-          <a href="#" className="menu-title">
+          <Link href="#" className="menu-title">
             Categories
-          </a>
+          </Link>
           <div className="dropdown-panel">
             <ul className="dropdown-panel-list">
               <li className="menu-title">
-                <a href="#">Electronics</a>
+                <Link href="#">Electronics</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Desktop</a>
+                <Link href="#">Desktop</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Laptop</a>
+                <Link href="#">Laptop</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Camera</a>
+                <Link href="#">Camera</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Camera</a>
+                <Link href="#">Camera</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Headphone</a>
+                <Link href="#">Headphone</Link>
               </li>
               <li className="panel-list-item">
                 <img
@@ -144,22 +157,22 @@ const navigate = useNavigate()
             </ul>
             <ul className="dropdown-panel-list">
               <li className="menu-title">
-                <a href="#">Men's</a>
+                <Link href="#">Men's</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Formal</a>
+                <Link href="#">Formal</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Casual</a>
+                <Link href="#">Casual</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Sports</a>
+                <Link href="#">Sports</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Jacket</a>
+                <Link href="#">Jacket</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Sunglasses</a>
+                <Link href="#">Sunglasses</Link>
               </li>
               <li className="panel-list-item">
                 <img
@@ -172,22 +185,22 @@ const navigate = useNavigate()
             </ul>
             <ul className="dropdown-panel-list">
               <li className="menu-title">
-                <a href="#">Women's</a>
+                <Link href="#">Women's</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Formal</a>
+                <Link href="#">Formal</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Casual</a>
+                <Link href="#">Casual</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Perfume</a>
+                <Link href="#">Perfume</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Cosmetics</a>
+                <Link href="#">Cosmetics</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Bags</a>
+                <Link href="#">Bags</Link>
               </li>
               <li className="panel-list-item">
                 <img
@@ -200,22 +213,22 @@ const navigate = useNavigate()
             </ul>
             <ul className="dropdown-panel-list">
               <li className="menu-title">
-                <a href="#">Electronics</a>
+                <Link href="#">Electronics</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Smart Watch</a>
+                <Link href="#">Smart Watch</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Smart TV</a>
+                <Link href="#">Smart TV</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Keyboard</a>
+                <Link href="#">Keyboard</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Mouse</a>
+                <Link href="#">Mouse</Link>
               </li>
               <li className="panel-list-item">
-                <a href="#">Microphone</a>
+                <Link href="#">Microphone</Link>
               </li>
               <li className="panel-list-item">
                 <img
@@ -229,325 +242,206 @@ const navigate = useNavigate()
           </div>
         </li>
         <li className="menu-category">
-          <a href="#" className="menu-title">
+          <Link href="#" className="menu-title">
             Men's
-          </a>
+          </Link>
           <ul className="dropdown-list">
             <li className="dropdown-item">
-              <a href="#">Shirt</a>
+              <Link href="#">Shirt</Link>
             </li>
             <li className="dropdown-item">
-              <a href="#">Shorts &amp; Jeans</a>
+              <Link href="#">Shorts &amp; Jeans</Link>
             </li>
             <li className="dropdown-item">
-              <a href="#">Safety Shoes</a>
+              <Link href="#">Safety Shoes</Link>
             </li>
             <li className="dropdown-item">
-              <a href="#">Wallet</a>
+              <Link href="#">Wallet</Link>
             </li>
           </ul>
         </li>
         <li className="menu-category">
-          <a href="#" className="menu-title">
+          <Link href="#" className="menu-title">
             Women's
-          </a>
+          </Link>
           <ul className="dropdown-list">
             <li className="dropdown-item">
-              <a href="#">Dress &amp; Frock</a>
+              <Link href="#">Dress &amp; Frock</Link>
             </li>
             <li className="dropdown-item">
-              <a href="#">Earrings</a>
+              <Link href="#">Earrings</Link>
             </li>
             <li className="dropdown-item">
-              <a href="#">Necklace</a>
+              <Link href="#">Necklace</Link>
             </li>
             <li className="dropdown-item">
-              <a href="#">Makeup Kit</a>
+              <Link href="#">Makeup Kit</Link>
             </li>
           </ul>
         </li>
         <li className="menu-category">
-          <a href="#" className="menu-title">
+          <Link href="#" className="menu-title">
             Jewelyr
-          </a>
+          </Link>
           <ul className="dropdown-list">
             <li className="dropdown-item">
-              <a href="#">Earrings</a>
+              <Link href="#">Earrings</Link>
             </li>
             <li className="dropdown-item">
-              <a href="#">Couple Rings</a>
+              <Link href="#">Couple Rings</Link>
             </li>
             <li className="dropdown-item">
-              <a href="#">Necklace</a>
+              <Link href="#">Necklace</Link>
             </li>
             <li className="dropdown-item">
-              <a href="#">Bracelets</a>
+              <Link href="#">Bracelets</Link>
             </li>
           </ul>
         </li>
         <li className="menu-category">
-          <a href="#" className="menu-title">
+          <Link href="#" className="menu-title">
             Perfume
-          </a>
+          </Link>
           <ul className="dropdown-list">
             <li className="dropdown-item">
-              <a href="#">Clothes Perfume</a>
+              <Link href="#">Clothes Perfume</Link>
             </li>
             <li className="dropdown-item">
-              <a href="#">Deodorant</a>
+              <Link href="#">Deodorant</Link>
             </li>
             <li className="dropdown-item">
-              <a href="#">Flower Fragrance</a>
+              <Link href="#">Flower Fragrance</Link>
             </li>
             <li className="dropdown-item">
-              <a href="#">Air Freshener</a>
+              <Link href="#">Air Freshener</Link>
             </li>
           </ul>
         </li>
         <li className="menu-category">
-          <a href="#" className="menu-title">
+          <Link href="#" className="menu-title">
             Blog
-          </a>
+          </Link>
         </li>
         <li className="menu-category">
-          <a href="#" className="menu-title">
+          <Link href="#" className="menu-title">
             Hot Offers
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
   </nav>
+
+  
   <div className="mobile-bottom-navigation">
-    <button className="action-btn" data-mobile-menu-open-btn="">
-      <ion-icon name="menu-outline" />
-    </button>
-    <button className="action-btn">
-      <ion-icon name="bag-handle-outline" />
-      <span className="count">4</span>
-    </button>
-    <button className="action-btn">
+  <button onClick={()=>navigate('/')} className="action-btn">
       <ion-icon name="home-outline" />
     </button>
-    <button className="action-btn">
+    
+    <button onClick={goToCart} className="action-btn">
+      <ion-icon name="bag-handle-outline" />
+      <span className="count">{cart.length}</span>
+    </button>
+ 
+    <button onClick={goToWishlist} className="action-btn">
       <ion-icon name="heart-outline" />
-      <span className="count">7</span>
+      <span className="count">{wishlistItem.length}</span>
     </button>
-    <button className="action-btn" data-mobile-menu-open-btn="">
-      <ion-icon name="grid-outline" />
+    <button   onClick={handleOpenButtonClick} className="action-btn" data-mobile-menu-open-btn="">
+      <ion-icon name="menu-outline" />
     </button>
+  
   </div>
-  <nav className="mobile-navigation-menu has-scrollbar " data-mobile-menu="">
+
+  <nav className={`mobile-navigation-menu ${isActive ? "active" : ""} has-scrollbar`} data-mobile-menu="">
     <div className="menu-top">
-      <h2 className="menu-title">Menu</h2>
-      <button className="menu-close-btn" data-mobile-menu-close-btn="">
+      <h2 style={{color:"black"}} className="menu-title">Menu</h2>
+      <button onClick={handleCloseButtonClick} className="menu-close-btn" data-mobile-menu-close-btn="">
         <ion-icon name="close-outline" />
       </button>
     </div>
     <ul className="mobile-menu-category-list">
-      <li className="menu-category">
-        <a href="#" className="menu-title">
+      <li className={`menu-category ${location.pathname === '/' ? 'active' : ''}`}>
+        <Link onClick={goHome}  href="#" className="menu-title">
           Home
-        </a>
+        </Link>
       </li>
       <li className="menu-category">
         <button className="accordion-menu" data-accordion-btn="">
           <p className="menu-title">Men's</p>
-          <div>
-            <ion-icon name="add-outline" className="add-icon" />
-            <ion-icon name="remove-outline" className="remove-icon" />
-          </div>
         </button>
-        <ul className="submenu-category-list " data-accordion="">
-          <li className="submenu-category">
-            <a href="#" className="submenu-title">
-              Shirt
-            </a>
-          </li>
-          <li className="submenu-category">
-            <a href="#" className="submenu-title">
-              Short &amp; Jeans
-            </a>
-          </li>
-          <li className="submenu-category">
-            <a href="#" className="submenu-title">
-              Safety Shoes
-            </a>
-          </li>
-          <li className="submenu-category">
-            <a href="#" className="submenu-title">
-              Wallet
-            </a>
-          </li>
-        </ul>
       </li>
       <li className="menu-category">
         <button className="accordion-menu" data-accordion-btn="">
           <p className="menu-title">Women's</p>
-          <div>
-            <ion-icon name="add-outline" className="add-icon" />
-            <ion-icon name="remove-outline" className="remove-icon" />
-          </div>
         </button>
         <ul className="submenu-category-list" data-accordion="">
           <li className="submenu-category">
-            <a href="#" className="submenu-title">
+            <Link href="#" className="submenu-title">
               Dress &amp; Frock
-            </a>
+            </Link>
           </li>
           <li className="submenu-category">
-            <a href="#" className="submenu-title">
+            <Link href="#" className="submenu-title">
               Earrings
-            </a>
+            </Link>
           </li>
           <li className="submenu-category">
-            <a href="#" className="submenu-title">
+            <Link href="#" className="submenu-title">
               Necklace
-            </a>
+            </Link>
           </li>
           <li className="submenu-category">
-            <a href="#" className="submenu-title">
+            <Link href="#" className="submenu-title">
               Makeup Kit
-            </a>
+            </Link>
           </li>
         </ul>
       </li>
+      
       <li className="menu-category">
         <button className="accordion-menu" data-accordion-btn="">
           <p className="menu-title">Jewelyr</p>
-          <div>
-            <ion-icon name="add-outline" className="add-icon" />
-            <ion-icon name="remove-outline" className="remove-icon" />
-          </div>
         </button>
-        <ul className="submenu-category-list" data-accordion="">
-          <li className="submenu-category">
-            <a href="#" className="submenu-title">
-              Earrings
-            </a>
-          </li>
-          <li className="submenu-category">
-            <a href="#" className="submenu-title">
-              Couple Rings
-            </a>
-          </li>
-          <li className="submenu-category">
-            <a href="#" className="submenu-title">
-              Necklace
-            </a>
-          </li>
-          <li className="submenu-category">
-            <a href="#" className="submenu-title">
-              Bracelets
-            </a>
-          </li>
-        </ul>
+       
       </li>
       <li className="menu-category">
         <button className="accordion-menu" data-accordion-btn="">
           <p className="menu-title">Perfume</p>
-          <div>
-            <ion-icon name="add-outline" className="add-icon" />
-            <ion-icon name="remove-outline" className="remove-icon" />
-          </div>
         </button>
-        <ul className="submenu-category-list" data-accordion="">
-          <li className="submenu-category">
-            <a href="#" className="submenu-title">
-              Clothes Perfume
-            </a>
-          </li>
-          <li className="submenu-category">
-            <a href="#" className="submenu-title">
-              Deodorant
-            </a>
-          </li>
-          <li className="submenu-category">
-            <a href="#" className="submenu-title">
-              Flower Fragrance
-            </a>
-          </li>
-          <li className="submenu-category">
-            <a href="#" className="submenu-title">
-              Air Freshener
-            </a>
-          </li>
-        </ul>
       </li>
       <li className="menu-category">
-        <a href="#" className="menu-title">
+        <Link href="#" className="menu-title">
           Blog
-        </a>
+        </Link>
       </li>
       <li className="menu-category">
-        <a href="#" className="menu-title">
+        <Link href="#" className="menu-title">
           Hot Offers
-        </a>
+        </Link>
       </li>
     </ul>
     <div className="menu-bottom">
-      <ul className="menu-category-list">
-        <li className="menu-category">
-          <button className="accordion-menu " data-accordion-btn="">
-            <p className="menu-title">Language</p>
-            <ion-icon name="caret-back-outline" className="caret-back" />
-          </button>
-          <ul className="submenu-category-list " data-accordion="">
-            <li className="submenu-category">
-              <a href="#" className="submenu-title">
-                English
-              </a>
-            </li>
-            <li className="submenu-category">
-              <a href="#" className="submenu-title">
-                Español
-              </a>
-            </li>
-            <li className="submenu-category">
-              <a href="#" className="submenu-title">
-                French
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li className="menu-category">
-          <button className="accordion-menu" data-accordion-btn="">
-            <p className="menu-title">Currency</p>
-            <ion-icon name="caret-back-outline" className="caret-back" />
-          </button>
-          <ul className="submenu-category-list" data-accordion="">
-            <li className="submenu-category">
-              <a href="#" className="submenu-title">
-                USD $
-              </a>
-            </li>
-            <li className="submenu-category">
-              <a href="#" className="submenu-title">
-                EUR €
-              </a>
-            </li>
-          </ul>
-        </li>
-      </ul>
+     
       <ul className="menu-social-container">
         <li>
-          <a href="#" className="social-link">
+          <Link href="#" className="social-link">
             <ion-icon name="logo-facebook" />
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#" className="social-link">
+          <Link href="#" className="social-link">
             <ion-icon name="logo-twitter" />
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#" className="social-link">
+          <Link href="#" className="social-link">
             <ion-icon name="logo-instagram" />
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#" className="social-link">
+          <Link href="#" className="social-link">
             <ion-icon name="logo-linkedin" />
-          </a>
+          </Link>
         </li>
       </ul>
     </div>

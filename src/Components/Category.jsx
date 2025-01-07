@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import './Style.css'
+import { Link } from 'react-router-dom'
 const Category = () => {
   return (
     <>
@@ -20,9 +21,9 @@ const Category = () => {
             <h3 className="category-item-title">Dress &amp; Frock</h3>
             <p className="category-item-amount">(53)</p>
           </div>
-          <a href="#" className="category-btn">
+          <Link href="#" className="category-btn">
             Show All
-          </a>
+          </Link>
         </div>
       </div>
       <div className="category-item">
@@ -38,9 +39,9 @@ const Category = () => {
             <h3 className="category-item-title">Winter Wear</h3>
             <p className="category-item-amount">(58)</p>
           </div>
-          <a href="#" className="category-btn">
+          <Link href="#" className="category-btn">
             Show All
-          </a>
+          </Link>
         </div>
       </div>
       <div className="category-item">
@@ -56,9 +57,9 @@ const Category = () => {
             <h3 className="category-item-title">Glasses &amp; Lens</h3>
             <p className="category-item-amount">(68)</p>
           </div>
-          <a href="#" className="category-btn">
+          <Link href="#" className="category-btn">
             Show All
-          </a>
+          </Link>
         </div>
       </div>
       <div className="category-item">
@@ -74,9 +75,9 @@ const Category = () => {
             <h3 className="category-item-title">Shorts &amp; Jeans</h3>
             <p className="category-item-amount">(84)</p>
           </div>
-          <a href="#" className="category-btn">
+          <Link href="#" className="category-btn">
             Show All
-          </a>
+          </Link>
         </div>
       </div>
       <div className="category-item">
@@ -92,9 +93,9 @@ const Category = () => {
             <h3 className="category-item-title">T-Shirts</h3>
             <p className="category-item-amount">(35)</p>
           </div>
-          <a href="#" className="category-btn">
+          <Link href="#" className="category-btn">
             Show All
-          </a>
+          </Link>
         </div>
       </div>
       <div className="category-item">
@@ -110,9 +111,9 @@ const Category = () => {
             <h3 className="category-item-title">Jacket</h3>
             <p className="category-item-amount">(16)</p>
           </div>
-          <a href="#" className="category-btn">
+          <Link href="#" className="category-btn">
             Show All
-          </a>
+          </Link>
         </div>
       </div>
       <div className="category-item">
@@ -128,9 +129,9 @@ const Category = () => {
             <h3 className="category-item-title">Watch</h3>
             <p className="category-item-amount">(27)</p>
           </div>
-          <a href="#" className="category-btn">
+          <Link href="#" className="category-btn">
             Show All
-          </a>
+          </Link>
         </div>
       </div>
       <div className="category-item">
@@ -146,9 +147,9 @@ const Category = () => {
             <h3 className="category-item-title">Hats &amp; Caps</h3>
             <p className="category-item-amount">(39)</p>
           </div>
-          <a href="#" className="category-btn">
+          <Link href="#" className="category-btn">
             Show All
-          </a>
+          </Link>
         </div>
       </div>
     </div>

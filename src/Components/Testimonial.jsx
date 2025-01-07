@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import './Style.css'
+import { Link } from 'react-router-dom'
 const Testimonial = () => {
   return (
    <>
@@ -37,17 +38,17 @@ const Testimonial = () => {
           alt="summer collection"
           className="cta-banner"
         />
-        <a href="#" className="cta-content">
+        <Link href="#" className="cta-content">
           <p className="discount">25% Discount</p>
           <h2 className="cta-title">Summer Collection</h2>
           <p className="cta-text">Starting @ $10</p>
           <button className="cta-btn">Shop Now</button>
-        </a>
+        </Link>
       </div>
       <div className="service">
         <h2 className="title">Our Services</h2>
         <div className="service-container">
-          <a href="#" className="service-item">
+          <Link href="#" className="service-item">
             <div className="service-icon">
               <ion-icon name="boat-outline" />
             </div>
@@ -55,8 +56,8 @@ const Testimonial = () => {
               <h3 className="service-title">Worldwide Delivery</h3>
               <p className="service-desc">For Order Over $100</p>
             </div>
-          </a>
-          <a href="#" className="service-item">
+          </Link>
+          <Link href="#" className="service-item">
             <div className="service-icon">
               <ion-icon name="rocket-outline" />
             </div>
@@ -64,8 +65,8 @@ const Testimonial = () => {
               <h3 className="service-title">Next Day Delivery</h3>
               <p className="service-desc">UK Orders Only</p>
             </div>
-          </a>
-          <a href="#" className="service-item">
+          </Link>
+          <Link href="#" className="service-item">
             <div className="service-icon">
               <ion-icon name="call-outline" />
             </div>
@@ -73,8 +74,8 @@ const Testimonial = () => {
               <h3 className="service-title">Best Online Support</h3>
               <p className="service-desc">Hours: 8AM - 11PM</p>
             </div>
-          </a>
-          <a href="#" className="service-item">
+          </Link>
+          <Link href="#" className="service-item">
             <div className="service-icon">
               <ion-icon name="arrow-undo-outline" />
             </div>
@@ -82,8 +83,8 @@ const Testimonial = () => {
               <h3 className="service-title">Return Policy</h3>
               <p className="service-desc">Easy &amp; Free Return</p>
             </div>
-          </a>
-          <a href="#" className="service-item">
+          </Link>
+          <Link href="#" className="service-item">
             <div className="service-icon">
               <ion-icon name="ticket-outline" />
             </div>
@@ -91,7 +92,7 @@ const Testimonial = () => {
               <h3 className="service-title">30% Money Back</h3>
               <p className="service-desc">For Order Over $100</p>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

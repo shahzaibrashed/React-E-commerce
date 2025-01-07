@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import './Style.css'
+import { Link } from 'react-router-dom'
 const Banner = () => {
   return (
    <>
@@ -19,9 +20,9 @@ const Banner = () => {
           <p className="banner-text">
             Startting at $ <b>20</b>.00
           </p>
-          <a href="#" className="banner-btn">
+          <Link href="#" className="banner-btn">
             Shop Now
-          </a>
+          </Link>
         </div>
       </div>
       <div className="slider-item">
@@ -36,9 +37,9 @@ const Banner = () => {
           <p className="banner-text">
             Startting at $ <b>15</b>.00
           </p>
-          <a href="#" className="banner-btn">
+          <Link href="#" className="banner-btn">
             Shop Now
-          </a>
+          </Link>
         </div>
       </div>
       <div className="slider-item">
@@ -53,9 +54,9 @@ const Banner = () => {
           <p className="banner-text">
             Startting at $ <b>29</b>.99
           </p>
-          <a href="#" className="banner-btn">
+          <Link href="#" className="banner-btn">
             Shop Now
-          </a>
+          </Link>
         </div>
       </div>
     </div>

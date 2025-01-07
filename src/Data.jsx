@@ -6,7 +6,7 @@ export const Deal = [
       price: "$150.00",
       lastPrice: "$200.00",
       imgUrl: "https://i.postimg.cc/wjGDnM81/shampoo.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "14",
@@ -15,7 +15,7 @@ export const Deal = [
       price: "$1990.00",
       lastPrice: "$2000.00",
       imgUrl: "https://i.postimg.cc/6qd3mpCv/jewellery-1.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "15",
@@ -24,7 +24,7 @@ export const Deal = [
       price: "$150.00",
       lastPrice: "$200.00",
       imgUrl: "https://i.postimg.cc/T36WRKJp/jacket-2.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
   ]
 
@@ -37,7 +37,7 @@ export const product = [
       lastPrice: "$75.00",
       imgUrl: "https://i.postimg.cc/jdybNKWJ/jacket-3.jpg",
       imgUrlH: "https://i.postimg.cc/pr9cj4HT/jacket-4.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "2",
@@ -47,7 +47,7 @@ export const product = [
       lastPrice: "$56.00",
       imgUrl: "https://i.postimg.cc/02w43fPg/shirt-1.jpg",
       imgUrlH: "https://i.postimg.cc/dVbq6JMK/shirt-2.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "3",
@@ -57,7 +57,7 @@ export const product = [
       lastPrice: "$65.00",
       imgUrl: "https://i.postimg.cc/DZ3QSqRG/jacket-5.jpg",
       imgUrlH: "https://i.postimg.cc/RFnYQp6s/jacket-6.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "4",
@@ -67,7 +67,7 @@ export const product = [
       lastPrice: "$35.00",
       imgUrl: "https://i.postimg.cc/DzgH6wF8/clothes-3.jpg",
       imgUrlH: "https://i.postimg.cc/g01SJySv/clothes-4.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "5",
@@ -77,7 +77,7 @@ export const product = [
       lastPrice: "$105.00",
       imgUrl: "https://i.postimg.cc/0yCHGD6R/shoe-2.jpg",
       imgUrlH: "https://i.postimg.cc/TY29THdz/shoe-2-1.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "6",
@@ -87,7 +87,7 @@ export const product = [
       lastPrice: "$170.00",
       imgUrl: "https://i.postimg.cc/jq84QT45/watch-3.jpg",
       imgUrlH: "https://i.postimg.cc/tRk3vt32/watch-4.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "7",
@@ -97,7 +97,7 @@ export const product = [
       lastPrice: "$120.00",
       imgUrl: "https://i.postimg.cc/rsk1gH6g/watch-1.jpg",
       imgUrlH: "https://i.postimg.cc/hjgmpfhk/watch-2.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "8",
@@ -107,7 +107,7 @@ export const product = [
       lastPrice: "$35.00",
       imgUrl: "https://i.postimg.cc/qRPjQYmZ/party-wear-1.jpg",
       imgUrlH: "https://i.postimg.cc/FKhF6cgV/party-wear-2.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "9",
@@ -117,7 +117,7 @@ export const product = [
       lastPrice: "$45.00",
       imgUrl: "https://i.postimg.cc/9fnSKNRh/jacket-1.jpg",
       imgUrlH: "https://i.postimg.cc/T36WRKJp/jacket-2.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "10",
@@ -127,7 +127,7 @@ export const product = [
       lastPrice: "$65.00",
       imgUrl: "https://i.postimg.cc/DfjFzzbv/sports-2.jpg",
       imgUrlH: "https://i.postimg.cc/BbFX338T/sports-4.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "11",
@@ -137,7 +137,7 @@ export const product = [
       lastPrice: "$85.00",
       imgUrl: "https://i.postimg.cc/JnMtkwB5/shoe-1.jpg",
       imgUrlH: "https://i.postimg.cc/BnLwGwNq/shoe-1-1.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "12",
@@ -147,7 +147,7 @@ export const product = [
       lastPrice: "$85.00",
       imgUrl: "https://i.postimg.cc/7Lmt7tMz/shorts-1.jpg",
       imgUrlH: "https://i.postimg.cc/cLBTZywG/shorts-2.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
 ]
 
@@ -159,7 +159,7 @@ export   const newArrival= [
       price: "$150.00",
       lastPrice: "$200.00",
       imgUrl: "https://i.postimg.cc/fyLNm09z/clothes-1.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "17",
@@ -168,7 +168,7 @@ export   const newArrival= [
       price: "$1990.00",
       lastPrice: "$2000.00",
       imgUrl: "https://i.postimg.cc/T3mXVxpD/clothes-2.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "18",
@@ -177,7 +177,7 @@ export   const newArrival= [
       price: "$150.00",
       lastPrice: "$200.00",
       imgUrl: "https://i.postimg.cc/DzgH6wF8/clothes-3.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "19",
@@ -186,7 +186,7 @@ export   const newArrival= [
       price: "$150.00",
       lastPrice: "$200.00",
       imgUrl: "https://i.postimg.cc/02w43fPg/shirt-1.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
   ]
 
@@ -198,7 +198,7 @@ export const trending= [
       price: "$150.00",
       lastPrice: "$200.00",
       imgUrl: "https://i.postimg.cc/DZ3QSqRG/jacket-5.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "21",
@@ -207,7 +207,7 @@ export const trending= [
       price: "$1990.00",
       lastPrice: "$2000.00",
       imgUrl: "https://i.postimg.cc/9fnSKNRh/jacket-1.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "22",
@@ -216,7 +216,7 @@ export const trending= [
       price: "$150.00",
       lastPrice: "$200.00",
       imgUrl: "https://i.postimg.cc/jdybNKWJ/jacket-3.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "23",
@@ -225,7 +225,7 @@ export const trending= [
       price: "$150.00",
       lastPrice: "$200.00",
       imgUrl: "https://i.postimg.cc/7Lmt7tMz/shorts-1.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
   ]  
 
@@ -236,7 +236,7 @@ export const trending= [
       price: "$5.00",
       lastPrice: "$4.00",
       imgUrl: "https://i.postimg.cc/kGZn4GL2/1.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "25",
@@ -244,7 +244,7 @@ export const trending= [
       price: "$1990.00",
       lastPrice: "$2000.00",
       imgUrl: "https://i.postimg.cc/fySG8Kgb/2.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },
     {
       id: "26",
@@ -252,13 +252,42 @@ export const trending= [
       price: "$150.00",
       lastPrice: "$200.00",
       imgUrl: "https://i.postimg.cc/14xL2qLr/3.jpg",
-      star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+      star: "★ ★ ★ ★ ★ "
     },{
         id: "27",
         title: "Woolen Hat for Men",
         price: "$150.00",
         lastPrice: "$200.00",
         imgUrl: "https://i.postimg.cc/y6wxsrKv/4.jpg",
-        star: <span style={{ display: "flex", gap: "2px" }}><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star" /><ion-icon name="star-outline" /><ion-icon name="star-outline" /></span>
+        star: "★ ★ ★ ★ ★ "
       },
+  ]
+
+  export const blogCard = [
+    {
+      title:"Fashions",
+      imgUrl:"https://i.postimg.cc/2886v00v/blog-1.jpg",
+      disc:"Clothes Retail KPIs 2023 Guide for Clothes Executives",
+      name:"Mr Admin",
+      date:"Apr 06, 2024",
+    },
+    {
+      title:"Clothes",
+      imgUrl:"https://i.postimg.cc/cJWPgbmG/blog-2.jpg",
+      disc:"Curbside fashion Trends: How to Win the Pickup Battle",
+      name:"Mr Robin",
+      date:"Jan 18, 2024",
+    },  {
+      title:"Shoes",
+      imgUrl:"https://i.postimg.cc/BQkj0xCK/blog-3.jpg",
+      disc:"EBT vendors: Claim Your Share of SNAP Online Revenue",
+      name:"Mr Selsa",
+      date:"Feb 23, 2023",
+    },  {
+      title:"Electronics",
+      imgUrl:"https://i.postimg.cc/43Jskdjc/blog-4.jpg",
+      disc:"Curbside fashion Trends: How to Win the Pickup Battle",
+      name:"Mr Pawar",
+      date:"Feb 02, 2023",
+    },
   ]
