@@ -48,6 +48,11 @@ const Wishlist = () => {
       </div>
 
       <Footer />
+      <style>{`
+        a {
+          text-decoration: none;
+        }
+      `}</style>
     </>
   )
 }

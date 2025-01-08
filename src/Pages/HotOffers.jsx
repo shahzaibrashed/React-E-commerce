@@ -17,7 +17,11 @@ const HotOffers = () => {
                 </div>
             </div>
             <Footer />
-
+            <style>{`
+        a {
+          text-decoration: none;
+        }
+      `}</style>
         </>
     )
 }

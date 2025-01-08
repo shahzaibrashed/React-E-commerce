@@ -37,7 +37,11 @@ const Home = () => {
   <Testimonial/>
   <Blog/>
   <Footer/>
-   
+  <style>{`
+        a {
+          text-decoration: none;
+        }
+      `}</style>s
     </>
   )
 }
