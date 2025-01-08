@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { bestSeller } from '../../Data'
 import { useDispatch, useSelector } from 'react-redux'
 import { AddCart } from '../../redux/cartSlice'
 import { addWish, removeWish } from "../../redux/wishSystem";
 import { Link } from 'react-router-dom';
-const BestSeller = () => {
+
+const BestSeller = ({bestProduct,label}) => {
   const dispatch = useDispatch()
 
   const AddToCart = (item) => {
@@ -30,11 +30,11 @@ const BestSeller = () => {
     <>
 
       <div className="product-showcase" style={{ border: "1px solid var(--cultured)", borderRadius: "5px", padding: "3px" }}>
-        <h3 className="showcase-heading">Best Sellers</h3>
+        <h3 className="showcase-heading">{label}</h3>
         <div className="showcase-wrapper">
           <div className="showcase-container">
             {
-              bestSeller.map((item) => {
+              bestProduct?.map((item) => {
                 return (
                   <div className="showcase">
                     <Link href="#" className="showcase-img-box">

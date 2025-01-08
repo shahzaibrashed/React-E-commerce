@@ -6,7 +6,7 @@ import NewArrivals from './Products/NewArrivals'
 import Trending from './Products/Trending'
 import DealoftheDay from './Products/DealoftheDay'
 import NewProduct from './Products/NewProduct'
-
+import { bestSeller, product } from '../Data'
 const ProductSection = () => {
 
   return (
@@ -15,7 +15,7 @@ const ProductSection = () => {
         <div className="container">
           <div className="sidebar has-scrollbar " data-mobile-menu="">
             <Category />
-            <BestSeller />
+            <BestSeller bestProduct={bestSeller} />
           </div>
 
           <div className="product-box">
@@ -25,7 +25,7 @@ const ProductSection = () => {
             </div>
 
            <DealoftheDay/>
-           <NewProduct/>
+           <NewProduct label={"New Product"} productData={product}/>
           </div>
         </div>
       </div>

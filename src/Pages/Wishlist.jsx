@@ -18,7 +18,7 @@ const Wishlist = () => {
       <Header />
       <div className="wishlist-container">
         <header className="wishlist-header">
-          <h1>My Wishlist</h1>
+          <h1>My Wishlist {wishlistItem.length}</h1>
         </header>
 
         {wishlistItem.length === 0 ? (

@@ -6,10 +6,11 @@ import ProductSection from '../Components/ProductSection'
 import Testimonial from '../Components/Testimonial'
 import Footer from '../Components/Footer'
 import Blog from '../Components/Blog'
+import { homeBanner } from '../Data'
 const Home = () => {
   return (
     <>
-    <div className="notification-toast " data-toast="">
+<div className="notification-toast " data-toast="">
   <button className="toast-close-btn" data-toast-close="">
     <ion-icon name="close-outline" />
   </button>
@@ -30,7 +31,7 @@ const Home = () => {
   </div>
 </div>
   <Header/>
-  <Banner />
+  <Banner bannerData={homeBanner} />
   <Category/>
   <ProductSection/>
   <Testimonial/>
