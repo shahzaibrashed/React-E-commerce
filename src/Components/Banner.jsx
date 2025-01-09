@@ -20,8 +20,7 @@ const Banner = ({bannerData}) => {
           className="banner-img"
           height="100%"
           width="100%"
-          style={{objectFit:"cover",overflow:"hidden",opacity: 0.8,
-            filter: "blur(1px)",}}
+          style={{objectFit:"cover",overflow:"hidden",filter: "brightness(70%)"}}
         />
         <div className="banner-content">
           <p className="banner-subtitle">{item.bannerSubtitle}</p>

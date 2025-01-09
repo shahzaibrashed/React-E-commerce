@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux'
 import { useState } from "react";
 
 const Header = () => {
-  const [language, setLanguage] = useState('en'); 
+  const [language, setLanguage] = useState(localStorage.getItem('language') || 'en'); 
   const location = useLocation();
 
   const translations = {
@@ -67,7 +67,9 @@ const Header = () => {
 
 
   const handleLanguageChange = (e) => {
-    setLanguage(e.target.value);
+    const selectedLanguage = e.target.value;
+    setLanguage(selectedLanguage);
+    localStorage.setItem('language', selectedLanguage); 
   };
 
   useEffect(() => {
