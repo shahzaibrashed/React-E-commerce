@@ -508,6 +508,7 @@ const Header = () => {
               </Link>
             </li>
           </ul>
+         
           <div className="menu-bottom">
 
             <ul className="menu-social-container">
@@ -533,6 +534,23 @@ const Header = () => {
               </li>
             </ul>
           </div>
+
+          <div class="d-flex justify-content-center align-items-center" >
+  <div class="d-flex gap-2">
+    <select name="currency" class="form-select">
+      <option value="usd">USD $</option>
+      <option value="eur">EUR €</option>
+    </select>
+    <select value={language} onChange={handleLanguageChange} name="language" class="form-select">
+      <option value="en">English</option>
+      <option value="fr">France</option>
+      <option value="eg">Egypt</option>
+      <option value="rr">Russia</option>
+      <option value="sa">Saudi Arabia</option>
+    </select>
+  </div>
+</div>
+
         </nav>
       </header>
 
