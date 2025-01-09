@@ -56,8 +56,8 @@ const NewArrivals = () => {
                       {item.title}
                     </Link>
                     <div className="price-box">
-                      <p className="price">{item.price}</p>
-                      <del>{item.lastPrice}</del>
+                      <p className="price"> ${item.price}</p>
+                      <del> ${item.lastPrice}</del>
                     </div>
                     <div style={{ display: "flex", float: "right", gap: "10px", marginTop: "5px", alignItems: "center" }}>
                       <button onClick={() => AddToCart(item)} style={{color:"pink"}}><ion-icon name="bag-add-outline" /></button>
@@ -99,8 +99,8 @@ const NewArrivals = () => {
                       {item.title}
                     </Link>
                     <div className="price-box">
-                      <p className="price">{item.price}</p>
-                      <del>{item.lastPrice}</del>
+                      <p className="price"> ${item.price}</p>
+                      <del> ${item.lastPrice}</del>
                     </div>
                     <div style={{ display: "flex", float: "right", gap: "10px", marginTop: "5px", alignItems: "center" }}>
                       <button onClick={() => AddToCart(item)} style={{color:"pink"}}><ion-icon name="bag-add-outline" /></button>

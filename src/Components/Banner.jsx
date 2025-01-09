@@ -20,7 +20,7 @@ const Banner = ({bannerData}) => {
           className="banner-img"
           height="100%"
           width="100%"
-          style={{objectFit:"cover",overflow:"hidden",objectPosition:"center",opacity: 0.8,
+          style={{objectFit:"cover",overflow:"hidden",opacity: 0.8,
             filter: "blur(1px)",}}
         />
         <div className="banner-content">
@@ -41,7 +41,17 @@ const Banner = ({bannerData}) => {
   </div>
 </div>
 
-   
+<style jsx>{`
+  .banner-img {
+    object-position: center;
+  }
+
+  @media (max-width: 768px) {
+    .banner-img {
+      object-position: unset;
+    }
+  }
+`}</style>
    </>
   )
 }

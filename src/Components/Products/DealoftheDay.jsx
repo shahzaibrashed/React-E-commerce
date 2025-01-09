@@ -59,8 +59,8 @@ const DealoftheDay = () => {
                               {item.disc}
                             </p>
                             <div className="price-box">
-                              <p className="price">{item.price}</p>
-                              <del>{item.lastPrice}</del>
+                              <p className="price">${item.price}</p>
+                              <del>${item.lastPrice}</del>
                             </div>
                             <div style={{ display: "flex", float: "right", gap: "10px", marginTop: "5px", alignItems: "center" }}>
                                   <button style={{color:"pink"}} onClick={() => AddToCart(item)}><ion-icon name="bag-add-outline" /></button>

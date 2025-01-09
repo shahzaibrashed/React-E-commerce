@@ -1,15 +1,29 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Style.css'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { useState } from "react";
 
 const Header = () => {
+
   const location = useLocation();
+  const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
 
-
+  const handleSearch = () => {
+    if (searchTerm.trim()) {
+      const validRoutes = ['men', 'women', 'perfume', 'blog', 'jewelyr', 'hot-offer'];
+      const normalizedSearchTerm = searchTerm.toLowerCase();
+      if (validRoutes.includes(normalizedSearchTerm)) {
+        navigate(`/${normalizedSearchTerm}`);
+      } else {
+        navigate('/error');
+      }
+    }
+  };
+  
   const { cart } = useSelector((state) => state.cartsItem);
   const wishlistItem = useSelector((state) => state.wishlist.wishlistItem);
 
@@ -21,6 +35,26 @@ const Header = () => {
   const handleCloseButtonClick = () => {
     setIsActive(false);
   };
+
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) { 
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+
 
   return (
     <>
@@ -67,9 +101,10 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className="header-main">
+
+        <div className={`header-main ${isScrolled ? "fixed-header" : ""}`}>
           <div className="container">
-            <Link href="#" className="header-logo">
+            <Link to={"/"} className="header-logo">
               <img
                 src="https://i.postimg.cc/XYYNC3X8/logo.png"
                 alt="logo"
@@ -83,11 +118,14 @@ const Header = () => {
                 name="search"
                 className="search-field"
                 placeholder="Enter your product name"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
-              <button className="search-btn">
+              <button onClick={handleSearch} className="search-btn">
                 <ion-icon name="search-outline" />
               </button>
             </div>
+            
             <div className="header-user-actions">
 
               <Link to={"/wishlist"}>
@@ -105,7 +143,8 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <nav className="desktop-navigation-menu">
+
+        <nav className={`desktop-navigation-menu ${isScrolled ? "fixed-header" : ""}`}>
           <div className="container">
             <ul className="desktop-menu-category-list">
               <li className={`menu-category ${location.pathname === '/' ? 'active' : ''}`}>

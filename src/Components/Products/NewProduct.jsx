@@ -76,8 +76,8 @@ const NewProduct = ({ productData, label }) => {
               </Link>
               <div className="showcase-rating">{item.star}</div>
               <div className="price-box">
-                <p className="price">{item.price}</p>
-                <del>{item.lastPrice}</del>
+                <p className="price"> ${item.price}</p>
+                <del> ${item.lastPrice}</del>
               </div>
             </div>
           </div>

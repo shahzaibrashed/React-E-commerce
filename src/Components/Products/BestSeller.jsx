@@ -25,7 +25,6 @@ const BestSeller = ({bestProduct,label}) => {
     dispatch(removeWish(item))
   }
 
-
   return (
     <>
 
@@ -54,8 +53,8 @@ const BestSeller = ({bestProduct,label}) => {
                         {item.star}
                       </div>
                       <div className="price-box">
-                        <del>{item.lastPrice}</del>
-                        <p className="price">{item.price}</p>
+                        <del>${item.lastPrice}</del>
+                        <p className="price"> ${item.price}</p>
                       </div>
                       <div style={{ display: "flex", gap: "5px", marginTop: "5px" }}>
                         <button onClick={() => AddToCart(item)} style={{color:"pink"}}>
@@ -68,10 +67,10 @@ const BestSeller = ({bestProduct,label}) => {
                             <ion-icon onClick={() => addFav(item)} name="heart-outline" />
                           )}
                         </button>
-
                       </div>
                     </div>
                   </div>
+                  
                 )
               })
             }

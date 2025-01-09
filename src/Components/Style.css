@@ -402,6 +402,8 @@ body::-webkit-scrollbar-thumb:hover {
     border-bottom: 1px solid var(--cultured);
 }
 
+
+
 .header-logo {
     margin-bottom: 20px;
 }
@@ -421,6 +423,7 @@ body::-webkit-scrollbar-thumb:hover {
     padding-right: 50px;
     border: 1px solid var(--cultured);
     border-radius: var(--border-radius-medium);
+    position: relative;
 }
 
 .search-field::-webkit-search-cancel-button {
@@ -431,12 +434,22 @@ body::-webkit-scrollbar-thumb:hover {
     background: var(--white);
     position: absolute;
     top: 50%;
-    right: 2px;
+    right: 10px;
     transform: translateY(-50%);
     color: var(--onyx);
     font-size: 18px;
     padding: 8px 15px;
     transition: color var(--transition-timing);
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+input{
+    outline: none;
 }
 
 .search-btn:hover {
@@ -488,12 +501,16 @@ body::-webkit-scrollbar-thumb:hover {
     position: absolute;
     top: 0;
     right: 0;
-    font-size: 12px;
+    font-size: 10px; 
     font-weight: var(--weight-500);
     line-height: 1;
     padding: 2px 4px;
-    border-radius: 20px;
+    border-radius: 20px;  
+    height: 18px;
+    width: 18px; 
+    text-align: center;
 }
+
 
 
 .mobile-navigation-menu {
@@ -531,6 +548,7 @@ body::-webkit-scrollbar-thumb:hover {
     color: var(--salmon-pink);
     font-size: var(--fs-4);
     font-weight: var(--weight-600);
+    text-align: center;
 }
 
 .menu-close-btn {
@@ -947,6 +965,8 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    align-items: center;
+    /* border: 3px solid red ; */
     padding: 7px 0;
 }
 
@@ -1869,7 +1889,11 @@ footer {
 
 @media (min-width: 570px) {
 
-    .header-top .container,
+    .header-top .container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
     .header-main .container {
         display: flex;
         justify-content: space-between;
@@ -2105,25 +2129,45 @@ footer {
         position: relative;
         font-size: 35px;
         color: var(--onyx);
-        padding: 5px;
+        padding: 10px;
     }
 
     .header-user-actions .count {
-        position: absolute;
-        top: -2px;
-        right: -3px;
-        background: var(--bittersweet);
-        color: var(--white);
-        font-size: 12px;
-        font-weight: var(--weight-500);
-        line-height: 1;
-        padding: 2px 4px;
-        border-radius: 20px;
+            background: var(--bittersweet);
+            color: var(--white);
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 10px; 
+            font-weight: var(--weight-500);
+            line-height: 1;
+            padding: 2px 4px;
+            border-radius: 20px;  
+            height: 18px;
+            width: 18px; 
+            text-align: center;
+        
     }
 
     .desktop-navigation-menu {
         display: block;
     }
+
+    .fixed-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        background-color: #fff; /* Adjust background as needed */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      
+     
+      
+      .desktop-navigation-menu.fixed-header {
+        margin-top: 100px; /* Add margin to avoid overlap */
+      }
 
     .desktop-menu-category-list {
         position: relative;
@@ -2534,6 +2578,15 @@ footer {
     overflow: hidden;
 }
 
+.cartlist-container {
+    width: 65%  !important;
+    margin: 40px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
 
 /* Header styling remains unchanged */
 .wishlist-header {
@@ -2544,8 +2597,20 @@ footer {
     align-items: center;
     border-bottom: 1px solid #eaeaea;
 }
+.cartlist-header {
+    padding: 20px;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eaeaea;
+}
 
 .wishlist-header h1 {
+    font-size: 20px;
+    margin: 0;
+}
+.cartlist-header h1 {
     font-size: 20px;
     margin: 0;
 }
@@ -2568,12 +2633,41 @@ footer {
     list-style: none;
     margin: 0;
     padding: 20px;
-    height: 500px;
+    height: 400px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
+
+
+.cartlist-list {
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+    height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.wishlist-list::-webkit-scrollbar {
+    width: 8px; 
+  }
+  
+  .wishlist-list::-webkit-scrollbar-thumb {
+    background-color: lightgrey; 
+    border-radius: 10px;
+  }
+  .cartlist-list::-webkit-scrollbar {
+    width: 8px; 
+  }
+  
+  .cartlist-list::-webkit-scrollbar-thumb {
+    background-color: lightgray; 
+    border-radius: 10px;
+  }
 
 .wishlist-item {
     display: flex;
@@ -2581,8 +2675,17 @@ footer {
     padding: 15px 0;
     border-bottom: 1px solid #eaeaea;
 }
+.cartlist-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #eaeaea;
+}
 
 .wishlist-item:last-child {
+    border-bottom: none;
+}
+.cartlist-item:last-child {
     border-bottom: none;
 }
 
@@ -2643,6 +2746,19 @@ footer {
         padding: 10px 0;
         /* Reduce padding */
     }
+    .cartlist-container {
+        width: 90% !important;
+        /* Reduce container width on tablets */
+        margin: 20px auto;
+        /* Adjust margin */
+    }
+
+    .cartlist-item {
+        flex-wrap: wrap;
+        /* Allow item content to wrap */
+        padding: 10px 0;
+        /* Reduce padding */
+    }
 
     .item-image {
         width: 70px;
@@ -2676,11 +2792,8 @@ footer {
 @media (max-width: 480px) {
     .wishlist-container {
         width: 100%;
-        /* Full width on very small screens */
         margin: 0;
-        /* Remove margins */
         border-radius: 0;
-        /* No rounded corners */
     }
 
     .wishlist-header {
@@ -2690,6 +2803,18 @@ footer {
         gap: 10px;
     }
 
+    .cartlist-container {
+        width: 100% !important;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    .cartlist-header {
+        flex-direction: column;
+        /* Stack header content */
+        align-items: flex-start;
+        gap: 10px;
+    }
     .wishlist-header h1 {
         font-size: 18px;
         /* Slightly smaller title */

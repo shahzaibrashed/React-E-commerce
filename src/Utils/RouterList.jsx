@@ -7,6 +7,7 @@ import Perfume from '../Pages/Perfume'
 import Jewelyr from '../Pages/Jewelyr'
 import Men from '../Pages/Men'
 import Womens from '../Pages/Women'
+import Error from '../Pages/Error'
 export const RouterList = [
 
    
@@ -42,5 +43,13 @@ export const RouterList = [
     {
         path: "/women",
         element: <Womens />
+    },
+    {
+        path: "/error",
+        element: <Error />
+    },
+    {
+        path: "*",
+        element: <Error />
     },
 ]
