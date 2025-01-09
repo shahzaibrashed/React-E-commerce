@@ -6,8 +6,10 @@ import { addWish, removeWish } from "../../redux/wishSystem";
 import { Link } from 'react-router-dom';
 
 const NewProduct = ({ productData, label }) => {
+
   const [hover, setHover] = useState('')
   console.log(hover, 'hoverhover')
+
   const dispatch = useDispatch();
 
   const AddToCart = (item) => {
@@ -31,13 +33,13 @@ const NewProduct = ({ productData, label }) => {
         {productData?.map((item, index) => (
           <div className="showcase" key={item.id}>
             <div className="showcase-banner">
-              <div style={{ height: "200px", width: "200px" }}>
+              <div className='img-mm'>
                 <img
-                  onMouseEnter={() => setHover(index)}
-                  onMouseLeave={() => setHover('')}
+                  onMouseOver={ () => setHover(index)}
+                  onMouseLeave={ () => setHover('')}
                   src={hover === index ? item.imgUrlH : item.imgUrl}
                   alt={item.title}
-                  className="product-img hover"
+                  className="product-img"
                   height="100%"
                   width="100%"
                 />

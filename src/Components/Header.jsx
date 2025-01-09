@@ -7,8 +7,74 @@ import { useSelector } from 'react-redux'
 import { useState } from "react";
 
 const Header = () => {
-
+  const [language, setLanguage] = useState('en'); 
   const location = useLocation();
+
+  const translations = {
+    en: {
+      home: "Home",
+      mens: "Men's",
+      womens: "Women's",
+      jewelyr: "Jewelry",
+      perfume: "Perfume",
+      blog: "Blog",
+      hotOffer: "Hot Offers",
+      category:"Category",
+    },
+    fr: {
+      home: "Accueil",
+      mens: "Homme",
+      womens: "Femme",
+      jewelyr: "Bijoux",
+      perfume: "Parfum",
+      blog: "Blog",
+      hotOffer: "Offres Chaudes",
+      category: "Catégorie"
+    }
+    ,
+    eg: {
+      home: "الصفحة الرئيسية",
+      mens: "رجالي",
+      womens: "نسائي",
+      jewelyr: "مجوهرات",
+      perfume: "عطر",
+      blog: "مدونة",
+      hotOffer: "عروض ساخنة",
+      category: "فئة"
+    }
+    ,
+    rr: {
+      home: "Дом",
+      mens: "Мужчины",
+      womens: "Женщины",
+      jewelyr: "Ювелирные изделия",
+      perfume: "Парфюм",
+      blog: "Блог",
+      hotOffer: "Горячие предложения",
+      category:"Категория",
+    },
+    sa: {
+      home: "الصفحة الرئيسية",
+      mens: "رجال",
+      womens: "نساء",
+      jewelyr: "المجوهرات",
+      perfume: "عطور",
+      blog: "مدونة",
+      hotOffer: "عروض ساخنة",
+      category: "فئة"
+    }
+  };
+
+
+  const handleLanguageChange = (e) => {
+    setLanguage(e.target.value);
+  };
+
+  useEffect(() => {
+    document.documentElement.lang = language; 
+  }, [language]);
+
+
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
 
@@ -93,10 +159,12 @@ const Header = () => {
                 <option value="usd">USD $</option>
                 <option value="eur">EUR €</option>
               </select>
-              <select name="language">
-                <option value="en-US">English</option>
-                <option value="es-ES">Español</option>
-                <option value="fr">Français</option>
+              <select value={language} onChange={handleLanguageChange} name="language">
+                <option value="en">English</option>
+                <option value="fr">France</option>
+                <option value="eg">Egypt</option>
+                <option value="rr">Russia</option>
+                <option value="sa">Saudia  Arabia</option>
               </select>
             </div>
           </div>
@@ -149,12 +217,12 @@ const Header = () => {
             <ul className="desktop-menu-category-list">
               <li className={`menu-category ${location.pathname === '/' ? 'active' : ''}`}>
                 <Link to="/" className="menu-title">
-                  Home
+                {translations[language].home}
                 </Link>
               </li>
               <li className="menu-category">
                 <Link href="#" className="menu-title">
-                  Categories
+                {translations[language].category}
                 </Link>
                 <div className="dropdown-panel">
                   <ul className="dropdown-panel-list">
@@ -273,7 +341,8 @@ const Header = () => {
               </li>
               <li className={`menu-category ${location.pathname === '/men' ? 'active' : ''}`}>
                 <Link to={"/men"} className="menu-title">
-                  Men's
+                {translations[language].mens}
+                 
                 </Link>
                 {/* <ul className="dropdown-list">
             <li className="dropdown-item">
@@ -292,7 +361,8 @@ const Header = () => {
               </li>
               <li className={`menu-category ${location.pathname === '/women' ? 'active' : ''}`}>
                 <Link to={"/women"} className="menu-title">
-                  Women's
+                {translations[language].womens}
+                
                 </Link>
                 {/* <ul className="dropdown-list">
             <li className="dropdown-item">
@@ -311,7 +381,8 @@ const Header = () => {
               </li>
               <li className={`menu-category ${location.pathname === '/jewelyr' ? 'active' : ''}`}>
                 <Link to={"/jewelyr"} className="menu-title">
-                  Jewelyr
+                {translations[language].jewelyr}
+                  
                 </Link>
                 {/* <ul className="dropdown-list">
             <li className="dropdown-item">
@@ -330,7 +401,8 @@ const Header = () => {
               </li>
               <li className={`menu-category ${location.pathname === '/perfume' ? 'active' : ''}`}>
                 <Link to={"/perfume"} className="menu-title">
-                  Perfume
+                {translations[language].perfume}
+                  
                 </Link>
                 {/* <ul className="dropdown-list">
             <li className="dropdown-item">
@@ -349,12 +421,14 @@ const Header = () => {
               </li>
               <li className={`menu-category ${location.pathname === '/blog' ? 'active' : ''}`}>
                 <Link to="/blog" className="menu-title">
-                  Blog
+                {translations[language].blog}
+
                 </Link>
               </li>
               <li className={`menu-category ${location.pathname === '/hot-offer' ? 'active' : ''}`}>
                 <Link to={"/hot-offer"} className="menu-title">
-                  Hot Offers
+                {translations[language].hotOffer}
+                  
                 </Link>
               </li>
             </ul>
@@ -398,39 +472,39 @@ const Header = () => {
           <ul className="mobile-menu-category-list">
             <li className={`menu-category ${location.pathname === '/' ? 'active' : ''}`}>
               <Link onClick={handleCloseButtonClick} to={"/"} className="menu-title">
-                Home
+              {translations[language].home}
               </Link>
             </li>
             <li className={`menu-category ${location.pathname === '/men' ? 'active' : ''}`}>
               <Link onClick={handleCloseButtonClick} to={"/men"} className="menu-title">
-                Men's
+              {translations[language].category}
               </Link>
             </li>
             <li className={`menu-category ${location.pathname === '/women' ? 'active' : ''}`}>
               <Link onClick={handleCloseButtonClick} to={"/women"} className="menu-title">
-                Women's
+              {translations[language].womens}
               </Link>
             </li>
 
             <li className={`menu-category ${location.pathname === '/jewelyr' ? 'active' : ''}`}>
               <Link onClick={handleCloseButtonClick} to={"/jewelyr"} className="menu-title">
-                Jewelyr
+              {translations[language].jewelyr}
               </Link>
 
             </li>
             <li className={`menu-category ${location.pathname === '/perfume' ? 'active' : ''}`}>
               <Link onClick={handleCloseButtonClick} to={"/perfume"} className="menu-title">
-                Perfume
+              {translations[language].jewelyr}
               </Link>
             </li>
             <li className={`menu-category ${location.pathname === '/blog' ? 'active' : ''}`}>
               <Link onClick={handleCloseButtonClick} to={"/blog"} className="menu-title">
-                Blog
+              {translations[language].blog}
               </Link>
             </li>
             <li className={`menu-category ${location.pathname === '/hot-offer' ? 'active' : ''}`}>
               <Link onClick={handleCloseButtonClick} to={"/hot-offer"} className="menu-title">
-                Hot Offers
+              {translations[language].hotOffer}
               </Link>
             </li>
           </ul>
@@ -467,3 +541,6 @@ const Header = () => {
 }
 
 export default Header
+
+
+
