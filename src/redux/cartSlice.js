@@ -61,9 +61,18 @@ const cartSystem = createSlice({
         });
       }
     },
+    clearCart: (state) => {
+      state.cart = [];  
+      state.quantity = 0;  
+      Swal.fire({
+        title: "All items have been removed from your cart",
+        icon: "success",
+        draggable: true,
+      });
+    },
     
   },
 });
 
-export const { AddCart, RemoveProduct, IncrementQuantity,DecrementQuantity } = cartSystem.actions;
+export const { AddCart, RemoveProduct, IncrementQuantity,DecrementQuantity ,clearCart } = cartSystem.actions;
 export default cartSystem.reducer;

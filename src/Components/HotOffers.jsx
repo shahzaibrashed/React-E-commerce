@@ -4,6 +4,7 @@ import { AddCart } from '../redux/cartSlice';
 import { addWish, removeWish } from '../redux/wishSystem';
 import { hotOffer } from '../Data'
 import { Link } from 'react-router-dom';
+import Testimonial from './Testimonial';
 const HotOffers = () => {
 
     const dispatch = useDispatch()
@@ -84,8 +85,10 @@ const HotOffers = () => {
                                   Available: <b>{item.avai}</b>
                                 </p>
                               </div>
+
                               <div className="showcase-status-bar" />
                             </div>
+
                             <div className="countdown-box">
                               <p className="countdown-desc">Hurry up! Offer ends in: </p>
                               <div className="countdown">
@@ -115,6 +118,7 @@ const HotOffers = () => {
                 }
               </div>
             </div>
+            <Testimonial/>
  </>
   )
 }

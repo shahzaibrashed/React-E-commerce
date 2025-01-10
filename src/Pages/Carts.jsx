@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import { DecrementQuantity, IncrementQuantity, RemoveProduct } from '../redux/cartSlice';
+import { Link } from 'react-router-dom';
 const CartPage = () => {
 
   const { cart } = useSelector((state) => state.cartsItem);
@@ -47,7 +48,7 @@ const CartPage = () => {
               ) : (
                 <ul className="cartlist-list ">
                   {cart.map((item) => (
-                    <li key={item.id} className="cartlist-item mt-1 ">
+                    <li key={item.id} className="cartlist-item mt-1 border-bottom ">
                       <img src={item.imgUrl} alt={item.title} className="item-image" />
                       <div className="item-details">
                         <p style={{ color: "orange" }}>{item.star}</p>
@@ -105,9 +106,12 @@ const CartPage = () => {
                       </div>
 
                       <button onClick={() => removeCart(item)} className="remove-button">Remove</button>
+                     
                     </li>
+                 
                   ))}
                 </ul>
+                
               )}
             </div>
 
@@ -139,7 +143,7 @@ const CartPage = () => {
                   Total :
                    <span>$ {total} </span>
                 </p>
-                <button className="btn btn-success w-100">Proceed to Checkout</button>
+                <Link to={"/checkout"}><button className="btn btn-success w-100">Proceed to Checkout</button></Link>
               </div>
             </div>
           </div>

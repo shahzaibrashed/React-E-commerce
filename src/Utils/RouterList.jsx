@@ -8,6 +8,7 @@ import Jewelyr from '../Pages/Jewelyr'
 import Men from '../Pages/Men'
 import Womens from '../Pages/Women'
 import Error from '../Pages/Error'
+import Checkout from '../Pages/Checkout'
 export const RouterList = [
 
    
@@ -43,6 +44,10 @@ export const RouterList = [
     {
         path: "/women",
         element: <Womens />
+    },
+    {
+        path: "/checkout",
+        element: <Checkout />
     },
     {
         path: "/error",

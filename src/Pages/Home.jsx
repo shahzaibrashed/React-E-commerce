@@ -41,7 +41,7 @@ const Home = () => {
         a {
           text-decoration: none;
         }
-      `}</style>s
+      `}</style>
     </>
   )
 }

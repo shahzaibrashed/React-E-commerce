@@ -737,7 +737,9 @@ input{
 }
 
 .banner-title {
-     color: var(--eerie-black);
+     /* color: var(--eerie-black); */
+    color: rgba(255, 255, 255, 0.829);
+
     font-size: var(--fs-1);
     text-transform: uppercase;
     line-height: 1;
@@ -1216,7 +1218,7 @@ input{
     top: 3px;
     left: 3px;
     height: 4px;
-    width: 33.33%;
+    width: 39.33%;
     background: var(--salmon-pink);
     border-radius: 4px;
 }
@@ -2898,3 +2900,259 @@ footer {
     width: 100%;
     border-bottom: 1px solid #edebeb;
 }
+
+.catagory-section{}
+.catagori-top-text{}
+.catagory-item{
+}
+.catagory-image{
+	position: relative;
+	display: inline-block;
+}
+.catagory-image::before {
+	content: "";
+	height: 100%;
+	width: 100%;
+	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #ff4135;
+	border-radius: 50%;
+	opacity: .8;
+	right: 0;
+	max-width: 252px;
+	transform: scale(0);
+	transition: all .5s ease-in-out;
+}
+.catagory-item:hover .catagory-image::before {
+	transform: scale(1);
+}
+.catagory-item h5 {
+	display: block;
+	width: 100%;
+	max-width: 110px;
+	margin: 0 auto;
+	line-height: 30px;
+	margin-top: 15px;
+
+}
+.catagory-item h5 a {
+	display: inline-block;
+	text-decoration: none;
+	color: #222;
+	transition:all .5s ease-in-out;
+	font-family:'Josefin Sans', sans-serif !important;
+}
+.catagory-item h5 a:hover{
+	color: #ff4135;
+}
+/* ================catagory section css end=======================*/
+
+.shoping-section {
+    background: url(http://azim.commonsupport.com/Castro/assets/images/background/cta-bg-1.jpg) no-repeat center center;
+    background-size: cover;
+    height: 676px;
+    padding-top: 49px;
+    margin-bottom: 105px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .shoping-inner {
+    position: relative;
+    background-color: #fff;
+    margin-top: 326px;
+    padding: 75px 200px 80px 200px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.05);
+    z-index: 2;
+    text-align: center;
+  }
+  
+  .pattren-leyer .pattren-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .pattren-leyer .pattren-2 {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  
+  .shoping-inner h2 {
+    font-size: 50px;
+    color: #222;
+    font-weight: 600;
+  }
+  
+  .shoping-inner p {
+    font-size: 18px;
+    color: #222;
+    font-weight: 400;
+  }
+  
+  .default-btn2 .button {
+    border: 2px solid #111;
+    display: inline-block;
+    padding: 18px 53px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: black;
+    position: relative;
+    z-index: 11;
+    transition: .8s ease-in-out;
+  }
+  
+  .default-btn2 .button::before {
+    content: "";
+    height: 0;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #ff4135;
+    border-color: #ff4135;
+    transition: .5s ease-in-out;
+  }
+  
+  .default-btn2 .button:hover::before {
+    height: 100%;
+    z-index: -1;
+  }
+  
+  .default-btn2 .button:hover {
+    color: #fff !important;
+    border: 2px solid #ff4135;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 1200px) {
+    .shoping-inner {
+      padding: 75px 150px 80px 150px;
+    }
+  
+    .shoping-inner h2 {
+      font-size: 45px;
+    }
+  
+    .shoping-inner p {
+      font-size: 16px;
+    }
+  
+    .default-btn2 .button {
+      padding: 15px 45px;
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .shoping-section {
+      height: 600px;
+      padding-top: 30px;
+    margin-bottom: 25px;
+
+    }
+  
+    .shoping-inner {
+      margin-top: 80px;
+      padding: 60px 50px;
+    }
+  
+    .shoping-inner h2 {
+      font-size: 40px;
+    }
+  
+    .shoping-inner p {
+      font-size: 15px;
+    }
+  
+    .default-btn2 .button {
+      padding: 12px 40px;
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .shoping-section {
+      height: 500px;
+      padding-top: 20px;
+    margin-bottom: 20px;
+    background-position: left;
+    }
+  
+    .shoping-inner {
+      margin-top: 160px;
+      padding: 50px 30px;
+
+    }
+  
+    .shoping-inner h2 {
+      font-size: 35px;
+    }
+  
+    .shoping-inner p {
+      font-size: 14px;
+    }
+  
+    .default-btn2 .button {
+      padding: 12px 30px;
+      font-size: 13px;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .shoping-section {
+      height: 450px;
+      padding-top: 10px;
+    margin-bottom: 15px;
+    background-position: left;
+    }
+    .product-container{
+        margin-top: 70px;
+    }
+  
+    .shoping-inner {
+      margin-top: 240px;
+      padding: 30px 20px;
+    }
+  
+    .shoping-inner h2 {
+      font-size: 30px;
+      text-align: center;
+    }
+  
+    .shoping-inner p {
+      font-size: 13px;
+      text-align: center;
+    }
+  
+    .default-btn2 .button {
+      padding: 10px 25px;
+      font-size: 12px;
+      display: block;
+      margin: 10px auto 0;
+    }
+  
+    .shoping-section img {
+        display: none;
+    }
+  
+    /* Ensuring the Image is also visible and adjusted for smaller screens */
+    .shoping-section::before {
+      content: "";
+      background: url(http://azim.commonsupport.com/Castro/assets/images/background/cta-bg-1.jpg) no-repeat center center;
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+  }

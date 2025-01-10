@@ -20,6 +20,8 @@ const Header = () => {
       blog: "Blog",
       hotOffer: "Hot Offers",
       category:"Category",
+      entername:"Enter your product name",
+      shiping:"Free Shipping This week Order Over - $55",
     },
     fr: {
       home: "Accueil",
@@ -29,7 +31,9 @@ const Header = () => {
       perfume: "Parfum",
       blog: "Blog",
       hotOffer: "Offres Chaudes",
-      category: "Catégorie"
+      category: "Catégorie",
+      entername:"Nom de votre produit",
+      shiping:"Livraison gratuite cette semaine pour les commandes de plus de 55 $"
     }
     ,
     eg: {
@@ -40,7 +44,9 @@ const Header = () => {
       perfume: "عطر",
       blog: "مدونة",
       hotOffer: "عروض ساخنة",
-      category: "فئة"
+      category: "فئة",
+      entername:"اسم المنتج الخاص بك",
+      shiping:"شحن مجاني هذا الأسبوع على الطلبات التي تزيد عن 55 دولارًا"
     }
     ,
     rr: {
@@ -52,6 +58,8 @@ const Header = () => {
       blog: "Блог",
       hotOffer: "Горячие предложения",
       category:"Категория",
+      entername:"Название вашего продукта",
+      shiping:"Бесплатная доставка на этой неделе для заказов свыше 55 $"
     },
     sa: {
       home: "الصفحة الرئيسية",
@@ -61,7 +69,9 @@ const Header = () => {
       perfume: "عطور",
       blog: "مدونة",
       hotOffer: "عروض ساخنة",
-      category: "فئة"
+      category: "فئة",
+      entername:"اسم منتجك",
+      shiping:"شحن مجاني هذا الأسبوع للطلبات فوق 55 دولارًا"
     }
   };
 
@@ -153,7 +163,7 @@ const Header = () => {
             </ul>
             <div className="header-alert-news">
               <p>
-                <b>Free Shipping</b> This week Order Over - $55
+              {translations[language].shiping}
               </p>
             </div>
             <div className="header-top-actions">
@@ -187,7 +197,7 @@ const Header = () => {
                 type="search"
                 name="search"
                 className="search-field"
-                placeholder="Enter your product name"
+              placeholder=  {translations[language].entername}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />

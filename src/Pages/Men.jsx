@@ -5,13 +5,13 @@ import BestSeller from '../Components/Products/BestSeller'
 import Category from '../Components/Products/Category'
 import NewProduct from '../Components/Products/NewProduct'
 import Banner from '../Components/Banner'
-import { bestMens, menBanner, Mens} from '../Data'
+import { bestMens, menBanner, Mens, } from '../Data'
 const Men = () => {
   return (
     <>
-   <Header/>
-   <Banner bannerData={menBanner} />
-   <div style={{marginTop:"20px"}} className="product-container">
+      <Header />
+      <Banner bannerData={menBanner} />
+      <div style={{ marginTop: "20px" }} className="product-container">
         <div className="container">
           <div className="sidebar has-scrollbar " data-mobile-menu="">
             <Category />
@@ -19,12 +19,12 @@ const Men = () => {
           </div>
 
           <div className="product-box">
-          <NewProduct label={"Men's Products"} productData={Mens}/>
+            <NewProduct label={"Men's Products"} productData={Mens} />
           </div>
         </div>
       </div>
-   <Footer/>
-   <style>{`
+      <Footer />
+      <style>{`
         a {
           text-decoration: none;
         }
