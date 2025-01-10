@@ -10,7 +10,7 @@ const HotOffers = () => {
             <Header />
             <OfferBanner />
 
-            <div  className="product-container">
+            <div className="product-container">
                 <div className="container">
                     <div className="product-box">
                         <HotOffer />

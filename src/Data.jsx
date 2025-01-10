@@ -19,47 +19,6 @@ export const homeBanner = [
   }
 ] 
 
-export const blogBanner = [
-  {
-    imgUrl:"https://i.postimg.cc/V6Rrdsk1/banner-1.jpg",
-    bannerSubtitle:"fashions",
-    bannerTitle:"Clothes Retail KPIs 2023 ",
-    price:"55",
-  },
-  {
-    imgUrl:"https://i.postimg.cc/RFXhvPgZ/banner-2.jpg",
-    bannerSubtitle:"Sale Offer",
-    bannerTitle:"New Fashion Summer Sale",
-    price:"19",
-  },
-  {
-    imgUrl:"https://i.postimg.cc/MTKZ37z2/banner-3.jpg",
-    bannerSubtitle:"Trending Item",
-    bannerTitle:"Women's latest fashion sale",
-    price:"43",
-  }
-]
-export const offerBanner = [
-  {
-    imgUrl:"https://i.postimg.cc/V6Rrdsk1/banner-1.jpg",
-    bannerSubtitle:"Trending Accessories",
-    bannerTitle:"Modern Sunglasses",
-    price:"15",
-  },
-  {
-    imgUrl:"https://i.postimg.cc/RFXhvPgZ/banner-2.jpg",
-    bannerSubtitle:"Sale Offer",
-    bannerTitle:"New Fashion Summer Sale",
-    price:"19",
-  },
-  {
-    imgUrl:"https://i.postimg.cc/MTKZ37z2/banner-3.jpg",
-    bannerSubtitle:"Trending Item",
-    bannerTitle:"Women's latest fashion sale",
-    price:"43",
-  }
-]
-
 export const perfumeBanner = [
   {
     imgUrl:"https://images.pexels.com/photos/965992/pexels-photo-965992.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
