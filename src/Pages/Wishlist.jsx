@@ -22,9 +22,11 @@ const Wishlist = () => {
         </header>
 
         {wishlistItem.length === 0 ? (
-       <p style={{margin:"30px",textAlign:"center"}}>
-        Your wishlist is empty!
-       </p>
+          <div className='m-5'>
+            <p style={{ textAlign: "center" }}>
+              Your wishlist is empty!
+            </p>
+          </div>
         ) : (
           <ul className="wishlist-list">
             {wishlistItem.map((item) => (
