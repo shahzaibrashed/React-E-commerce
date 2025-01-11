@@ -88,27 +88,24 @@ const DealoftheDay = () => {
                               </div>
                               <div className="showcase-status-bar" />
                             </div>
-                            <div className="countdown-box">
-                              <p className="countdown-desc">Hurry up! Offer ends in: </p>
-                              <div className="countdown">
-                                <div className="countdown-content">
-                                  <p className="display-number">360</p>
-                                  <p className="display-text">Days</p>
-                                </div>
-                                <div className="countdown-content">
-                                  <p className="display-number">24</p>
-                                  <p className="display-text">Hours</p>
-                                </div>
-                                <div className="countdown-content">
-                                  <p className="display-number">59</p>
-                                  <p className="display-text">Min</p>
-                                </div>
-                                <div className="countdown-content">
-                                  <p className="display-number">00</p>
-                                  <p className="display-text">Sec</p>
-                                </div>
-                              </div>
-                            </div>
+                            <div className="countdown">
+                          <div className="countdown-content">
+                            <p className="display-number m-0">5</p>
+                            <p className="display-text m-0">Days</p>
+                          </div>
+                          <div className="countdown-content">
+                            <p className="display-number m-0 ">13</p>
+                            <p className="display-text m-0">Hours</p>
+                          </div>
+                          <div className="countdown-content">
+                            <p className="display-number m-0">55</p>
+                            <p className="display-text  m-0">Min</p>
+                          </div>
+                          <div className="countdown-content">
+                            <p className="display-number m-0">44</p>
+                            <p className="display-text m-0">Sec</p>
+                          </div>
+                        </div>
                           </div>
                         </div>
                       </div>

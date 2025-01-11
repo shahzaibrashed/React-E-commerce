@@ -19,7 +19,7 @@ const HotOffers = () => {
 
 
   const wishlistItem = useSelector((state) => state.wishlist.wishlistItem);
-  console.log(wishlistItem, "hh");
+  // console.log(wishlistItem, "hh");
 
 
   const removeFav = (item) => {
@@ -93,20 +93,20 @@ const HotOffers = () => {
                         <p className="countdown-desc">Hurry up! Offer ends in: </p>
                         <div className="countdown">
                           <div className="countdown-content">
-                            <p className="display-number">{item.day}</p>
-                            <p className="display-text">Days</p>
+                            <p className="display-number m-0">{item.day}</p>
+                            <p className="display-text m-0">Days</p>
                           </div>
                           <div className="countdown-content">
-                            <p className="display-number">{item.hour}</p>
-                            <p className="display-text">Hours</p>
+                            <p className="display-number m-0 ">{item.hour}</p>
+                            <p className="display-text m-0">Hours</p>
                           </div>
                           <div className="countdown-content">
-                            <p className="display-number">{item.min}</p>
-                            <p className="display-text">Min</p>
+                            <p className="display-number m-0">{item.min}</p>
+                            <p className="display-text  m-0">Min</p>
                           </div>
                           <div className="countdown-content">
-                            <p className="display-number">{item.sec}</p>
-                            <p className="display-text">Sec</p>
+                            <p className="display-number m-0">{item.sec}</p>
+                            <p className="display-text m-0">Sec</p>
                           </div>
                         </div>
                       </div>

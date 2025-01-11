@@ -142,7 +142,8 @@ export const product = [
     lastPrice: 75.00,
     imgUrl: "https://i.postimg.cc/jdybNKWJ/jacket-3.jpg",
     imgUrlH: "https://i.postimg.cc/pr9cj4HT/jacket-4.jpg",
-    star: "★ ★ ★ ★ ★ "
+    star: "★ ★ ★ ★ ★ ",
+    isOnSale:true
   },
   {
     id: "2",
@@ -172,7 +173,9 @@ export const product = [
     lastPrice: 35.00,
     imgUrl: "https://i.postimg.cc/DzgH6wF8/clothes-3.jpg",
     imgUrlH: "https://i.postimg.cc/g01SJySv/clothes-4.jpg",
-    star: "★ ★ ★ ★ ★ "
+    star: "★ ★ ★ ★ ★ ",
+    isOnSale:true
+
   },
   {
     id: "5",
@@ -192,7 +195,8 @@ export const product = [
     lastPrice: 170.0,
     imgUrl: "https://i.postimg.cc/jq84QT45/watch-3.jpg",
     imgUrlH: "https://i.postimg.cc/tRk3vt32/watch-4.jpg",
-    star: "★ ★ ★ ★ ★ "
+    star: "★ ★ ★ ★ ★ ",
+    isOnSale:true
   },
   {
     id: "7",
@@ -222,7 +226,9 @@ export const product = [
     lastPrice: 45.00,
     imgUrl: "https://i.postimg.cc/9fnSKNRh/jacket-1.jpg",
     imgUrlH: "https://i.postimg.cc/T36WRKJp/jacket-2.jpg",
-    star: "★ ★ ★ ★ ★ "
+    star: "★ ★ ★ ★ ★ ",
+    isOnSale:true
+
   },
   {
     id: "10",
@@ -242,7 +248,9 @@ export const product = [
     lastPrice: 85.00,
     imgUrl: "https://i.postimg.cc/JnMtkwB5/shoe-1.jpg",
     imgUrlH: "https://i.postimg.cc/BnLwGwNq/shoe-1-1.jpg",
-    star: "★ ★ ★ ★ ★ "
+    star: "★ ★ ★ ★ ★ ",
+    isOnSale:true
+
   },
   {
     id: "12",
@@ -516,6 +524,7 @@ export const perfume = [
     imgUrl: "https://images.unsplash.com/photo-1605619082574-e92eee603b95?q=80&w=1762&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imgUrlH: "https://images.pexels.com/photos/12456259/pexels-photo-12456259.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     star: "★ ★ ★ ★ ★ ",
+    isOnSale:true
   },
   {
     id: "32",
@@ -536,7 +545,9 @@ export const perfume = [
     imgUrl: "https://images.pexels.com/photos/6694194/pexels-photo-6694194.jpeg?auto=compress&cs=tinysrgb&w=600",
     imgUrlH: "https://images.pexels.com/photos/4612154/pexels-photo-4612154.jpeg?auto=compress&cs=tinysrgb&w=600",
     star: "★ ★ ★ ★ ★ ",
+    isOnSale:true
   },
+  
   {
     id: "34",
     title: "Midnight Musk",
@@ -566,6 +577,7 @@ export const perfume = [
     imgUrl: "https://images.pexels.com/photos/8450399/pexels-photo-8450399.jpeg?auto=compress&cs=tinysrgb&w=600",
     imgUrlH: "https://images.pexels.com/photos/8450345/pexels-photo-8450345.jpeg?auto=compress&cs=tinysrgb&w=600",
     star: "★ ★ ★ ★ ★ ",
+    isOnSale:true
   },
   {
     id: "37",
@@ -652,6 +664,7 @@ export const jewelry = [
     lastPrice: 7999,
     imgUrl: "https://images.pexels.com/photos/177332/pexels-photo-177332.jpeg?auto=compress&cs=tinysrgb&w=600",
     imgUrlH: "https://images.pexels.com/photos/298852/pexels-photo-298852.jpeg?auto=compress&cs=tinysrgb&w=600",
+    isOnSale:true,
     star: "★ ★ ★ ★ ★",
   },
   {
@@ -683,6 +696,7 @@ export const jewelry = [
     imgUrl: "https://media.istockphoto.com/id/163122066/photo/round-diamonds-necklace.jpg?b=1&s=612x612&w=0&k=20&c=rTSIudGVfUwJzD9sPnpYoO5KzjSZ2AZ67bHJTSa3kAI=",
     imgUrlH: "https://media.istockphoto.com/id/1355399132/photo/model-showing-her-beautiful-necklace-with-diamond-pendant.jpg?b=1&s=612x612&w=0&k=20&c=2HToo9ZI_6Fs20S0HRroACbBIYwgnbeWXb9Ype61FZw=",
     star: "★ ★ ★ ★ ★",
+    isOnSale:true
   },
   {
     id: "44",
@@ -703,6 +717,7 @@ export const jewelry = [
     imgUrl: "https://images.pexels.com/photos/458766/pexels-photo-458766.jpeg?auto=compress&cs=tinysrgb&w=600",
     imgUrlH: "https://images.pexels.com/photos/886603/pexels-photo-886603.jpeg?auto=compress&cs=tinysrgb&w=600",
     star: "★ ★ ★ ★ ★",
+    isOnSale:true
   },
   {
     id: "46",
@@ -789,6 +804,7 @@ export const Mens = [
     imgUrl: "https://images.pexels.com/photos/5319493/pexels-photo-5319493.jpeg?auto=compress&cs=tinysrgb&w=600",
     imgUrlH: "https://images.pexels.com/photos/7706413/pexels-photo-7706413.jpeg?auto=compress&cs=tinysrgb&w=600",
     star: "★ ★ ★ ★ ★ ",
+    isOnSale:true
   },
   {
     id: "52",
@@ -809,6 +825,7 @@ export const Mens = [
     imgUrl: "https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=600",
     imgUrlH: "https://images.pexels.com/photos/267202/pexels-photo-267202.jpeg?auto=compress&cs=tinysrgb&w=600",
     star: "★ ★ ☆ ☆ ☆ ",
+    isOnSale:true
   },
   {
     id: "54",
@@ -829,6 +846,7 @@ export const Mens = [
     imgUrl: "https://images.pexels.com/photos/30005111/pexels-photo-30005111/free-photo-of-stylish-young-man-posing-with-jacket-outdoors.jpeg?auto=compress&cs=tinysrgb&w=600",
     imgUrlH: "https://images.pexels.com/photos/30005113/pexels-photo-30005113/free-photo-of-stylish-man-posing-in-minimalist-urban-setting.jpeg?auto=compress&cs=tinysrgb&w=600",
     star: "★ ★ ★ ☆ ☆ ",
+    isOnSale:true
   },
   {
     id: "56",
@@ -897,6 +915,7 @@ export const Women = [
     imgUrl: "https://images.pexels.com/photos/247204/pexels-photo-247204.jpeg?auto=compress&cs=tinysrgb&w=600",
     imgUrlH: "https://images.pexels.com/photos/1082526/pexels-photo-1082526.jpeg?auto=compress&cs=tinysrgb&w=600",
     star: "★ ★ ★ ☆ ☆",
+    isOnSale:true
   },
   {
     id: "58",
@@ -927,6 +946,7 @@ export const Women = [
     imgUrl: "https://images.pexels.com/photos/3775563/pexels-photo-3775563.jpeg?auto=compress&cs=tinysrgb&w=600",
     imgUrlH: "https://images.pexels.com/photos/2951124/pexels-photo-2951124.jpeg?auto=compress&cs=tinysrgb&w=600",
     star: "★ ★ ★ ★ ★",
+    isOnSale:true
   },
   {
     id: "611",
@@ -947,6 +967,7 @@ export const Women = [
     imgUrl: "https://images.pexels.com/photos/1148986/pexels-photo-1148986.jpeg?auto=compress&cs=tinysrgb&w=600",
     imgUrlH: "https://images.pexels.com/photos/1222273/pexels-photo-1222273.jpeg?auto=compress&cs=tinysrgb&w=600",
     star: "★ ★ ★ ☆ ☆",
+    isOnSale:true
   },
   {
     id: "62",
@@ -977,6 +998,7 @@ export const Women = [
     imgUrl: "https://images.pexels.com/photos/179909/pexels-photo-179909.jpeg?auto=compress&cs=tinysrgb&w=600",
     imgUrlH: "https://images.pexels.com/photos/459064/pexels-photo-459064.jpeg?auto=compress&cs=tinysrgb&w=600",
     star: "★ ★ ★ ★ ☆ ☆",
+    isOnSale:true
   },
   {
     id: "65",

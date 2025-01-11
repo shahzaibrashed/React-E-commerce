@@ -16,11 +16,10 @@ const Banner = ({bannerData}) => {
        
        <img
           src={item.imgUrl}
-          alt="new fashion summer sale"
+          alt="images"
           className="banner-img"
           height="100%"
           width="100%"
-          style={{objectFit:"cover",overflow:"hidden",filter: "brightness(70%)"}}
         />
         <div className="banner-content">
           <p className="banner-subtitle">{item.bannerSubtitle}</p>

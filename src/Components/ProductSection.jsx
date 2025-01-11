@@ -15,7 +15,7 @@ const ProductSection = () => {
         <div className="container">
           <div className="sidebar has-scrollbar " data-mobile-menu="">
             <Category />
-            <BestSeller bestProduct={bestSeller} />
+            <BestSeller label={"Best Seller"} bestProduct={bestSeller} />
           </div>
 
           <div className="product-box">

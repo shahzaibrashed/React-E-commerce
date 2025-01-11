@@ -31,11 +31,16 @@ const NewProduct = ({ productData, label }) => {
       <div className="product-grid">
         {productData?.map((item, index) => (
           <div className="showcase" key={index}>
+           
+            {item.isOnSale && (
+              <div className="sale-badge">
+                Sale
+              </div>)}
             <div className="showcase-banner">
               <div className='img-mm'>
                 <img
-                  onMouseOver={ () => setHover(index)}
-                  onMouseLeave={ () => setHover('')}
+                  onMouseOver={() => setHover(index)}
+                  onMouseLeave={() => setHover('')}
                   src={hover === index ? item.imgUrlH : item.imgUrl}
                   alt={item.title}
                   className="product-img"

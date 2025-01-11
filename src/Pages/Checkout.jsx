@@ -33,14 +33,23 @@ const CheckoutForm = () => {
   const dispatch = useDispatch()
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-    navigate("/")
-    dispatch(clearCart());
-    Swal.fire({
-      title: "Your Order Successfully Confirm",
-      icon: "success",
-      draggable: true,
-    });
+    if(cart.length === 0){
+      Swal.fire({
+        title: "Your order not success beasuse your cart is empty",
+        icon: "error",
+        draggable: true,
+      });
+      return
+    }else{
+      console.log(formData);
+      navigate("/")
+      dispatch(clearCart());
+      Swal.fire({
+        title: "Your Order Successfully Confirm",
+        icon: "success",
+        draggable: true,
+      });
+    }
   };
 
   const calculateSubtotal = () => {

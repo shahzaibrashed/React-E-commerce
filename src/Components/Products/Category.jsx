@@ -10,7 +10,7 @@ const Category = () => {
         <div className="sidebar-top">
           <h2 className="sidebar-title">Category</h2>
         </div>
-        <ul className="sidebar-menu-category-list">
+        <ul className="sidebar-menu-category-list m-0 p-0">
           <Link to={"/men"}>
             <li className="sidebar-menu-category ">
               <button className="sidebar-accordion-menu" data-accordion-btn="">

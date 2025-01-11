@@ -337,6 +337,10 @@ body::-webkit-scrollbar-thumb:hover {
         visibility: visible;
     }
 }
+p{
+    margin: 0% !important;
+    padding: 0% !important
+}
 
 .notification-toast.closed {
     display: none;
@@ -737,9 +741,7 @@ input{
 }
 
 .banner-title {
-     /* color: var(--eerie-black); */
-    color: rgba(255, 255, 255, 0.829);
-
+     color: var(--eerie-black);
     font-size: var(--fs-1);
     text-transform: uppercase;
     line-height: 1;
@@ -968,6 +970,8 @@ input{
     justify-content: space-between;
     align-items: center;
     align-items: center;
+    -webkit-box-align: center;
+    -webkit-box-pack: justify;
     /* border: 3px solid red ; */
     padding: 7px 0;
 }
@@ -1237,11 +1241,11 @@ input{
 }
 
 .product-featured .countdown-content {
-    padding: 5px;
+    /* padding: 5px; */
     background: var(--cultured);
     border-radius: var(--border-radius-medium);
     text-align: center;
-    height: 70px;
+    /* height: 70px; */
 }
 
 .product-featured .display-number {
@@ -1307,7 +1311,26 @@ input{
     transition: opacity 0.3s ease-in-out; 
     border-radius: 10px; 
 }
-
+.sale-badge {
+    position: absolute;
+    top: 6px;
+    left: 17px;
+    background-color: #ff6f61; 
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 5px; 
+    width: 30px; 
+    height: auto; 
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-align: center; 
+    writing-mode: vertical-rl; 
+    transform: rotate(-130deg); 
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
 
 .product-grid .showcase-badge {
     position: absolute;
@@ -1320,6 +1343,9 @@ input{
     padding: 0 8px;
     border-radius: var(--border-radius-small);
     z-index: 3;
+}
+.product-grid .showcase{
+    position: relative;
 }
 
 .product-grid .showcase-badge.angle {
@@ -2348,10 +2374,12 @@ footer {
         gap: 30px;
         margin-bottom: 30px;
     }
+    .catsmain{
+        display: none;
+    }
 
     .sidebar {
         --fs-5: .941rem;
-
         position: sticky;
         top: 30px;
         left: 0;

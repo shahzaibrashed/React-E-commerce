@@ -28,7 +28,7 @@ const BestSeller = ({bestProduct,label}) => {
   return (
     <>
 
-      <div className="product-showcase" style={{ border: "1px solid var(--cultured)", borderRadius: "5px", padding: "3px" }}>
+      <div className="product-showcase" style={{ borderRadius: "5px", padding: "3px" }}>
         <h3 className="showcase-heading">{label}</h3>
         <div className="showcase-wrapper">
           <div className="showcase-container">
@@ -53,7 +53,7 @@ const BestSeller = ({bestProduct,label}) => {
                         {item.star}
                       </div>
                       <div className="price-box">
-                        <del>${item.lastPrice}</del>
+                        <del style={{margin:"0%",padding:"0%"}}>${item.lastPrice}</del>
                         <p className="price"> ${item.price}</p>
                       </div>
                       <div style={{ display: "flex", gap: "5px", marginTop: "5px" }}>
