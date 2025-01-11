@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../Components/Header'
 import Banner from '../Components/Banner'
 import Category from '../Components/Category'
@@ -8,10 +8,12 @@ import Footer from '../Components/Footer'
 import Blog from '../Components/Blog'
 import { homeBanner } from '../Data'
 const Home = () => {
+ const [toastActive,setToastActive] = useState(true)
+
   return (
     <>
-<div className="notification-toast " data-toast="">
-  <button className="toast-close-btn" data-toast-close="">
+<div className={`notification-toast ${toastActive ? '' : 'closed'}`} data-toast="">
+  <button onClick={()=> setToastActive(false)} className="toast-close-btn" data-toast-close="">
     <ion-icon name="close-outline" />
   </button>
   <div className="toast-banner">

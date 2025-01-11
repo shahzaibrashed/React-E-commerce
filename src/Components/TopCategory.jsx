@@ -21,60 +21,65 @@ const TopCategory = () => {
         </div>
       </div>
     </div>
-    <div className="row">
-      <div className="col-lg-3">
-        <div className="catagory-item">
-          <div className="catagory-image">
-            <img
-              src="https://i.ibb.co/Vths0Jz/azim-commonsupport-com-959-category-1.png"
-              alt=""
-            />
-          </div>
-          <h5>
-            <Link to={"/women"}>Women Collection</Link>
-          </h5>
-        </div>
+
+    <div className="box-main ">
+  <div className="boxx">
+    <div className="catagory-item">
+      <div className="catagory-image">
+        <img
+          src="https://i.ibb.co/Vths0Jz/azim-commonsupport-com-959-category-1.png"
+          alt=""
+        />
       </div>
-      <div className="col-lg-3">
-        <div className="catagory-item">
-          <div className="catagory-image">
-            <img
-              src="https://i.ibb.co/kHCfzCP/azim-commonsupport-com-837-category-2.png"
-              alt=""
-            />
-          </div>
-          <h5>
-            <Link to={""}>Kid Collections</Link>
-          </h5>
-        </div>
-      </div>
-      <div className="col-lg-3">
-        <div className="catagory-item">
-          <div className="catagory-image">
-            <img
-              src="https://i.ibb.co/zFPJRRF/azim-commonsupport-com-700-category-3.png"
-              alt=""
-            />
-          </div>
-          <h5>
-            <Link to={""}>Summer Collections</Link>
-          </h5>
-        </div>
-      </div>
-      <div className="col-lg-3">
-        <div className="catagory-item">
-          <div className="catagory-image">
-            <img
-              src="https://i.ibb.co/RzX4fym/azim-commonsupport-com-51-category-4.png"
-              alt=""
-            />
-          </div>
-          <h5>
-            <Link to={"/men"}>Men Collections</Link>
-          </h5>
-        </div>
-      </div>
+      <h5>
+        <Link to={"/women"}>Women Collection</Link>
+      </h5>
     </div>
+  </div>
+
+  <div className="boxx">
+    <div className="catagory-item">
+      <div className="catagory-image">
+        <img
+          src="https://i.ibb.co/kHCfzCP/azim-commonsupport-com-837-category-2.png"
+          alt=""
+        />
+      </div>
+      <h5>
+        <Link to={""}>Kid Collections</Link>
+      </h5>
+    </div>
+  </div>
+
+  <div className="boxx">
+    <div className="catagory-item">
+      <div className="catagory-image">
+        <img
+          src="https://i.ibb.co/zFPJRRF/azim-commonsupport-com-700-category-3.png"
+          alt=""
+        />
+      </div>
+      <h5>
+        <Link to={""}>Summer Collections</Link>
+      </h5>
+    </div>
+  </div>
+
+  <div className="boxx">
+    <div className="catagory-item">
+      <div className="catagory-image">
+        <img
+          src="https://i.ibb.co/RzX4fym/azim-commonsupport-com-51-category-4.png"
+          alt=""
+        />
+      </div>
+      <h5>
+        <Link to={"/men"}>Men Collections</Link>
+      </h5>
+    </div>
+  </div>
+</div>
+
   </div>
 </div>
 

@@ -97,7 +97,7 @@ const Header = () => {
       if (validRoutes.includes(normalizedSearchTerm)) {
         navigate(`/${normalizedSearchTerm}`);
       } else {
-        navigate('/error');
+        navigate('*');
       }
     }
   };
@@ -489,7 +489,7 @@ const Header = () => {
             </li>
             <li className={`menu-category ${location.pathname === '/men' ? 'active' : ''}`}>
               <Link onClick={handleCloseButtonClick} to={"/men"} className="menu-title">
-              {translations[language].category}
+              {translations[language].mens}
               </Link>
             </li>
             <li className={`menu-category ${location.pathname === '/women' ? 'active' : ''}`}>
@@ -506,7 +506,7 @@ const Header = () => {
             </li>
             <li className={`menu-category ${location.pathname === '/perfume' ? 'active' : ''}`}>
               <Link onClick={handleCloseButtonClick} to={"/perfume"} className="menu-title">
-              {translations[language].jewelyr}
+              {translations[language].perfume}
               </Link>
             </li>
             <li className={`menu-category ${location.pathname === '/blog' ? 'active' : ''}`}>

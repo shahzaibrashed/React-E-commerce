@@ -50,10 +50,6 @@ export const RouterList = [
         element: <Checkout />
     },
     {
-        path: "/error",
-        element: <Error />
-    },
-    {
         path: "*",
         element: <Error />
     },

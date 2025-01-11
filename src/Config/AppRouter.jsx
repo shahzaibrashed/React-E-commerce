@@ -15,8 +15,7 @@ const AppRouter = () => {
       </Routes>
       <Link
         to="#"
-        className="text-light  p-2 position-fixed bottom-0 end-0 mb-3 me-3 rounded-circle d-flex align-items-center justify-content-center"
-        style={{ width: "2.5rem", height: "2.5rem",background:"var(--salmon-pink)" }}
+        className="text-light scrol p-2 position-fixed bottom-0 end-0  me-3 rounded-circle d-flex align-items-center justify-content-center"
         aria-label="Scroll to Top"
       >
         <svg
@@ -34,6 +33,23 @@ const AppRouter = () => {
           />
         </svg>
       </Link>
+      <style>
+  {`
+    .scrol {
+      margin-bottom: 40px;
+      background-color: var(--salmon-pink);
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+
+    @media screen and (max-width: 1024px) {
+      .scrol {
+        margin-bottom: 60px;
+      }
+    }
+  `}
+</style>
+
     </>
   );
 };

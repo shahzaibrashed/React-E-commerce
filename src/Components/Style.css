@@ -317,7 +317,7 @@ body::-webkit-scrollbar-thumb:hover {
     transform: translateX(calc(-100% - 40px));
     transition: .5s ease-in-out;
     z-index: 5;
-    animation: slideInOut 10s ease-in-out infinite;
+    animation: slideInOut 11s ease-in-out infinite;
 }
 
 @keyframes slideInOut {
@@ -2902,9 +2902,15 @@ footer {
     border-bottom: 1px solid #edebeb;
 }
 
-.catagory-section{}
-.catagori-top-text{}
-.catagory-item{
+
+.box-main{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.boxx{
+    width: 300px;
 }
 .catagory-image{
 	position: relative;
