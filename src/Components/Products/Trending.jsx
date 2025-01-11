@@ -18,7 +18,7 @@ const Trending = () => {
       
       
         const wishlistItem = useSelector((state) => state.wishlist.wishlistItem);
-        console.log(wishlistItem, "hh");
+        // console.log(wishlistItem, "hh");
       
       
         const removeFav = (item) => {
@@ -33,9 +33,9 @@ const Trending = () => {
                     <h2 className="title">Trending</h2>
                     <div className="showcase-wrapper has-scrollbar">
                       <div className="showcase-container">{
-                        trending.map((item) => {
+                        trending.map((item,index) => {
                           return (
-                            <div className="showcase">
+                            <div key={index} className="showcase">
                               <Link href="#" className="showcase-img-box">
                                 <img
                                   src={item.imgUrl}
@@ -76,9 +76,9 @@ const Trending = () => {
                       }
                       </div>
                       <div className="showcase-container">{
-                        newArrival.map((item) => {
+                        newArrival.map((item,index) => {
                           return (
-                            <div className="showcase">
+                            <div key={index} className="showcase">
                               <Link href="#" className="showcase-img-box">
                                 <img
                                   src={item.imgUrl}

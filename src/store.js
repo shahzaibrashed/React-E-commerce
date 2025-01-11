@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit"
 import cartSystem from '../src/redux/cartSlice'
 import storage from 'redux-persist/lib/storage'
-import { persistReducer } from "redux-persist"
+import { persistReducer, persistStore } from "redux-persist"
 import {combineReducers} from '@reduxjs/toolkit'
 import wishSystem from "../src/redux/wishSystem"
 const persistConfig = {
@@ -20,6 +20,13 @@ const reducer = combineReducers(
 const persistedReducer = persistReducer(persistConfig,reducer)
 
 const store = configureStore({
-    reducer: persistedReducer
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+          serializableCheck: {
+            ignoredActions: ["persist/PERSIST", "persist/REHYDRATE"], // Ignore persist actions
+          },
+        }),
 })
+export const persistor = persistStore(store);
 export default store

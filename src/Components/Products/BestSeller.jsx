@@ -18,7 +18,7 @@ const BestSeller = ({bestProduct,label}) => {
 
 
   const wishlistItem = useSelector((state) => state.wishlist.wishlistItem);
-  console.log(wishlistItem, "hh");
+  // console.log(wishlistItem, "hh");
 
 
   const removeFav = (item) => {
@@ -33,9 +33,9 @@ const BestSeller = ({bestProduct,label}) => {
         <div className="showcase-wrapper">
           <div className="showcase-container">
             {
-              bestProduct?.map((item) => {
+              bestProduct?.map((item,index) => {
                 return (
-                  <div className="showcase">
+                  <div key={index} className="showcase">
                     <Link href="#" className="showcase-img-box">
                       <img
                         src={item.imgUrl}

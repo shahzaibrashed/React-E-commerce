@@ -9,11 +9,10 @@ const Blog = () => {
       <div className="blog">
         <div className="container">
           <div className="blog-container has-scrollbar">
-
             {
-              blogCard.map((item) => {
+              blogCard.map((item,index) => {
                 return (
-                  <div key={item.id} className="blog-card">
+                  <div key={index} className="blog-card">
                     <Link to="/blog">
                       <img
                         src={item.imgUrl}
@@ -29,6 +28,7 @@ const Blog = () => {
                       <Link to="/blog">
                         <h3 className="blog-title">
                           {item.disc}
+                          
                         </h3>
                       </Link>
                       <p className="blog-meta">
@@ -40,14 +40,10 @@ const Blog = () => {
                 )
               })
             }
-
           </div>
         </div>
       </div>
-
-
     </>
   )
 }
-
 export default Blog

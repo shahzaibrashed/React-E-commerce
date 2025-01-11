@@ -34,9 +34,9 @@ const HotOffers = () => {
               <div className="showcase-wrapper has-scrollbar">
 
                 {
-                  hotOffer.map((item) => {
+                  hotOffer.map((item,index) => {
                     return (
-                      <div key={item.id} className="showcase-container">
+                      <div key={index} className="showcase-container">
                         <div className="showcase">
                           <div className="showcase-banner">
                             <img

@@ -1241,6 +1241,7 @@ input{
     background: var(--cultured);
     border-radius: var(--border-radius-medium);
     text-align: center;
+    height: 70px;
 }
 
 .product-featured .display-number {
@@ -3222,7 +3223,7 @@ footer {
       color: #999;
       text-transform: uppercase;
       letter-spacing: .05em;
-      margin: 2em 0 0 0;
+      /* margin: 2em 0 0 0; */
     }
     
     .thumb {

@@ -547,13 +547,13 @@ const Header = () => {
             </ul>
           </div>
 
-          <div class="d-flex justify-content-center align-items-center" >
-  <div class="d-flex gap-2">
-    <select name="currency" class="form-select">
+          <div className="d-flex justify-content-center align-items-center" >
+  <div className="d-flex gap-2">
+    <select name="currency" className="form-select">
       <option value="usd">USD $</option>
       <option value="eur">EUR €</option>
     </select>
-    <select value={language} onChange={handleLanguageChange} name="language" class="form-select">
+    <select value={language} onChange={handleLanguageChange} name="language" className="form-select">
       <option value="en">English</option>
       <option value="fr">France</option>
       <option value="eg">Egypt</option>

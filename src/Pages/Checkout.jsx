@@ -29,18 +29,18 @@ const CheckoutForm = () => {
     });
   };
 
-   const navigate = useNavigate()
-   const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
     navigate("/")
     dispatch(clearCart());
     Swal.fire({
-        title: "Your Order Successfully Confirm",
-        icon: "success",
-        draggable: true,
-      });
+      title: "Your Order Successfully Confirm",
+      icon: "success",
+      draggable: true,
+    });
   };
 
   const calculateSubtotal = () => {
@@ -48,11 +48,11 @@ const CheckoutForm = () => {
   };
 
   const calculateTax = () => {
-    return 4; 
+    return 4;
   };
 
   const calculateShipping = () => {
-    return 12; 
+    return 12;
   };
 
   const calculateTotal = (subtotal, tax, shipping) => {
@@ -64,9 +64,9 @@ const CheckoutForm = () => {
   const shipping = calculateShipping();
   const total = calculateTotal(subtotal, tax, shipping);
 
-   const removeCart = (item) => {
-      dispatch(RemoveProduct(item))
-    }
+  const removeCart = (item) => {
+    dispatch(RemoveProduct(item))
+  }
 
   return (
     <>
@@ -198,7 +198,7 @@ const CheckoutForm = () => {
                         />
                       </Form.Group>
                     </Col>
-                    <Col sm={12} md={6}className='mt-2'>
+                    <Col sm={12} md={6} className='mt-2'>
                       <Form.Group controlId="formCvv">
                         <Form.Label>CVV</Form.Label>
                         <Form.Control
@@ -213,11 +213,11 @@ const CheckoutForm = () => {
                     </Col>
                   </Row>
 
-               
-                <Button  type="submit" className="w-100 mt-4 custom-btn">
+
+                  <Button type="submit" className="w-100 mt-4 custom-btn">
                     Complete Checkout
                   </Button>
-              
+
                 </Form>
               </Card.Body>
             </Card>
@@ -228,39 +228,56 @@ const CheckoutForm = () => {
             <Card>
               <Card.Body>
                 <Card.Title as="h5">Product Details : {cart.length}</Card.Title>
-                {cart.map((item, index) => (
-                  <div key={index} className="d-flex justify-content-between mb-1 mt-3 border-bottom">
-                    <img
-                      src={item.imgUrl}
-                      alt={item.title}
-                      style={{ width: '50px', height: '50px', objectFit: 'cover' }}
-                    />
-                    <div className=' w-50'>
-                      <p>{item.title}</p>
-                      <p>Quantity: {item.quantity}</p>
+
+                <div className='cc' style={{ height: "300px", overflowY: "auto" }}>
+                  {cart.map((item, index) => (
+                    <div
+                      key={index}
+                      className="d-flex justify-content-between align-items-center p-3 mb-3 border rounded shadow-sm"
+                      style={{ backgroundColor: "#f8f9fa" }}
+                    >
+                      <img
+                        src={item.imgUrl}
+                        alt={item.title}
+                        className="rounded"
+                        style={{
+                          width: "60px",
+                          height: "60px",
+                          objectFit: "cover",
+                        }}
+                      />
+                      <div className="ms-3 flex-grow-1">
+                        <p className="mb-1 fw-bold">{item.title}</p>
+                        <p className="mb-1 text-muted">Quantity: {item.quantity}</p>
+                        <p className="mb-0 text-success fw-semibold">${item.price * item.quantity}</p>
+                      </div>
+
+                      <div
+                        style={{ cursor: "pointer", color: "red", fontSize: "20px" }}
+                        onClick={() => removeCart(item)}
+                      >
+                        <ion-icon name="close-outline"></ion-icon>
+                      </div>
                     </div>
-                    <p>${item.price * item.quantity}</p>
-                   <div style={
-                    {cursor:"pointer",color:"red"}
-                   }> <ion-icon onClick={()=>removeCart(item)} name="close-outline"></ion-icon></div>
-                  </div>
-                 
-                ))}
-               
-                <div className="d-flex justify-content-between">
-                  <strong>Subtotal :</strong>
+
+
+                  ))}
+                </div>
+                <div className="d-flex justify-content-between align-items-center mt-1">
+                  <strong className="">Subtotal :</strong>
                   <span>${subtotal}</span>
                 </div>
-                <div className="d-flex justify-content-between">
+
+                <div className="d-flex justify-content-between align-items-center mt-1">
                   <strong>Tax :</strong>
                   <span>${tax}</span>
                 </div>
-                <div className="d-flex justify-content-between">
+                <div className="d-flex justify-content-between align-items-center mt-1">
                   <strong>Shipping :</strong>
                   <span>${shipping}</span>
                 </div>
                 <hr />
-                <div className="d-flex justify-content-between">
+                <div className="d-flex justify-content-between align-items-center mt-1">
                   <strong>Total :</strong>
                   <span>${total}</span>
                 </div>
@@ -268,10 +285,19 @@ const CheckoutForm = () => {
               </Card.Body>
             </Card>
           </Col>
+
         </Row>
       </Container>
       <Footer />
       <style>{`
+      .cc::-webkit-scrollbar {
+  width: 8px; 
+}
+
+.cc::-webkit-scrollbar-thumb {
+  background-color: grey; 
+  border-radius: 10px;
+}
         a {
           text-decoration: none;
         }

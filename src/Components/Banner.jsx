@@ -10,9 +10,9 @@ const Banner = ({bannerData}) => {
     <div className="slider-container has-scrollbar">
      
 {
-  bannerData?.map((item)=>{
+  bannerData?.map((item,index)=>{
     return(
-<div className="slider-item">
+<div key={index} className="slider-item">
        
        <img
           src={item.imgUrl}
@@ -40,7 +40,7 @@ const Banner = ({bannerData}) => {
   </div>
 </div>
 
-<style jsx>{`
+<style jsx="true">{`
   .banner-img {
     object-position: center;
   }

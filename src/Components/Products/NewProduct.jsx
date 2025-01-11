@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AddCart } from '../../redux/cartSlice';
@@ -8,7 +7,7 @@ import { Link } from 'react-router-dom';
 const NewProduct = ({ productData, label }) => {
 
   const [hover, setHover] = useState('')
-  console.log(hover, 'hoverhover')
+  // console.log(hover, 'hoverhover')
 
   const dispatch = useDispatch();
 
@@ -31,7 +30,7 @@ const NewProduct = ({ productData, label }) => {
       <h2 className="title">{label}</h2>
       <div className="product-grid">
         {productData?.map((item, index) => (
-          <div className="showcase" key={item.id}>
+          <div className="showcase" key={index}>
             <div className="showcase-banner">
               <div className='img-mm'>
                 <img

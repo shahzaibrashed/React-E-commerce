@@ -20,7 +20,7 @@ const NewArrivals = () => {
 
 
   const wishlistItem = useSelector((state) => state.wishlist.wishlistItem);
-  console.log(wishlistItem, "hh");
+  // console.log(wishlistItem, "hh");
 
 
   const removeFav = (item) => {
@@ -35,9 +35,9 @@ const NewArrivals = () => {
         <h2 className="title">New Arrivals</h2>
         <div className="showcase-wrapper has-scrollbar">
           <div className="showcase-container">{
-            newArrival.map((item) => {
+            newArrival.map((item,index) => {
               return (
-                <div className="showcase">
+                <div key={index} className="showcase">
                   <Link href="#" className="showcase-img-box">
                     <img
                       src={item.imgUrl}
@@ -78,9 +78,9 @@ const NewArrivals = () => {
           }
           </div>
           <div className="showcase-container">{
-            trending.map((item) => {
+            trending.map((item,index) => {
               return (
-                <div className="showcase">
+                <div key={index} className="showcase">
                   <Link href="#" className="showcase-img-box">
                     <img
                       src={item.imgUrl}

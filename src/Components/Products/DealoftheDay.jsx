@@ -18,7 +18,7 @@ const DealoftheDay = () => {
   
   
     const wishlistItem = useSelector((state) => state.wishlist.wishlistItem);
-    console.log(wishlistItem, "hh");
+    // console.log(wishlistItem, "hh");
   
   
     const removeFav = (item) => {
@@ -35,9 +35,9 @@ const DealoftheDay = () => {
               <div className="showcase-wrapper has-scrollbar">
 
                 {
-                  Deal.map((item) => {
+                  Deal.map((item,index) => {
                     return (
-                      <div key={item.id} className="showcase-container">
+                      <div key={index} className="showcase-container">
                         <div className="showcase">
                           <div className="showcase-banner">
                             <img
