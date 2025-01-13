@@ -657,7 +657,7 @@ const Header = () => {
             <ul className="menu-social-container">
               <li>
                
-                <Link to={"/login"}>
+                <Link to={"/login"} className="social-link">
                   <ion-icon style={{color:"black"}} name="person" />
               </Link>
              
