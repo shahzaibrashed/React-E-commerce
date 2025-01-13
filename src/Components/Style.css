@@ -1003,10 +1003,11 @@ input{
     color: var(--sonic-silver);
     font-size: var(--fs-7);
     padding: 2px 0;
+    cursor: pointer;
 }
 
 .sidebar-submenu-title:hover {
-    color: var(--eerie-black);
+    color: var(--salmon-pink);
 }
 
 .sidebar-accordion-menu.active .add-icon,
@@ -1312,23 +1313,23 @@ input{
     border-radius: 10px; 
 }
 .sale-badge {
-    position: absolute;
-    top: 6px;
-    left: 17px;
-    background-color: #ff6f61; 
-    color: white;
+    position:absolute;
+    background-color: #ff6f61;
+    box-shadow: 0 2px 5px #0003;
     font-size: 12px;
-    font-weight: bold;
-    padding: 10px 5px; 
-    width: 30px; 
-    height: auto; 
-    border-radius: 5px;
+    font-weight: 700;
+    height: auto;
+    left: 13px;
+   
+    text-align: center;
     text-transform: uppercase;
-    text-align: center; 
-    writing-mode: vertical-rl; 
-    transform: rotate(-130deg); 
+    top: -20px;
+    transform: rotate(-130deg);
+    height: 75px;
+    writing-mode: vertical-rl;
     z-index: 10;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    color: white;
+    padding: 10px 0;
   }
   
 
@@ -1344,6 +1345,9 @@ input{
     border-radius: var(--border-radius-small);
     z-index: 3;
 }
+.product-grid .showcase-badge.black {
+    background: var(--eerie-black);
+}
 .product-grid .showcase{
     position: relative;
 }
@@ -1356,9 +1360,15 @@ input{
     font-size: 11px;
     padding: 5px 40px;
 }
-
-.product-grid .showcase-badge.black {
-    background: var(--eerie-black);
+.product-grid .showcase-badge.angle {
+    top: 8px;
+    left: -29px;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    text-transform: uppercase;
+    font-size: 11px;
+    padding: 5px 40px;
 }
 
 .product-grid .showcase-badge.pink {
@@ -3276,3 +3286,99 @@ footer {
       }
     }
   }
+
+
+
+
+
+  
+
+ 
+/* General Styles */
+.form-control {
+    box-shadow: none;
+    border-color: #ddd;
+}
+.form-control:focus {
+    border-color: #4aba70; 
+}
+.login-form {
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+.login-form form {
+    color: #434343;
+    border-radius: 1px;
+    margin-bottom: 15px;
+    background: #fff;
+    border: 1px solid #f3f3f3;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    margin-top: 50px;
+}
+.login-form h4 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+.login-form .avatar {
+    color: #fff;
+    margin: 0 auto 30px;
+    text-align: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    z-index: 9;
+    background: var(--salmon-pink);
+    padding: 15px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+}
+.login-form .avatar i {
+    font-size: 62px;
+}
+.login-form .form-group {
+    margin-bottom: 20px;
+}
+.login-form .form-control, .login-form .btn {
+    min-height: 40px;
+    border-radius: 2px; 
+    transition: all 0.5s;
+}
+.login-form .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+.login-form .btn {
+    background: var(--salmon-pink);
+    border: none;
+    line-height: normal;
+    width: 100%;
+}
+.login-form .btn:hover, .login-form .btn:focus {
+    background: var(--salmon-pink);
+}
+.login-form .checkbox-inline {
+    float: left;
+}
+.login-form input[type="checkbox"] {
+    color: var(--salmon-pink);
+}
+.login-form .forgot-link {
+    float: right;
+}
+.login-form .small {
+    font-size: 13px;
+}
+.login-form a {
+    color: var(--salmon-pink)
+}
+
+.form-gap {
+  margin-top: 140px;
+}
+
+
+

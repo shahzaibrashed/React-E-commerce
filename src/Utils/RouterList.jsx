@@ -9,9 +9,17 @@ import Men from '../Pages/Men'
 import Womens from '../Pages/Women'
 import Error from '../Pages/Error'
 import Checkout from '../Pages/Checkout'
+import Clothes from '../Pages/Clothes'
+import Footwear from '../Pages/Footwear'
+import Cosmetics from '../Pages/Cosmetics'
+import Glasses from '../Pages/Glasses'
+import Bags from '../Pages/Bags'
+import Login from '../Pages/Login'
+import SignUp from '../Pages/SignUp'
+import Forget from '../Pages/Forget'
 export const RouterList = [
 
-   
+
     {
         path: "/",
         element: <Home />
@@ -46,6 +54,10 @@ export const RouterList = [
         element: <Womens />
     },
     {
+        path: "/clothes",
+        element: <Clothes />
+    },
+    {
         path: "/checkout",
         element: <Checkout />
     },
@@ -53,4 +65,32 @@ export const RouterList = [
         path: "*",
         element: <Error />
     },
+    {
+        path: "/footwear",
+        element: <Footwear />
+    },
+    {
+        path: "/cosmetics",
+        element: <Cosmetics />
+    },
+    {
+        path: "glasses",
+        element: <Glasses />
+    },
+    {
+        path: "bags",
+        element: <Bags />
+    },
+    {
+        path: "/login",
+        element: <Login />
+    },
+    {
+        path: "/signUp",
+        element: <SignUp />
+    },
+    {
+        path: "/forget",
+        element: <Forget />
+    }
 ]

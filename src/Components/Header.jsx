@@ -96,7 +96,7 @@ const Header = () => {
 
   const handleSearch = () => {
     if (searchTerm.trim()) {
-      const validRoutes = ['men', 'women', 'perfume', 'blog', 'jewelyr', 'hot-offer'];
+      const validRoutes = ['men', 'women', 'perfume', 'blog', 'jewelyr', 'hot-offer','glasses','bags','cosmetics','footwear','clothes'];
       const normalizedSearchTerm = searchTerm.toLowerCase();
       if (validRoutes.includes(normalizedSearchTerm)) {
         navigate(`/${normalizedSearchTerm}`);
@@ -170,48 +170,48 @@ const Header = () => {
       title: "Clothes",
       imgUrl: "https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/dress.svg",
       items: [
-        { name: "Shirt", stock: 300 },
-        { name: "Shorts & Jeans", stock: 60 },
-        { name: "Jacket", stock: 50 },
-        { name: "Dress & Frock", stock: 87 },
+        { name: "Casual Cotton Shirt", stock: 300 },
+        { name: "Denim Jeans", stock: 60 },
+        { name: "Fleece Jackets", stock: 50 },
+        { name: "Summer Mexi Dress", stock: 87 },
       ],
     },
     {
       title: "Footwear",
-      imgUrl:"https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/shoes.svg",
+      imgUrl: "https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/shoes.svg",
       items: [
-        { name: "Sneakers", stock: 150 },
-        { name: "Boots", stock: 70 },
-        { name: "Sandals", stock: 90 },
-        { name: "Formal Shoes", stock: 40 },
+        { name: " Casual Sneakers", stock: 150 },
+        { name: "Running Shoes", stock: 70 },
+        { name: "Flip Flop", stock: 90 },
+        { name: "Slippers", stock: 40 },
       ],
     },
     {
       title: "Jewelry",
       imgUrl: "https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/jewelry.svg",
       items: [
-        { name: "Necklace", stock: 35 },
-        { name: "Bracelets", stock: 50 },
-        { name: "Earrings", stock: 80 },
-        { name: "Rings", stock: 60 },
+        { name: "Elegent Necklace", stock: 35 },
+        { name: "Gold Bracelets", stock: 50 },
+        { name: "Pearl Earrings", stock: 80 },
+        { name: "Luxury Watch", stock: 60 },
       ],
     },
     {
       title: "Perfume",
       imgUrl: "https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/perfume.svg",
       items: [
-        { name: "Floral Scents", stock: 100 },
-        { name: "Woody Scents", stock: 50 },
-        { name: "Citrus Scents", stock: 75 },
-        { name: "Spicy Scents", stock: 40 },
+        { name: "Aqua Intense", stock: 100 },
+        { name: "Urban Spice", stock: 50 },
+        { name: "Citrus Burst", stock: 75 },
+        { name: "Midnight Musk", stock: 40 },
       ],
     },
     {
       title: "Cosmetics",
       imgUrl: "https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/cosmetics.svg",
       items: [
-        { name: "Lipsticks", stock: 200 },
-        { name: "Foundations", stock: 100 },
+        { name: "Matte Lipsticks", stock: 200 },
+        { name: "Liquid Foundations", stock: 100 },
         { name: "Mascaras", stock: 80 },
         { name: "Blushes", stock: 60 },
       ],
@@ -220,25 +220,44 @@ const Header = () => {
       title: "Glasses",
       imgUrl: "https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/glasses.svg",
       items: [
-        { name: "Sunglasses", stock: 120 },
-        { name: "Reading Glasses", stock: 80 },
+        { name: "Aviator Sunglasses", stock: 120 },
+        { name: "Cat Eye Sunglasses", stock: 80 },
         { name: "Blue Light Glasses", stock: 50 },
-        { name: "Contact Lenses", stock: 70 },
+        { name: "Polorized Sports Glasses", stock: 70 },
       ],
     },
     {
       title: "Bags",
       imgUrl: "https://codewithsadee.github.io/anon-ecommerce-website/assets/images/icons/bag.svg",
       items: [
-        { name: "Handbags", stock: 90 },
-        { name: "Backpacks", stock: 60 },
-        { name: "Tote Bags", stock: 50 },
-        { name: "Luggage", stock: 40 },
+        { name: "Crossbody Bag", stock: 90 },
+        { name: "Canvas Backpack", stock: 60 },
+        { name: "Laptop Bags", stock: 50 },
+        { name: "Duffle Bag", stock: 40 },
       ],
     },
   ];
 
 
+  const handleNavigation = (category, item) => {
+    if (category.title === 'Clothes') {
+      navigate('/clothes');
+    } else if (category.title === 'Footwear') {
+      navigate("/footwear");
+    } else if (category.title === 'Jewelry') {
+      navigate("/jewelyr");
+    } else if (category.title === 'Perfume') {
+      navigate("/perfume");
+    } else if (category.title === 'Glasses') {
+      navigate("/glasses");
+    } else if (category.title === 'Bags') {
+      navigate("/bags");
+    } else if (category.title === 'Cosmetics') {
+      navigate("/cosmetics");
+    }
+    setIsCatsActive(false);
+
+  };
 
   return (
     <>
@@ -313,7 +332,11 @@ const Header = () => {
             </div>
 
             <div className="header-user-actions">
-
+            <Link to={"/login"}>
+                <button className={`action-btn ${location.pathname === '/login' ? 'active' : ''}`}>
+                  <ion-icon name="person-outline" />
+                </button>
+              </Link>
               <Link to={"/wishlist"}>
                 <button className={`action-btn ${location.pathname === '/wishlist' ? 'active' : ''}`}>
                   <ion-icon name="heart-outline" />
@@ -326,6 +349,7 @@ const Header = () => {
                   <span className="count">{cart.length}</span>
                 </button>
               </Link>
+
             </div>
           </div>
         </div>
@@ -628,12 +652,18 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-
           <div className="menu-bottom">
 
             <ul className="menu-social-container">
               <li>
-                <Link href="#" className="social-link">
+               
+                <Link to={"/login"}>
+                  <ion-icon style={{color:"black"}} name="person" />
+              </Link>
+             
+              </li>
+              <li>
+              <Link href="#" className="social-link">
                   <ion-icon name="logo-facebook" />
                 </Link>
               </li>
@@ -654,7 +684,6 @@ const Header = () => {
               </li>
             </ul>
           </div>
-
           <div className="d-flex justify-content-center align-items-center" >
             <div className="d-flex gap-2">
               <select name="currency" className="form-select">
@@ -670,15 +699,12 @@ const Header = () => {
               </select>
             </div>
           </div>
-
         </nav>
-
-
 
         <div className={`sidebar ${isCatsActive ? "active" : ""} catsmain has-scrollbar `} data-mobile-menu="">
           <div className="sidebar-category">
-            <div className="sidebar-top">
 
+            <div className="sidebar-top">
               <h2 className="sidebar-title">Category</h2>
               <button onClick={handleCatsMenuClose} className="sidebar-close-btn" data-mobile-menu-close-btn="">
                 <ion-icon
@@ -705,18 +731,54 @@ const Header = () => {
                         height={20}
                         className="menu-title-img"
                       />
-                      <p className="menu-title">{category.title}</p>
+                      <p
+                        style={{
+                          color:
+                            (location.pathname === "/bags" && category.title.toLowerCase().includes("bags")) ? "pink" :
+                            (location.pathname === "/cosmetics" && category.title.toLowerCase().includes("cosmetics")) ? "pink" :
+                            (location.pathname === "/perfume" && category.title.toLowerCase().includes("perfume")) ? "pink" :
+                            (location.pathname === "/jewelry" && category.title.toLowerCase().includes("jewelry")) ? "pink" :
+                            (location.pathname === "/jewelyr" && category.title.toLowerCase().includes("jewelry")) ? "pink" :
+                            (location.pathname === "/glasses" && category.title.toLowerCase().includes("glasses")) ? "pink" :
+                            (location.pathname === "/clothes" && category.title.toLowerCase().includes("clothes")) ? "pink" :
+                            (location.pathname === "/footwear" && category.title.toLowerCase().includes("footwear")) ? "pink" :
+                             "",
+                        }} className="menu-title">{category.title}</p>
                     </div>
                     <div>
                       {activcatMenIndex === index ? (
-                       <ion-icon
-                       name="add-outline"
-                       className="add-icon md hydrated"
-                       role="img"
-                       aria-label="add outline"
-                     />
+                        <ion-icon
+                          style={{
+                            color:
+                              (location.pathname === "/bags" && category.title.toLowerCase().includes("bags")) ? "pink" :
+                                (location.pathname === "/cosmetics" && category.title.toLowerCase().includes("cosmetics")) ? "pink" :
+                                  (location.pathname === "/perfume" && category.title.toLowerCase().includes("perfume")) ? "pink" :
+                                    (location.pathname === "/jewelry" && category.title.toLowerCase().includes("jewelry")) ? "pink" :
+                                      (location.pathname === "/jewelyr" && category.title.toLowerCase().includes("jewelry")) ? "pink" :
+                                        (location.pathname === "/glasses" && category.title.toLowerCase().includes("glasses")) ? "pink" :
+                                          (location.pathname === "/clothes" && category.title.toLowerCase().includes("clothes")) ? "pink" :
+                                            (location.pathname === "/footwear" && category.title.toLowerCase().includes("footwear")) ? "pink" :
+                                              "",
+                          }}
+                          name="remove-outline"
+                          className="add-icon md hydrated"
+                          role="img"
+                          aria-label="add outline"
+                        />
                       ) : (
                         <ion-icon
+                          style={{
+                            color:
+                              (location.pathname === "/bags" && category.title.toLowerCase().includes("bags")) ? "pink" :
+                                (location.pathname === "/cosmetics" && category.title.toLowerCase().includes("cosmetics")) ? "pink" :
+                                  (location.pathname === "/perfume" && category.title.toLowerCase().includes("perfume")) ? "pink" :
+                                    (location.pathname === "/jewelry" && category.title.toLowerCase().includes("jewelry")) ? "pink" :
+                                      (location.pathname === "/jewelyr" && category.title.toLowerCase().includes("jewelry")) ? "pink" :
+                                        (location.pathname === "/glasses" && category.title.toLowerCase().includes("glasses")) ? "pink" :
+                                          (location.pathname === "/clothes" && category.title.toLowerCase().includes("clothes")) ? "pink" :
+                                            (location.pathname === "/footwear" && category.title.toLowerCase().includes("footwear")) ? "pink" :
+                                              "",
+                          }}
                           name="add-outline"
                           className="add-icon md hydrated"
                           role="img"
@@ -732,7 +794,7 @@ const Header = () => {
                   >
                     {category.items.map((item, itemIndex) => (
                       <li key={itemIndex} className="sidebar-submenu-category">
-                        <a href="#" className="sidebar-submenu-title">
+                        <div onClick={() => handleNavigation(category, item)} className="sidebar-submenu-title">
                           <p className="product-name">{item.name}</p>
                           <data
                             value={item.stock}
@@ -741,7 +803,7 @@ const Header = () => {
                           >
                             {item.stock}
                           </data>
-                        </a>
+                        </div>
                       </li>
                     ))}
                   </ul>
@@ -750,7 +812,6 @@ const Header = () => {
             </ul>
 
           </div>
-
           <div className="product-showcase" style={{ borderRadius: "5px", padding: "3px" }}>
             <h3 className="showcase-heading">Best Seller</h3>
             <div className="showcase-wrapper">

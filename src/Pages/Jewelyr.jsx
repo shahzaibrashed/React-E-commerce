@@ -30,7 +30,8 @@ const Jewelyr = () => {
       <time dateTime="PT2M">2 Minutes</time> ago
     </p>
   </div>
-</div>
+   </div>
+   
     <Header/>
     <Banner bannerData={jewelleryBanner} />
     <div style={{marginTop:"20px"}} className="product-container">

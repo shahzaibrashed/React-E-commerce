@@ -31,13 +31,11 @@ const NewProduct = ({ productData, label }) => {
       <div className="product-grid">
         {productData?.map((item, index) => (
           <div className="showcase" key={index}>
-           
-            {item.isOnSale && (
-              <div className="sale-badge">
-                Sale
-              </div>)}
             <div className="showcase-banner">
               <div className='img-mm'>
+              {item.isOnSale && (
+            <div className="sale-badge">Sale</div>
+              )}
                 <img
                   onMouseOver={() => setHover(index)}
                   onMouseLeave={() => setHover('')}
@@ -48,6 +46,8 @@ const NewProduct = ({ productData, label }) => {
                   width="100%"
                 />
               </div>
+
+            
               <div className="showcase-actions">
                 <button className="btn-action">
                   {wishlistItem.some(
