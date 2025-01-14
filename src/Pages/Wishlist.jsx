@@ -29,15 +29,15 @@ const Wishlist = () => {
           </div>
         ) : (
           <ul className="wishlist-list">
-            {wishlistItem.map((item) => (
-              <li key={item.id} className="wishlist-item">
+            {wishlistItem.map((item,index) => (
+              <li key={index} className="wishlist-item">
                 <img src={item.imgUrl} alt={item.title} className="item-image" />
                 <div className="item-details">
                   <p style={{ color: "orange" }}>{item.star}</p>
                   <p>{item.disc}</p>
                   <h3 className="item-title">{item.title}</h3>
                   <div className="p-box">
-                    <p style={{ color: "var(--salmon-pink)" }} className="price">{item.price}</p>
+                    <p style={{ color: "var(--salmon-pink)" }} className="price">${item.price}</p>
                     <del>{item.lastPrice}</del>
                   </div>
                 </div>

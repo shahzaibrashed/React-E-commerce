@@ -35,7 +35,7 @@ const Home = () => {
   <Header/>
   <Banner bannerData={homeBanner} />
   <Category/>
-  <ProductSection/>
+  <ProductSection />
   <Testimonial/>
   <Blog/>
   <Footer/>

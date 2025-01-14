@@ -41,11 +41,7 @@ const CartPage = () => {
                 <h1>Shoping Cart {cart.length}</h1>
               </header>
 
-              {cart.length === 0 ? (
-                <p style={{ margin: "30px", textAlign: "center" }}>
-                  Your wishlist is empty!
-                </p>
-              ) : (
+           
                 <ul className="cartlist-list ">
                   {cart.map((item) => (
                     <li key={item.id} className="cartlist-item mt-1 border-bottom ">
@@ -112,7 +108,7 @@ const CartPage = () => {
                   ))}
                 </ul>
                 
-              )}
+            
             </div>
 
             {/* Cart Summary Section */}
@@ -148,7 +144,7 @@ const CartPage = () => {
             </div>
           </div>
         ) : (
-          <div className="text-center mt-5">
+          <div className="text-center m-5">
             <h4>Your cart is empty</h4>
             <p>Add some products to see them here!</p>
           </div>

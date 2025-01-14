@@ -33,14 +33,14 @@ const CheckoutForm = () => {
   const dispatch = useDispatch()
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(cart.length === 0){
+    if (cart.length === 0) {
       Swal.fire({
         title: "Your order not success beasuse your cart is empty",
         icon: "error",
         draggable: true,
       });
       return
-    }else{
+    } else {
       console.log(formData);
       navigate("/")
       dispatch(clearCart());
@@ -239,38 +239,47 @@ const CheckoutForm = () => {
                 <Card.Title as="h5">Product Details : {cart.length}</Card.Title>
 
                 <div className='cc' style={{ height: "300px", overflowY: "auto" }}>
-                  {cart.map((item, index) => (
-                    <div
-                      key={index}
-                      className="d-flex justify-content-between align-items-center p-3 mb-3 border rounded shadow-sm"
-                      style={{ backgroundColor: "#f8f9fa" }}
-                    >
-                      <img
-                        src={item.imgUrl}
-                        alt={item.title}
-                        className="rounded"
-                        style={{
-                          width: "60px",
-                          height: "60px",
-                          objectFit: "cover",
-                        }}
-                      />
-                      <div className="ms-3 flex-grow-1">
-                        <p className="mb-1 fw-bold">{item.title}</p>
-                        <p className="mb-1 text-muted">Quantity: {item.quantity}</p>
-                        <p className="mb-0 text-success fw-semibold">${item.price * item.quantity}</p>
-                      </div>
+                  {
+                    cart.length === 0 ?
 
-                      <div
-                        style={{ cursor: "pointer", color: "red", fontSize: "20px" }}
-                        onClick={() => removeCart(item)}
-                      >
-                        <ion-icon name="close-outline"></ion-icon>
-                      </div>
-                    </div>
+                      (<div className="text-center m-3 mt-5 mb-0">
+                        <h4>Your Product is empty</h4>
+                        <p onClick={()=>navigate("/")} style={{ cursor: "pointer" }}>Add some products to see them here!</p>
+                      </div>)
+                      : cart.map((item, index) => (
+                        <div
+                          key={index}
+                          className="d-flex justify-content-between align-items-center p-3 mb-3 border rounded shadow-sm"
+                          style={{ backgroundColor: "#f8f9fa" }}
+                        >
+                          <img
+                            src={item.imgUrl}
+                            alt={item.title}
+                            className="rounded"
+                            style={{
+                              width: "60px",
+                              height: "60px",
+                              objectFit: "cover",
+                            }}
+                          />
+                          <div className="ms-3 flex-grow-1">
+                            <p className="mb-1 fw-bold">{item.title}</p>
+                            <p className="mb-1 text-muted">Quantity: {item.quantity}</p>
+                            <p className="mb-0 text-success fw-semibold">${item.price * item.quantity}</p>
+                          </div>
+
+                          <div
+                            style={{ cursor: "pointer", color: "red", fontSize: "20px" }}
+                            onClick={() => removeCart(item)}
+                          >
+                            <ion-icon name="close-outline"></ion-icon>
+                          </div>
+                        </div>
 
 
-                  ))}
+                      ))
+                  }
+
                 </div>
                 <div className="d-flex justify-content-between align-items-center mt-1">
                   <strong className="">Subtotal :</strong>

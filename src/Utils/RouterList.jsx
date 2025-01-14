@@ -17,6 +17,7 @@ import Bags from '../Pages/Bags'
 import Login from '../Pages/Login'
 import SignUp from '../Pages/SignUp'
 import Forget from '../Pages/Forget'
+import SearchResults from '../Pages/SearchResult'
 export const RouterList = [
 
 
@@ -92,5 +93,10 @@ export const RouterList = [
     {
         path: "/forget",
         element: <Forget />
+    }
+    ,
+    {
+        path: "//search",
+        element: <SearchResults />
     }
 ]

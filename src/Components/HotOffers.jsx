@@ -8,6 +8,8 @@ import Testimonial from './Testimonial';
 const HotOffers = () => {
 
   const dispatch = useDispatch()
+  const wishlistItem = useSelector((state) => state.wishlist.wishlistItem);
+  // console.log(wishlistItem, "hh");
 
   const AddToCart = (item) => {
     dispatch(AddCart({ ...item }));
@@ -17,14 +19,13 @@ const HotOffers = () => {
     dispatch(addWish(item));
   };
 
-
-  const wishlistItem = useSelector((state) => state.wishlist.wishlistItem);
-  // console.log(wishlistItem, "hh");
-
-
   const removeFav = (item) => {
     dispatch(removeWish(item))
   }
+
+
+
+ 
 
   return (
     <>

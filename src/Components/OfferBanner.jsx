@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 
 const OfferBanner = () => {
   return (
-    <>
-    
+    <> 
     <div className="shoping-section  text-center">
   <div className="container">
     <div className="row">
@@ -37,10 +36,7 @@ const OfferBanner = () => {
     </div>
   </div>
 </div>
-
-    
     </>
   )
 }
-
 export default OfferBanner

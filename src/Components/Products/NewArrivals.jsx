@@ -18,15 +18,12 @@ const NewArrivals = () => {
     dispatch(addWish(item));
   };
 
-
-  const wishlistItem = useSelector((state) => state.wishlist.wishlistItem);
-  // console.log(wishlistItem, "hh");
-
-
   const removeFav = (item) => {
     dispatch(removeWish(item))
   }
 
+
+  const wishlistItem = useSelector((state) => state.wishlist.wishlistItem);
 
   return (
     <>

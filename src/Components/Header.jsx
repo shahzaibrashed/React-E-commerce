@@ -89,22 +89,16 @@ const Header = () => {
     document.documentElement.lang = language;
   }, [language]);
 
-
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const navigate = useNavigate();
+  const [query, setQuery] = useState(""); 
+  const navigate = useNavigate(); 
 
   const handleSearch = () => {
-    if (searchTerm.trim()) {
-      const validRoutes = ['men', 'women', 'perfume', 'blog', 'jewelyr', 'hot-offer','glasses','bags','cosmetics','footwear','clothes'];
-      const normalizedSearchTerm = searchTerm.toLowerCase();
-      if (validRoutes.includes(normalizedSearchTerm)) {
-        navigate(`/${normalizedSearchTerm}`);
-      } else {
-        navigate('*');
-      }
+    if (query.trim() !== "") {
+      navigate(`/search?q=${query}`); 
     }
   };
+
+
 
   const { cart } = useSelector((state) => state.cartsItem);
   const wishlistItem = useSelector((state) => state.wishlist.wishlistItem);
@@ -323,10 +317,11 @@ const Header = () => {
                 name="search"
                 className="search-field"
                 placeholder={translations[language].entername}
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onClick={handleSearch}
               />
-              <button onClick={handleSearch} className="search-btn">
+              <button  onClick={handleSearch} className="search-btn">
                 <ion-icon name="search-outline" />
               </button>
             </div>
@@ -861,7 +856,6 @@ const Header = () => {
             </div>
           </div>
         </div>
-
       </header>
 
     </>
