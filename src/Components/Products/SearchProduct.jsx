@@ -10,33 +10,30 @@ const SearchProduct = ({ searchProductData, SearchLabel }) => {
   const [loading, setLoading] = useState(false);
 
   const AddToCart = (item) => {
-    setLoading(true);
     const imgUrl = item.thumbnail;
     const disc = item.description;
     const star = "★ ★ ★ ★ ★";
     const updatedItem = { ...item, imgUrl, star, disc };
     dispatch(AddCart(updatedItem));
-    setLoading(false);
+ 
   };
 
   const addFav = (item) => {
-    setLoading(true);
     const imgUrl = item.thumbnail;
     const disc = item.description;
     const star = "★ ★ ★ ★ ★";
     const updatedItem = { ...item, imgUrl, star, disc };
     dispatch(addWish(updatedItem));
-    setLoading(false);
+ 
   };
 
   const removeFav = (item) => {
-    setLoading(true);
     const imgUrl = item.thumbnail;
     const disc = item.description;
     const star = "★ ★ ★ ★ ★";
     const updatedItem = { ...item, imgUrl, star, disc };
     dispatch(removeWish(updatedItem));
-    setLoading(false);
+ 
   };
 
   const wishlistItem = useSelector((state) => state.wishlist.wishlistItem);

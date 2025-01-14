@@ -7,7 +7,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useState } from "react";
 import { AddCart } from '../redux/cartSlice';
 import { addWish, removeWish } from '../redux/wishSystem';
-import { bestMens } from '../Data';
+import { bestSeller } from '../Data';
+
 
 const Header = () => {
   const [language, setLanguage] = useState(localStorage.getItem('language') || 'en');
@@ -806,12 +807,13 @@ const Header = () => {
             </ul>
 
           </div>
+
           <div className="product-showcase" style={{ borderRadius: "5px", padding: "3px" }}>
             <h3 className="showcase-heading">Best Seller</h3>
             <div className="showcase-wrapper">
               <div className="showcase-container">
                 {
-                  bestMens?.map((item, index) => {
+                  bestSeller?.map((item, index) => {
                     return (
                       <div key={index} className="showcase">
                         <Link href="#" className="showcase-img-box">

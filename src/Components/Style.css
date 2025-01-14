@@ -435,7 +435,6 @@ p{
 }
 
 .search-btn {
-    background: var(--white);
     position: absolute;
     top: 50%;
     right: 10px;
