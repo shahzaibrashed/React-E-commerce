@@ -490,6 +490,8 @@ input{
     padding: 10px;
 }
 
+
+
 .header-main .action-btn.active {
     position: relative;
     font-size: 35px;
@@ -3375,6 +3377,25 @@ footer {
 .form-gap {
   margin-top: 140px;
 }
+
+
+
+@media (max-width: 770px) {
+    .modal-image-container {
+      width: 100%; /* Full width on mobile */
+    }
+    
+    .modal-details-container {
+      padding: 1rem; /* Reduce padding on smaller screens */
+    }
+    
+    .modal-title {
+      font-size: 1.25rem; /* Adjust font size for smaller screens */
+    }
+  }
+  
+
+
 
 
 

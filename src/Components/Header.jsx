@@ -8,6 +8,7 @@ import { useState } from "react";
 import { AddCart } from '../redux/cartSlice';
 import { addWish, removeWish } from '../redux/wishSystem';
 import { bestSeller } from '../Data';
+import { AddCompre } from '../redux/compareSlice';
 
 
 const Header = () => {
@@ -90,18 +91,19 @@ const Header = () => {
     document.documentElement.lang = language;
   }, [language]);
 
-  const [query, setQuery] = useState(""); 
-  const navigate = useNavigate(); 
+  const [query, setQuery] = useState("");
+  const navigate = useNavigate();
 
   const handleSearch = () => {
     if (query.trim() !== "") {
-      navigate(`/search?q=${query}`); 
+      navigate(`/search?q=${query}`);
     }
   };
 
 
 
   const { cart } = useSelector((state) => state.cartsItem);
+  const { compare } = useSelector((state) => state.compareItem);
   const wishlistItem = useSelector((state) => state.wishlist.wishlistItem);
 
   const [isActive, setIsActive] = useState(false);
@@ -254,6 +256,10 @@ const Header = () => {
 
   };
 
+  const addCompare = (item)=>{
+    dispatch(AddCompre(item))
+  }
+
   return (
     <>
       <header>
@@ -322,15 +328,22 @@ const Header = () => {
                 onChange={(e) => setQuery(e.target.value)}
                 onClick={handleSearch}
               />
-              <button  onClick={handleSearch} className="search-btn">
+              <button onClick={handleSearch} className="search-btn">
                 <ion-icon name="search-outline" />
               </button>
             </div>
 
             <div className="header-user-actions">
-            <Link to={"/login"}>
+              <Link to={"/login"}>
                 <button className={`action-btn ${location.pathname === '/login' ? 'active' : ''}`}>
                   <ion-icon name="person-outline" />
+                </button>
+              </Link>
+             
+              <Link to={"/compare"}>
+                <button className={`action-btn ${location.pathname === '/compare' ? 'active' : ''}`}>
+                  <ion-icon name="repeat-outline" />
+                  <span className="count">{compare.length}</span>
                 </button>
               </Link>
               <Link to={"/wishlist"}>
@@ -651,14 +664,19 @@ const Header = () => {
           <div className="menu-bottom">
             <ul className="menu-social-container">
               <li>
-               
                 <Link to={"/login"} className="social-link">
-                  <ion-icon style={{color:"black"}} name="person" />
-              </Link>
-             
+                  <ion-icon style={{ color: "black" }} name="person" />
+                </Link>
               </li>
               <li>
-              <Link href="#" className="social-link">
+                <Link to={"/compare"} className="social-link">
+                  <ion-icon style={{ color: "black" }} name="repeat" />
+                </Link>
+              </li>
+            </ul>
+            <ul className="menu-social-container">
+              <li>
+                <Link href="#" className="social-link">
                   <ion-icon name="logo-facebook" />
                 </Link>
               </li>
@@ -730,14 +748,14 @@ const Header = () => {
                         style={{
                           color:
                             (location.pathname === "/bags" && category.title.toLowerCase().includes("bags")) ? "pink" :
-                            (location.pathname === "/cosmetics" && category.title.toLowerCase().includes("cosmetics")) ? "pink" :
-                            (location.pathname === "/perfume" && category.title.toLowerCase().includes("perfume")) ? "pink" :
-                            (location.pathname === "/jewelry" && category.title.toLowerCase().includes("jewelry")) ? "pink" :
-                            (location.pathname === "/jewelyr" && category.title.toLowerCase().includes("jewelry")) ? "pink" :
-                            (location.pathname === "/glasses" && category.title.toLowerCase().includes("glasses")) ? "pink" :
-                            (location.pathname === "/clothes" && category.title.toLowerCase().includes("clothes")) ? "pink" :
-                            (location.pathname === "/footwear" && category.title.toLowerCase().includes("footwear")) ? "pink" :
-                             "",
+                              (location.pathname === "/cosmetics" && category.title.toLowerCase().includes("cosmetics")) ? "pink" :
+                                (location.pathname === "/perfume" && category.title.toLowerCase().includes("perfume")) ? "pink" :
+                                  (location.pathname === "/jewelry" && category.title.toLowerCase().includes("jewelry")) ? "pink" :
+                                    (location.pathname === "/jewelyr" && category.title.toLowerCase().includes("jewelry")) ? "pink" :
+                                      (location.pathname === "/glasses" && category.title.toLowerCase().includes("glasses")) ? "pink" :
+                                        (location.pathname === "/clothes" && category.title.toLowerCase().includes("clothes")) ? "pink" :
+                                          (location.pathname === "/footwear" && category.title.toLowerCase().includes("footwear")) ? "pink" :
+                                            "",
                         }} className="menu-title">{category.title}</p>
                     </div>
                     <div>
@@ -846,6 +864,12 @@ const Header = () => {
                               ) : (
                                 <ion-icon onClick={() => addFav(item)} name="heart-outline" />
                               )}
+                            </button>
+                            <button onClick={()=> addCompare(item)} style={{ color: "pink" }}>
+                              <ion-icon name="repeat" />
+                            </button>
+                            <button style={{ color: "pink" }}>
+                              <ion-icon name="eye-outline" />
                             </button>
                           </div>
                         </div>

@@ -18,6 +18,7 @@ import Login from '../Pages/Login'
 import SignUp from '../Pages/SignUp'
 import Forget from '../Pages/Forget'
 import SearchResults from '../Pages/SearchResult'
+import Compare from '../Pages/Compare'
 export const RouterList = [
 
 
@@ -96,7 +97,12 @@ export const RouterList = [
     }
     ,
     {
-        path: "//search",
+        path: "/search",
         element: <SearchResults />
+    }
+    ,
+    {
+        path: "/compare",
+        element: <Compare />
     }
 ]
