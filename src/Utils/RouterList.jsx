@@ -19,6 +19,10 @@ import SignUp from '../Pages/SignUp'
 import Forget from '../Pages/Forget'
 import SearchResults from '../Pages/SearchResult'
 import Compare from '../Pages/Compare'
+import Contact from '../Pages/Contact'
+import Service from '../Pages/Service'
+import OurCompany from '../Pages/OurCompany'
+import Products from '../Pages/Products'
 export const RouterList = [
 
 
@@ -104,5 +108,23 @@ export const RouterList = [
     {
         path: "/compare",
         element: <Compare />
+    }
+    ,
+    {
+        path: "/contact",
+        element: <Contact />
+    },
+    {
+        path: "/service",
+        element: <Service />
+    },
+    {
+        path: "/our-company",
+        element: <OurCompany />
+    }
+    ,
+    {
+        path: "/products",
+        element: <Products />
     }
 ]

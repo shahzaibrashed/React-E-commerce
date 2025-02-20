@@ -346,8 +346,8 @@ export const bestSeller = [
   {
     id: "24",
     title: "Baby fabric shoes",
-    price: 5.00,
-    lastPrice: 4.00,
+    price: 4.00,
+    lastPrice: 8,
     imgUrl: "https://i.postimg.cc/kGZn4GL2/1.jpg",
     star: "★ ★ ★ ★ ★ "
   },

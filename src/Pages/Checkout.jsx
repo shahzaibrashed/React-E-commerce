@@ -3,9 +3,9 @@ import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import { useDispatch, useSelector } from 'react-redux';
-import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { clearCart, RemoveProduct } from '../redux/cartSlice';
+import toast from 'react-hot-toast';
 
 const CheckoutForm = () => {
   const [formData, setFormData] = useState({
@@ -34,21 +34,13 @@ const CheckoutForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (cart.length === 0) {
-      Swal.fire({
-        title: "Your order not success beasuse your cart is empty",
-        icon: "error",
-        draggable: true,
-      });
+      toast.error("Your order not success beasuse your cart is empty");
       return
     } else {
       console.log(formData);
       navigate("/")
       dispatch(clearCart());
-      Swal.fire({
-        title: "Your Order Successfully Confirm",
-        icon: "success",
-        draggable: true,
-      });
+      toast.success("Your Order Successfully Confirm");
     }
   };
 
@@ -69,9 +61,11 @@ const CheckoutForm = () => {
   };
 
   const subtotal = calculateSubtotal();
+  const roundedsubtotal = Math.round(subtotal);
   const tax = calculateTax();
   const shipping = calculateShipping();
   const total = calculateTotal(subtotal, tax, shipping);
+  const roundedTotal = Math.round(total);
 
   const removeCart = (item) => {
     dispatch(RemoveProduct(item))
@@ -105,7 +99,7 @@ const CheckoutForm = () => {
                     </Col>
                     <Col sm={12} md={6}>
                       <Form.Group controlId="formEmail">
-                        <Form.Label>Email</Form.Label>
+                        <Form.Label >Email</Form.Label>
                         <Form.Control
                           type="email"
                           placeholder="Enter your email"
@@ -118,7 +112,7 @@ const CheckoutForm = () => {
                     </Col>
                   </Row>
 
-                  <Form.Group controlId="formAddress" className='mt-2'>
+                  <Form.Group controlId="formAddress" className='mt-3'>
                     <Form.Label>Address</Form.Label>
                     <Form.Control
                       type="text"
@@ -131,7 +125,7 @@ const CheckoutForm = () => {
                   </Form.Group>
 
                   <Row>
-                    <Col sm={12} md={6} className='mt-2'>
+                    <Col sm={12} md={6} className='mt-3'>
                       <Form.Group controlId="formCity">
                         <Form.Label>City</Form.Label>
                         <Form.Control
@@ -144,7 +138,7 @@ const CheckoutForm = () => {
                         />
                       </Form.Group>
                     </Col>
-                    <Col sm={12} md={6} className='mt-2'>
+                    <Col sm={12} md={6} className='mt-3'>
                       <Form.Group controlId="formZipCode">
                         <Form.Label>Zip Code</Form.Label>
                         <Form.Control
@@ -159,7 +153,7 @@ const CheckoutForm = () => {
                     </Col>
                   </Row>
 
-                  <Form.Group controlId="formCountry" className='mt-2'>
+                  <Form.Group controlId="formCountry" className='mt-3'>
                     <Form.Label>Country</Form.Label>
                     <Form.Control
                       as="select"
@@ -283,13 +277,14 @@ const CheckoutForm = () => {
                 </div>
                 <div className="d-flex justify-content-between align-items-center mt-1">
                   <strong className="">Subtotal :</strong>
-                  <span>${subtotal}</span>
+                  <span>${roundedsubtotal}</span>
                 </div>
-
+                <hr />
                 <div className="d-flex justify-content-between align-items-center mt-1">
                   <strong>Tax :</strong>
                   <span>${tax}</span>
                 </div>
+                <hr />
                 <div className="d-flex justify-content-between align-items-center mt-1">
                   <strong>Shipping :</strong>
                   <span>${shipping}</span>
@@ -297,7 +292,7 @@ const CheckoutForm = () => {
                 <hr />
                 <div className="d-flex justify-content-between align-items-center mt-1">
                   <strong>Total :</strong>
-                  <span>${total}</span>
+                  <span>${roundedTotal}</span>
                 </div>
                 <hr />
               </Card.Body>
@@ -309,7 +304,7 @@ const CheckoutForm = () => {
       <Footer />
       <style>{`
       .cc::-webkit-scrollbar {
-  width: 8px; 
+  width: 4px;
 }
 
 .cc::-webkit-scrollbar-thumb {

@@ -21,10 +21,9 @@ const Clothes = () => {
 
           <div className="product-box">
           <NewProduct label={"Clothes"} productData={Clothe} />
-
           </div>
         </div>
-      </div>
+</div>
 <Footer/>
 <style>{`
         a {

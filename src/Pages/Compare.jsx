@@ -46,6 +46,7 @@ const Table = () => {
                       color: "#343a40",
                       textAlign: "center",
                       padding: "10px",
+                      width:"250px"
                     }}
                   >
                     Actions

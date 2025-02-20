@@ -9,6 +9,7 @@ import { AddCart } from '../redux/cartSlice';
 import { addWish, removeWish } from '../redux/wishSystem';
 import { bestSeller } from '../Data';
 import { AddCompre } from '../redux/compareSlice';
+import toast from 'react-hot-toast';
 
 
 const Header = () => {
@@ -97,6 +98,13 @@ const Header = () => {
   const handleSearch = () => {
     if (query.trim() !== "") {
       navigate(`/search?q=${query}`);
+    }else{
+      toast.error("Input field is Empty");
+    }
+  };
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") { 
+      handleSearch(); 
     }
   };
 
@@ -297,12 +305,12 @@ const Header = () => {
                 <option value="usd">USD $</option>
                 <option value="eur">EUR €</option>
               </select>
-              <select value={language} onChange={handleLanguageChange} name="language">
+              <select value={language} onChange={handleLanguageChange} name="language" className="form-select">
                 <option value="en">English</option>
                 <option value="fr">France</option>
                 <option value="eg">Egypt</option>
                 <option value="rr">Russia</option>
-                <option value="sa">Saudia  Arabia</option>
+                <option value="sa">Saudi Arabia</option>
               </select>
             </div>
           </div>
@@ -326,7 +334,7 @@ const Header = () => {
                 placeholder={translations[language].entername}
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                onClick={handleSearch}
+                onKeyDown={handleKeyDown}
               />
               <button onClick={handleSearch} className="search-btn">
                 <ion-icon name="search-outline" />
@@ -867,9 +875,6 @@ const Header = () => {
                             </button>
                             <button onClick={()=> addCompare(item)} style={{ color: "pink" }}>
                               <ion-icon name="repeat" />
-                            </button>
-                            <button style={{ color: "pink" }}>
-                              <ion-icon name="eye-outline" />
                             </button>
                           </div>
                         </div>

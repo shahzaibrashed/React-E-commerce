@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { AddCompre } from '../../redux/compareSlice';
 import { Button, Modal } from 'react-bootstrap';
 
-const BestSeller = ({bestProduct,label}) => {
+const BestSeller = ({ bestProduct, label }) => {
   const dispatch = useDispatch()
   const [modalItem, setModalItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,7 +29,7 @@ const BestSeller = ({bestProduct,label}) => {
     dispatch(removeWish(item))
   }
 
-  const addCompare = (item)=>{
+  const addCompare = (item) => {
     dispatch(AddCompre(item))
   }
   const modalOpen = (item) => {
@@ -49,7 +49,7 @@ const BestSeller = ({bestProduct,label}) => {
         <div className="showcase-wrapper">
           <div className="showcase-container">
             {
-              bestProduct?.map((item,index) => {
+              bestProduct?.map((item, index) => {
                 return (
                   <div key={index} className="showcase">
                     <Link href="#" className="showcase-img-box">
@@ -69,88 +69,90 @@ const BestSeller = ({bestProduct,label}) => {
                         {item.star}
                       </div>
                       <div className="price-box">
-                        <del style={{margin:"0%",padding:"0%"}}>${item.lastPrice}</del>
+                        <del style={{ margin: "0%", padding: "0%" }}>${item.lastPrice}</del>
                         <p className="price"> ${item.price}</p>
                       </div>
                       <div style={{ display: "flex", gap: "5px", marginTop: "5px" }}>
-                        <button onClick={() => AddToCart(item)} style={{color:"pink"}}>
+                        <button onClick={() => AddToCart(item)} style={{ color: "pink" }}>
                           <ion-icon name="bag-add-outline" />
                         </button>
-                        <button style={{color:"pink"}}>
+                        <button style={{ color: "pink" }}>
                           {wishlistItem.some((wishlistItem) => wishlistItem.id === item.id && wishlistItem.isFavourite) ? (
                             <ion-icon onClick={() => removeFav(item)} name="heart" />
                           ) : (
                             <ion-icon onClick={() => addFav(item)} name="heart-outline" />
                           )}
                         </button>
-                        <button onClick={()=> addCompare(item)}style={{color:"pink"}}>
+                        <button onClick={() => addCompare(item)} style={{ color: "pink" }}>
                           <ion-icon name="repeat" />
                         </button>
-                        <button  onClick={() => modalOpen(item)}  style={{color:"pink"}}>
+                        <button onClick={() => modalOpen(item)} style={{ color: "pink" }}>
                           <ion-icon name="eye-outline" />
                         </button>
                       </div>
                     </div>
                   </div>
-                  
+
                 )
               })
             }
           </div>
         </div>
       </div>
-        {/* Bootstrap Modal */}
-        <Modal
-  show={isModalOpen}
-  onHide={modalClose}
-  size="lg"
-  centered
-  animation={false}  
-  backdrop="static"
-  keyboard={false}
-  className="modal-custom"
->
-  <Modal.Body>
-    <div className="d-flex flex-column flex-md-row">
+      {/* Bootstrap Modal */}
 
-      {/* Left Side - Image */}
-      <div className="modal-image-container m-auto w-50">
-        <img src={modalItem?.imgUrl} alt="product" className="img-fluid rounded mb-3 mb-md-0" />
-      </div>
 
-      {/* Right Side - Details & Buttons */}
-      <div className="modal-details-container p-4">
+      <Modal
+        show={isModalOpen}
+        onHide={modalClose}
+        size="lg"
+        centered
+        animation={false}
+        backdrop="static"
+        keyboard={false}
+        className="modal-custom"
+      >
+        <Modal.Body>
+          <div className="d-flex flex-column flex-md-row">
 
-        {/* Close Button Position */}
-        <button type="button" className="btn-close outline-none border-none position-absolute top-0 end-0 m-3" onClick={modalClose}></button>
 
-        <div className="d-flex justify-content-between align-items-center">
-          <h5 className="modal-title">{modalItem?.title}</h5>
-        </div>
-        <p className="text-muted mt-2">{modalItem?.disc}</p>
-        <p className="text-warning mt-2">{modalItem?.star}</p>
+            <div className="modal-image-container m-auto w-50">
+              <img src={modalItem?.imgUrl} alt="product" className="img-fluid rounded mb-3 mb-md-0" />
+            </div>
 
-        <div className="d-flex gap-2 mt-3">
-          <div>
-            <p className="price">${modalItem?.price}</p>
+
+            <div className="modal-details-container p-4">
+
+
+              <button type="button" className="btn-close outline-none border-none position-absolute top-0 end-0 m-3" onClick={modalClose}></button>
+
+              <div className="d-flex justify-content-between align-items-center">
+                <h5 className="modal-title">{modalItem?.title}</h5>
+              </div>
+              <p className="text-muted mt-2">{modalItem?.disc}</p>
+              <p className="text-warning mt-2">{modalItem?.star}</p>
+
+              <div className="d-flex gap-2 mt-3">
+                <div>
+                  <p className="price">${modalItem?.price}</p>
+                </div>
+                <div>
+                  <del>${modalItem?.lastPrice}</del>
+                </div>
+              </div>
+
+              <div className="d-flex justify-content-end gap-2 mt-4">
+                <Button onClick={() => AddToCart(modalItem)} variant="dark">
+                  Add to Cart
+                </Button>
+                <Button onClick={() => addFav(modalItem)} variant="secondary">
+                  Add to Wishlist
+                </Button>
+              </div>
+            </div>
           </div>
-          <div>
-            <del>${modalItem?.lastPrice}</del>
-          </div>
-        </div>
-
-        <div className="d-flex justify-content-end gap-2 mt-4">
-          <Button onClick={() => AddToCart(modalItem)} variant="dark">
-            Add to Cart
-          </Button>
-          <Button onClick={() => addFav(modalItem)} variant="secondary">
-            Add to Wishlist
-          </Button>
-        </div>
-      </div>
-    </div>
-  </Modal.Body>
-</Modal>
+        </Modal.Body>
+      </Modal>
 
     </>
   )

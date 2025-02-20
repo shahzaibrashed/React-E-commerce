@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 let wishlistData = [];
 try {
@@ -18,7 +18,6 @@ const wishSystem = createSlice({
     name: "wishlists",
     initialState,
     reducers: {
-
         addWish: (state, action) => {
             if (!state.wishlistItem) {
                 state.wishlistItem = [];
@@ -27,49 +26,30 @@ const wishSystem = createSlice({
             const existsItemIndex = state.wishlistItem?.findIndex(item => item.id === action.payload?.id);
         
             if (existsItemIndex >= 0) {
-                Swal.fire({
-                    title: "This product already exists in your favorite List",
-                    icon: "error",
-                    draggable: true
-                });
+                toast.error("This product already exists in your favorite List");
             } else {
                 const buildWishlist = { ...action.payload, isFavourite: true };
                 state.wishlistItem.push(buildWishlist);
                 localStorage.setItem("wishlistItem", JSON.stringify(state.wishlistItem));
-        
-                Swal.fire({
-                    title: "Item Add from favorite list!",
-                    icon: "success",
-                    draggable: true
-                });
+                toast.success("Item added to favorite list!");
             }
         },
-        
-
-
         removeWish: (state, action) => {
             const existsItemIndex = state.wishlistItem?.findIndex(item => item.id === action.payload?.id);
             if (existsItemIndex >= 0) {
                 state.wishlistItem.splice(existsItemIndex, 1);
                 localStorage.setItem("wishlistItem", JSON.stringify(state.wishlistItem));
-                Swal.fire({
-                    title: "Item removed from favorite list!",
-                    icon: "success",
-                    draggable: true
-                });
+                toast.success("Item removed from favorite list!");
             } else {
-                Swal.fire({
-                    title: "Item not found in the favorite list!",
-                    icon: "error",
-                    draggable: true
-                });
+                toast.error("Item not found in the favorite list!");
             }
-        }
-        
-
+        },
+        clearWishlist: (state) => {
+            state.wishlistItem = [];
+            toast.success("WishList has been cleared!");
+          },
     },
 });
 
-
-export const { addWish,removeWish } = wishSystem.actions;
+export const { addWish, removeWish ,clearWishlist} = wishSystem.actions;
 export default wishSystem.reducer;

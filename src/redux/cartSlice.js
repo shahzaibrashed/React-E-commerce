@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import Swal from "sweetalert2";
+import toast from "react-hot-toast"; 
 
 const initialState = {
   cart: [],
@@ -13,20 +13,12 @@ const cartSystem = createSlice({
     AddCart: (state, action) => {
       const find = state.cart.findIndex((item) => item.id === action.payload.id);
       if (find >= 0) {
-        Swal.fire({
-          title: "This product already exists in your Cart",
-          icon: "error",
-          draggable: true,
-        });
+        toast.error("This product already exists in your Cart");
       } else {
-        const tempvar = { ...action.payload, quantity: 1 }; 
+        const tempvar = { ...action.payload, quantity: 1 };
         state.cart.push(tempvar);
-        state.quantity += 1; 
-        Swal.fire({
-          title: "This product has been added to your cart",
-          icon: "success",
-          draggable: true,
-        });
+        state.quantity += 1;
+        toast.success("This product has been added to your cart");
       }
     },
     RemoveProduct: (state, action) => {
@@ -34,45 +26,32 @@ const cartSystem = createSlice({
       if (findIndex >= 0) {
         state.quantity -= state.cart[findIndex].quantity;
         state.cart.splice(findIndex, 1);
-        Swal.fire({
-          title: "Item removed from cart!",
-          icon: "success",
-          draggable: true,
-        });
+        toast.success("This product remove from cart!");
       }
     },
     IncrementQuantity: (state, action) => {
       const find = state.cart.find((item) => item.id === action.payload.id);
       if (find) {
-        find.quantity += 1; 
-        state.quantity += 1; 
+        find.quantity += 1;
+        state.quantity += 1;
       }
     },
     DecrementQuantity: (state, action) => {
       const find = state.cart.find((item) => item.id === action.payload.id);
       if (find && find.quantity > 1) {
-        find.quantity -= 1; 
-        state.quantity -= 1; 
+        find.quantity -= 1;
+        state.quantity -= 1;
       } else if (find && find.quantity === 1) {
-        Swal.fire({
-          title: "Minimum quantity reached!",
-          icon: "info",
-          draggable: true,
-        });
+        toast.error("Minimum quantity reached!");
       }
     },
     clearCart: (state) => {
-      state.cart = [];  
-      state.quantity = 0;  
-      Swal.fire({
-        title: "All items have been removed from your cart",
-        icon: "success",
-        draggable: true,
-      });
+      state.cart = [];
+      state.quantity = 0;
+      toast.success("Cart has been cleared!");
     },
-    
   },
 });
 
-export const { AddCart, RemoveProduct, IncrementQuantity,DecrementQuantity ,clearCart } = cartSystem.actions;
+export const { AddCart, RemoveProduct, IncrementQuantity, DecrementQuantity, clearCart } = cartSystem.actions;
 export default cartSystem.reducer;

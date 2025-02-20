@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
-import { DecrementQuantity, IncrementQuantity, RemoveProduct } from '../redux/cartSlice';
+import { clearCart, DecrementQuantity, IncrementQuantity, RemoveProduct } from '../redux/cartSlice';
 import { Link } from 'react-router-dom';
 const CartPage = () => {
 
@@ -19,7 +19,12 @@ const CartPage = () => {
   };
 
   const totalPrice = calculateTotalPrice();
+  const roundedTotalPrice = Math.round(totalPrice);
 
+  
+  
+  
+  
   const handleIncrement = (item) => {
     dispatch(IncrementQuantity({ id: item.id }));
   };
@@ -28,7 +33,12 @@ const CartPage = () => {
     dispatch(DecrementQuantity({ id: item.id }));
   };
 
-  const total = totalPrice + 12 + 4;
+const total = totalPrice + 12 + 4;
+const roundedTotal = Math.round(total);
+  
+  const  clearAll = ()=>{
+    dispatch(clearCart());
+  }
 
   return (
     <>
@@ -37,8 +47,9 @@ const CartPage = () => {
         {cart.length > 0 ? (
           <div className="row">
             <div className="cartlist-container p-0">
-              <header className="cartlist-header">
+              <header className="cartlist-header flex justify-content-space-between">
                 <h1>Shoping Cart {cart.length}</h1>
+                <h1 onClick={clearAll} style={{cursor:"pointer"}}>Clear All</h1>
               </header>
 
            
@@ -61,7 +72,7 @@ const CartPage = () => {
                               width: '27px',
                               height: '27px',
                               borderRadius: '50%',
-                              backgroundColor: 'green',
+                              backgroundColor: 'GrayText',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
@@ -81,7 +92,7 @@ const CartPage = () => {
                               width: '27px',
                               height: '27px',
                               borderRadius: '50%',
-                              backgroundColor: 'red',
+                              backgroundColor: 'GrayText',
                               display: 'flex',
                               alignItems: 'center',
                               justifyContent: 'center',
@@ -111,8 +122,8 @@ const CartPage = () => {
             
             </div>
 
-            {/* Cart Summary Section */}
-            <div className="col-lg-4 p-2 mt-2 mb-2">
+           
+            <div className="col-lg-4 p-2  mb-2">
               <div className="card p-2">
                 <header className="cartlist-header">
                   <h1>Cart Summary</h1>
@@ -124,7 +135,7 @@ const CartPage = () => {
                 </p>
                 <p style={{ display: "flex", justifyContent: "space-between" }}>
                   Subtotal :
-                   <span> $ {totalPrice}</span>
+                   <span> $ {roundedTotalPrice}</span>
                 </p>
                 <p style={{ display: "flex", justifyContent: "space-between" }}>
                   Tax :
@@ -137,7 +148,7 @@ const CartPage = () => {
 
                 <p style={{ display: "flex", justifyContent: "space-between" }}>
                   Total :
-                   <span>$ {total} </span>
+                   <span>$ {roundedTotal} </span>
                 </p>
                 <Link to={"/checkout"}><button className="btn btn-success w-100">Proceed to Checkout</button></Link>
               </div>
@@ -146,7 +157,7 @@ const CartPage = () => {
         ) : (
           <div className="text-center m-5">
             <h4>Your cart is empty</h4>
-            <p>Add some products to see them here!</p>
+            <Link to={"/"} style={{color:"var(--salmon-pink)"}}><p>Add some products to see them here!</p></Link>
           </div>
         )}
       </div>

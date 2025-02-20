@@ -178,7 +178,7 @@ const Footer = () => {
       </ul>
       <ul className="footer-nav-list">
         <li className="footer-nav-item">
-          <h2 className="nav-title">Products</h2>
+          <Link to={"/products"}><h2 className="nav-title">Products</h2></Link>
         </li>
         <li className="footer-nav-item">
           <Link href="#" className="footer-nav-link">
@@ -208,7 +208,7 @@ const Footer = () => {
       </ul>
       <ul className="footer-nav-list">
         <li className="footer-nav-item">
-          <h2 className="nav-title">Our Company</h2>
+          <Link to={"/our-company"}><h2 className="nav-title">Our Company</h2></Link>
         </li>
         <li className="footer-nav-item">
           <Link href="#" className="footer-nav-link">
@@ -238,7 +238,7 @@ const Footer = () => {
       </ul>
       <ul className="footer-nav-list">
         <li className="footer-nav-item">
-          <h2 className="nav-title">Services</h2>
+         <Link to={"/service"}> <h2 className="nav-title">Services</h2></Link>
         </li>
         <li className="footer-nav-item">
           <Link href="#" className="footer-nav-link">
@@ -268,7 +268,7 @@ const Footer = () => {
       </ul>
       <ul className="footer-nav-list">
         <li className="footer-nav-item">
-          <h2 className="nav-title">Contact</h2>
+        <Link to={"/contact"}><h2 className="nav-title">Contact</h2></Link>  
         </li>
         <li className="footer-nav-item flex">
           <div className="icon-box">
@@ -291,7 +291,7 @@ const Footer = () => {
             <ion-icon name="mail-outline" />
           </div>
           <Link href="mailto:example@gmail.com" className="footer-nav-link">
-            example@gmail.com
+            anon@gmail.com
           </Link>
         </li>
       </ul>

@@ -1,20 +1,53 @@
 import React, { useState } from 'react'
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
 
     const [username, setUsername] = useState("");
     const [contact, setContact] = useState("");
-
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
   
     const handleSignUp = (e) => {
       e.preventDefault();
-      if (username.trim() === "" || password.trim() === "" || contact.trim() === "") {
+
+      const trimmedUsername = username.trim();
+      const trimmedPassword = password.trim();
+      const trimmedContacts = contact.trim();
+    
+      if (trimmedUsername === "" || trimmedPassword === "") {
+        toast.error("Username and Password cannot be empty!");
         return;
       }
-      navigate("/");
+    
+      if (trimmedPassword.length < 8) {
+        toast.error("Password must be at least 8 characters long!");
+        return;
+      }
+    
+      if (trimmedPassword.length > 16) {
+        toast.error("Password cannot be more than 16 characters!");
+        return;
+      }
+      
+      const specialChar = /[!@#$%^&*(),.?":{}|<>]/;
+      if (!specialChar.test(trimmedPassword)) {
+        toast.error("Password must contain at least one special character!");
+        return;
+      }
+
+      if (trimmedContacts.length < 11) {
+        toast.error("Contact number must be at least 11 digits long! ");
+        return;
+      }
+      if (trimmedContacts.length > 11) {
+        toast.error("Contact number cannot be more than 11 digits!");
+        return;
+      }
+
+      toast.success("SignUp successful!");
+      navigate("/login");
     };
   
   return (

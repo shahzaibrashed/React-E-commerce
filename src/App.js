@@ -1,6 +1,7 @@
 import { Suspense, lazy } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ScaleLoader } from 'react-spinners';
+import { Toaster } from "react-hot-toast";
 const AppRouter = lazy(() => import('./Config/AppRouter'));
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           </div>
         }>
         <AppRouter />
+        <Toaster position="top-right" reverseOrder={false} />
       </Suspense>
     </BrowserRouter>
   );

@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AddCart } from '../../redux/cartSlice';
 import { addWish, removeWish } from "../../redux/wishSystem";
 import { Link } from 'react-router-dom';
-import { ScaleLoader } from 'react-spinners';
 import { useState } from 'react';
 import { AddCompre } from '../../redux/compareSlice';
 import { Button, Modal } from 'react-bootstrap';
@@ -11,7 +10,6 @@ const SearchProduct = ({ searchProductData, SearchLabel }) => {
   const dispatch = useDispatch();
   const [modalItem, setModalItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const AddToCart = (item) => {
     const imgUrl = item.thumbnail;
@@ -65,16 +63,10 @@ const SearchProduct = ({ searchProductData, SearchLabel }) => {
 
   return (
     <div className="product-main">
-      <h2 className="title">{SearchLabel}</h2>
-
-      {loading ? (
-        <div className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
-          <ScaleLoader color="var(--salmon-pink)" height={90} radius={8} width={6} />
-        </div>
-      ) : (
-        <>
+      {/* <h2 className="title">{SearchLabel}</h2> */}
+ <>
           {searchProductData?.length === 0 ? (
-            <p className="not-found">Product Not Found</p>
+            <img src="https://codesground.com/public/frontend/image/product_not_found2.png" height="70%" width="60%" className='m-auto' alt="" />
           ) : (
             <div className="product-grid">
               {searchProductData?.map((item, index) => (
@@ -137,7 +129,7 @@ const SearchProduct = ({ searchProductData, SearchLabel }) => {
             </div>
           )}
         </>
-      )}
+      
       {/* Bootstrap Modal */}
       <Modal
         show={isModalOpen}

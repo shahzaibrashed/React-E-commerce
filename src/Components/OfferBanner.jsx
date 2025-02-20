@@ -26,7 +26,7 @@ const OfferBanner = () => {
             Welcome to the new range of shaving products from Anon. We
             have over three decades of experience in the male grooming industry
           </p>
-          <div className="default-btn2">
+          <div className="default-btn2 mt-4">
             <Link className="button" to={"/"}>
               Explore Now
             </Link>

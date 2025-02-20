@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
@@ -6,13 +7,38 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+
   const handleLogin = (e) => {
     e.preventDefault();
-    if (username.trim() === "" || password.trim() === "") {
+
+    const trimmedUsername = username.trim();
+    const trimmedPassword = password.trim();
+  
+    if (trimmedUsername === "" || trimmedPassword === "") {
+      toast.error("Username and Password cannot be empty!");
       return;
     }
+  
+    if (trimmedPassword.length < 8) {
+      toast.error("Password must be at least 8 characters long!");
+      return;
+    }
+  
+    if (trimmedPassword.length > 16) {
+      toast.error("Password cannot be more than 16 characters!");
+      return;
+    }
+
+    const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/;
+    if (!specialCharRegex.test(trimmedPassword)) {
+      toast.error("Password must contain at least one special character!");
+      return;
+    }
+
+    toast.success("Login successful!");
     navigate("/");
   };
+  
 
   return (
     <>

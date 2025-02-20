@@ -3,7 +3,7 @@ import React from 'react'
 import Header from '../Components/Header'
 import Footer from '../Components/Footer'
 import { useDispatch, useSelector } from 'react-redux';
-import { removeWish } from "../redux/wishSystem";
+import { clearWishlist, removeWish } from "../redux/wishSystem";
 
 const Wishlist = () => {
   const dispatch = useDispatch()
@@ -12,13 +12,17 @@ const Wishlist = () => {
   const removeFav = (item) => {
     dispatch(removeWish(item))
   }
+   const  clearAll = ()=>{
+      dispatch(clearWishlist());
+    }
 
   return (
     <>
       <Header />
       <div className="wishlist-container">
-        <header className="wishlist-header">
+        <header className="wishlist-header flex justify-content-space-between">
           <h1>My Wishlist {wishlistItem.length}</h1>
+      {wishlistItem.length === 0 ? "": <h1 onClick={clearAll} style={{cursor:"pointer"}}>Clear All</h1>}    
         </header>
 
         {wishlistItem.length === 0 ? (
@@ -26,6 +30,7 @@ const Wishlist = () => {
             <p style={{ textAlign: "center" }}>
               Your wishlist is empty!
             </p>
+          
           </div>
         ) : (
           <ul className="wishlist-list">

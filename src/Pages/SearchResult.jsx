@@ -5,7 +5,7 @@ import Footer from '../Components/Footer';
 import Category from '../Components/Products/Category';
 import BestSeller from '../Components/Products/BestSeller'
 import Banner from '../Components/Banner'
-import { bestSeller, homeBanner } from '../Data';
+import {  bestSeller, homeBanner } from '../Data';
 import SearchProduct from "../Components/Products/SearchProduct";
 const SearchResults = () => {
   const [products, setProducts] = useState([]);
