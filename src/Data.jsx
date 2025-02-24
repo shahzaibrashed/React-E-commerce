@@ -513,7 +513,6 @@ export const hotOffer = [
   },
 ];
 
-
 export const perfume = [
   {
     id: "31",
@@ -644,7 +643,6 @@ export const bestPerfume = [
   },
 ]
 
-
 export const jewelry = [
   {
     id: "39",
@@ -731,7 +729,6 @@ export const jewelry = [
   },
 ];
 
-
 export const bestJewelry = [
   {
     id: "42",
@@ -771,8 +768,6 @@ export const bestJewelry = [
     star: "★ ★ ★ ★ ★",
   },
 ]
-
-
 
 export const Mens = [
   {
@@ -859,7 +854,6 @@ export const Mens = [
     star: "★ ★ ★ ★ ☆ ",
   },
 ];
-
 
 export const bestMens = [
   {

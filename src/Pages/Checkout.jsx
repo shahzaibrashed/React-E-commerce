@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
+import toast from 'react-hot-toast';
 import Header from '../Components/Header';
 import Footer from '../Components/Footer';
+import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { clearCart, RemoveProduct } from '../redux/cartSlice';
-import toast from 'react-hot-toast';
 
 const CheckoutForm = () => {
   const [formData, setFormData] = useState({
@@ -76,7 +76,7 @@ const CheckoutForm = () => {
       <Header />
       <Container className="my-5">
         <Row>
-          <Col md={8} className="mx-auto">
+          <Col lg={8} className="mx-auto">
             <Card>
               <Card.Body>
                 <Card.Title as="h4" className="text-center mb-4">
@@ -111,7 +111,6 @@ const CheckoutForm = () => {
                       </Form.Group>
                     </Col>
                   </Row>
-
                   <Form.Group controlId="formAddress" className='mt-3'>
                     <Form.Label>Address</Form.Label>
                     <Form.Control
@@ -123,7 +122,6 @@ const CheckoutForm = () => {
                       required
                     />
                   </Form.Group>
-
                   <Row>
                     <Col sm={12} md={6} className='mt-3'>
                       <Form.Group controlId="formCity">
@@ -152,7 +150,6 @@ const CheckoutForm = () => {
                       </Form.Group>
                     </Col>
                   </Row>
-
                   <Form.Group controlId="formCountry" className='mt-3'>
                     <Form.Label>Country</Form.Label>
                     <Form.Control
@@ -166,16 +163,12 @@ const CheckoutForm = () => {
                       <option value="USA">United States</option>
                       <option value="Canada">Canada</option>
                       <option value="India">India</option>
-                      {/* Add more countries as needed */}
                     </Form.Control>
                   </Form.Group>
-
                   <hr />
-
                   <Card.Title as="h5" className="text-center mb-4">
                     Payment Information
                   </Card.Title>
-
                   <Form.Group controlId="formCardNumber">
                     <Form.Label>Card Number</Form.Label>
                     <Form.Control
@@ -187,7 +180,6 @@ const CheckoutForm = () => {
                       required
                     />
                   </Form.Group>
-
                   <Row>
                     <Col sm={12} md={6} className='mt-2'>
                       <Form.Group controlId="formExpiryDate">
@@ -215,27 +207,21 @@ const CheckoutForm = () => {
                       </Form.Group>
                     </Col>
                   </Row>
-
-
                   <Button type="submit" className="w-100 mt-4 custom-btn">
                     Complete Checkout
                   </Button>
-
                 </Form>
               </Card.Body>
             </Card>
           </Col>
-
           {/* Product Details */}
-          <Col md={4} className="mt-4 mt-md-0">
+          <Col lg={4} className="mt-4 mt-md-0">
             <Card>
               <Card.Body>
                 <Card.Title as="h5">Product Details : {cart.length}</Card.Title>
-
                 <div className='cc' style={{ height: "300px", overflowY: "auto" }}>
                   {
                     cart.length === 0 ?
-
                       (<div className="text-center m-3 mt-5 mb-0">
                         <h4>Your Product is empty</h4>
                         <p onClick={()=>navigate("/")} style={{ cursor: "pointer" }}>Add some products to see them here!</p>
@@ -244,7 +230,6 @@ const CheckoutForm = () => {
                         <div
                           key={index}
                           className="d-flex justify-content-between align-items-center p-3 mb-3 border rounded shadow-sm"
-                          style={{ backgroundColor: "#f8f9fa" }}
                         >
                           <img
                             src={item.imgUrl}
@@ -261,7 +246,6 @@ const CheckoutForm = () => {
                             <p className="mb-1 text-muted">Quantity: {item.quantity}</p>
                             <p className="mb-0 text-success fw-semibold">${item.price * item.quantity}</p>
                           </div>
-
                           <div
                             style={{ cursor: "pointer", color: "red", fontSize: "20px" }}
                             onClick={() => removeCart(item)}
@@ -269,11 +253,7 @@ const CheckoutForm = () => {
                             <ion-icon name="close-outline"></ion-icon>
                           </div>
                         </div>
-
-
-                      ))
-                  }
-
+                      ))}
                 </div>
                 <div className="d-flex justify-content-between align-items-center mt-1">
                   <strong className="">Subtotal :</strong>

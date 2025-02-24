@@ -26,12 +26,12 @@ const wishSystem = createSlice({
             const existsItemIndex = state.wishlistItem?.findIndex(item => item.id === action.payload?.id);
         
             if (existsItemIndex >= 0) {
-                toast.error("This product already exists in your favorite List");
+                toast.error("This product already exists in your Wishlist List");
             } else {
                 const buildWishlist = { ...action.payload, isFavourite: true };
                 state.wishlistItem.push(buildWishlist);
                 localStorage.setItem("wishlistItem", JSON.stringify(state.wishlistItem));
-                toast.success("Item added to favorite list!");
+                toast.success("Item added to Wishlist list!");
             }
         },
         removeWish: (state, action) => {
@@ -39,9 +39,9 @@ const wishSystem = createSlice({
             if (existsItemIndex >= 0) {
                 state.wishlistItem.splice(existsItemIndex, 1);
                 localStorage.setItem("wishlistItem", JSON.stringify(state.wishlistItem));
-                toast.success("Item removed from favorite list!");
+                toast.success("Item removed from Wishlist list!");
             } else {
-                toast.error("Item not found in the favorite list!");
+                toast.error("Item not found in the Wishlist list!");
             }
         },
         clearWishlist: (state) => {

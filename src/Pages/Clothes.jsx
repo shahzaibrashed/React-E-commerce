@@ -29,7 +29,7 @@ const Clothes = () => {
         a {
           text-decoration: none;
         }
-      `}</style>
+`}</style>
 </>
   )
 }

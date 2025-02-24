@@ -1346,7 +1346,6 @@ html{
     transform: rotate(-130deg);
     height: 75px;
     writing-mode: vertical-rl;
-    z-index: 10;
     color: white;
     padding: 10px 0;
   }
@@ -1525,7 +1524,7 @@ html{
     margin: auto;
     padding: 0 5px;
     border-radius: var(--border-radius-small);
-    margin-bottom: 5px;
+    margin-bottom: 5px;    
 }
 
 .cta-title {
@@ -2761,59 +2760,45 @@ footer {
     background-color: #d9363e;
 }
 
-/* Responsive styles for smaller screens */
+
 @media (max-width: 768px) {
     .wishlist-container {
         width: 90%;
-        /* Reduce container width on tablets */
         margin: 20px auto;
-        /* Adjust margin */
     }
 
     .wishlist-item {
         flex-wrap: wrap;
-        /* Allow item content to wrap */
         padding: 10px 0;
-        /* Reduce padding */
     }
     .cartlist-container {
         width: 90% !important;
-        /* Reduce container width on tablets */
         margin: 20px auto;
-        /* Adjust margin */
     }
 
     .cartlist-item {
         flex-wrap: wrap;
-        /* Allow item content to wrap */
         padding: 10px 0;
-        /* Reduce padding */
     }
 
     .item-image {
         width: 70px;
-        /* Slightly smaller images */
         height: 70px;
         margin-bottom: 10px;
-        /* Add spacing */
     }
 
     .item-details {
         width: 100%;
-        /* Take full width for details */
         margin-bottom: 10px;
-        /* Add spacing */
     }
 
     .p-box {
         flex-wrap: wrap;
-        /* Stack prices on smaller screens */
         gap: 5px;
     }
 
     .remove-button {
         width: 100%;
-        /* Full-width buttons */
         padding: 10px;
         font-size: 16px;
     }
@@ -2828,7 +2813,6 @@ footer {
 
     .wishlist-header {
         flex-direction: column;
-        /* Stack header content */
         align-items: flex-start;
         gap: 10px;
     }
@@ -2841,18 +2825,15 @@ footer {
 
     .cartlist-header {
         flex-direction: column;
-        /* Stack header content */
         align-items: flex-start;
         gap: 10px;
     }
     .wishlist-header h1 {
         font-size: 18px;
-        /* Slightly smaller title */
     }
 
     .search-bar {
         width: 100%;
-        /* Full-width search bar */
     }
 }
 
@@ -3075,7 +3056,7 @@ footer {
     border: 2px solid #ff4135;
   }
   
-  /* Media Queries for Responsiveness */
+
   @media (max-width: 1200px) {
     .shoping-inner {
       padding: 75px 150px 80px 150px;
@@ -3187,7 +3168,7 @@ footer {
         display: none;
     }
   
-    /* Ensuring the Image is also visible and adjusted for smaller screens */
+
     .shoping-section::before {
       content: "";
       background: url(http://azim.commonsupport.com/Castro/assets/images/background/cta-bg-1.jpg) no-repeat center center;
@@ -3266,7 +3247,6 @@ footer {
       color: #999;
       text-transform: uppercase;
       letter-spacing: .05em;
-      /* margin: 2em 0 0 0; */
     }
     
     .thumb {
@@ -3383,15 +3363,15 @@ footer {
 
 @media (max-width: 770px) {
     .modal-image-container {
-      width: 100%; /* Full width on mobile */
+      width: 100%; 
     }
     
     .modal-details-container {
-      padding: 1rem; /* Reduce padding on smaller screens */
+      padding: 1rem; 
     }
     
     .modal-title {
-      font-size: 1.25rem; /* Adjust font size for smaller screens */
+      font-size: 1.25rem;
     }
   }
  
