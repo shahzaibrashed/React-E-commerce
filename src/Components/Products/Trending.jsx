@@ -1,17 +1,18 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { AddCart } from '../../redux/cartSlice';
-import { newArrival } from '../../Data'
 import { trending } from '../../Data'
 import { addWish, removeWish } from "../../redux/wishSystem";
 import { Link } from 'react-router-dom';
 import { AddCompre } from '../../redux/compareSlice';
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Card, Modal, Placeholder } from 'react-bootstrap';
+
 const Trending = () => {
-  const dispatch = useDispatch()
+    const dispatch = useDispatch()
     const [modalItem, setModalItem] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
   const AddToCart = (item) => {
     dispatch(AddCart({ ...item }));
@@ -40,97 +41,112 @@ const Trending = () => {
     setIsModalOpen(false);
   };
 
+   useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 5000);
+  
+      return () => clearTimeout(timer);
+    }, []);
+
   return (
 
     <>
       <div className="product-showcase">
         <h2 className="title">Trending</h2>
         <div className="showcase-wrapper has-scrollbar">
-          <div className="showcase-container">{
-            trending.map((item, index) => {
-              return (
-                <div key={index} className="showcase">
-                  <Link href="#" className="showcase-img-box">
-                    <img
-                      src={item.imgUrl}
-                      alt="relaxed short full sleeve t-shirt"
-                      className="showcase-img"
-                      width={70}
-                    />
-                  </Link>
-                  <div className="showcase-content">
-                    <Link href="#">
-                      <h4 className="showcase-title">
-                        {item.disc}
-                      </h4>
-                    </Link>
-                    <Link href="#" className="showcase-category">
-                      {item.title}
-                    </Link>
-                    <div className="price-box">
-                      <p className="price"> ${item.price}</p>
-                      <del> ${item.lastPrice}</del>
-                    </div>
-                    <div style={{ display: "flex", float: "right", gap: "10px", marginTop: "5px", alignItems: "center" }}>
-                      <button onClick={() => AddToCart(item)} style={{ color: "pink" }}><ion-icon name="bag-add-outline" /></button>
-                      <button style={{ color: "pink" }}>
-                        {wishlistItem.some((wishlistItem) => wishlistItem.id === item.id && wishlistItem.isFavourite) ? (
-                          <ion-icon onClick={() => removeFav(item)} name="heart" />
-                        ) : (
-                          <ion-icon onClick={() => addFav(item)} name="heart-outline" />
-                        )}
-                      </button>
-                      <button style={{ color: "pink" }} onClick={()=> addCompare(item)}><ion-icon name="repeat-outline" /></button>
-                      <button style={{ color: "pink" }}  onClick={() => modalOpen(item)}><ion-icon name="eye-outline" /></button>
-                    </div>
+          
+          <div className="showcase-container">
+            {isLoading
+              ? Array.from({ length: 6 }).map((_, index) => (
+                <Card className="p-3 border rounded shadow-sm d-flex flex-row align-items-center">
+                <div className="me-3">
+                  <Placeholder as="div" animation="wave" className=" rounded" style={{ width: 70, height: 70,backgroundColor: "#e0e0e0"  }} />
+                </div>
+                <div className="flex-grow-1">
+                  <Placeholder as="h4" animation="wave" className="w-75  rounded mb-2" />
+                  <Placeholder as="p" animation="wave" className="w-50  rounded mb-2" />
+                  <div className="d-flex gap-2 align-items-center">
+                    <Placeholder as="span" animation="wave" className=" rounded" style={{ width: 50, height: 20,backgroundColor: "#e0e0e0"  }} />
+                    <Placeholder as="del" animation="wave" className=" rounded" style={{ width: 40, height: 15 ,backgroundColor: "#e0e0e0" }} />
                   </div>
                 </div>
-              )
-            })
-          }
-          </div>
-          <div className="showcase-container">{
-            newArrival.map((item, index) => {
-              return (
-                <div key={index} className="showcase">
-                  <Link href="#" className="showcase-img-box">
-                    <img
-                      src={item.imgUrl}
-                      alt="relaxed short full sleeve t-shirt"
-                      className="showcase-img"
-                      width={70}
-                    />
-                  </Link>
-                  <div className="showcase-content">
-                    <Link href="#">
-                      <h4 className="showcase-title">
-                        {item.disc}
-                      </h4>
+                <div className="d-flex gap-2">
+                  <Placeholder as="div" animation="wave" className=" rounded-circle" style={{ width: 24, height: 24,backgroundColor: "#e0e0e0"  }} />
+                  <Placeholder as="div" animation="wave" className=" rounded-circle" style={{ width: 24, height: 24 ,backgroundColor: "#e0e0e0" }} />
+                  <Placeholder as="div" animation="wave" className=" rounded-circle" style={{ width: 24, height: 24,backgroundColor: "#e0e0e0"  }} />
+                  <Placeholder as="div" animation="wave" className=" rounded-circle" style={{ width: 24, height: 24,backgroundColor: "#e0e0e0"  }} />
+                </div>
+              </Card>
+                ))
+              : trending.map((item, index) => (
+                  <div key={index} className="showcase">
+                    <Link href="#" className="showcase-img-box">
+                      <img
+                        src={item.imgUrl}
+                        alt="product"
+                        className="showcase-img"
+                        width={70}
+                      />
                     </Link>
-                    <Link href="#" className="showcase-category">
-                      {item.title}
-                    </Link>
-                    <div className="price-box">
-                      <p className="price">{item.price}</p>
-                      <del>{item.lastPrice}</del>
-                    </div>
-                    <div style={{ display: "flex", float: "right", gap: "10px", marginTop: "5px", alignItems: "center" }}>
-                      <button onClick={() => AddToCart(item)} style={{ color: "pink" }}><ion-icon name="bag-add-outline" /></button>
-                      <button style={{ color: "pink" }}>
-                        {wishlistItem.some((wishlistItem) => wishlistItem.id === item.id && wishlistItem.isFavourite) ? (
-                          <ion-icon onClick={() => removeFav(item)} name="heart" />
-                        ) : (
-                          <ion-icon onClick={() => addFav(item)} name="heart-outline" />
-                        )}
-                      </button>
-                      <button style={{ color: "pink" }}onClick={()=> addCompare(item)} ><ion-icon name="repeat-outline" /></button>
-                      <button style={{ color: "pink" }} onClick={() => modalOpen(item)}><ion-icon name="eye-outline" /></button>
+                    <div className="showcase-content">
+                      <Link href="#">
+                        <h4 className="showcase-title">{item.disc}</h4>
+                      </Link>
+                      <Link href="#" className="showcase-category">
+                        {item.title}
+                      </Link>
+                      <div className="price-box">
+                        <p className="price"> ${item.price}</p>
+                        <del> ${item.lastPrice}</del>
+                      </div>
+                      <div
+                        style={{
+                          display: "flex",
+                          float: "right",
+                          gap: "10px",
+                          marginTop: "5px",
+                          alignItems: "center",
+                        }}
+                      >
+                        <button
+                          onClick={() => AddToCart(item)}
+                          style={{ color: "pink" }}
+                        >
+                          <ion-icon name="bag-add-outline" />
+                        </button>
+                        <button style={{ color: "pink" }}>
+                          {wishlistItem.some(
+                            (wishlistItem) =>
+                              wishlistItem.id === item.id && wishlistItem.isFavourite
+                          ) ? (
+                            <ion-icon
+                              onClick={() => removeFav(item)}
+                              name="heart"
+                            />
+                          ) : (
+                            <ion-icon
+                              onClick={() => addFav(item)}
+                              name="heart-outline"
+                            />
+                          )}
+                        </button>
+                        <button
+                          style={{ color: "pink" }}
+                          onClick={() => addCompare(item)}
+                        >
+                          <ion-icon name="repeat-outline" />
+                        </button>
+                        <button
+                          style={{ color: "pink" }}
+                          onClick={() => modalOpen(item)}
+                        >
+                          <ion-icon name="eye-outline" />
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              )
-            })
-          }
+                ))}
           </div>
         </div>
       </div>

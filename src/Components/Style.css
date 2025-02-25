@@ -1885,6 +1885,9 @@ footer {
     .product-grid {
         grid-template-columns: 1fr 1fr;
         gap: 30px;
+       
+           
+    
     }
 
     .cta-content {
@@ -3354,22 +3357,17 @@ footer {
 .login-form a {
     color: var(--salmon-pink)
 }
-
 .form-gap {
   margin-top: 140px;
 }
-
-
 
 @media (max-width: 770px) {
     .modal-image-container {
       width: 100%; 
     }
-    
     .modal-details-container {
       padding: 1rem; 
     }
-    
     .modal-title {
       font-size: 1.25rem;
     }
@@ -3390,9 +3388,3 @@ footer {
     object-fit: cover; 
     border-radius: 5px;
   }
-  
-  
-
-
-
-

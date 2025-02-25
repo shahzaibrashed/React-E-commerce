@@ -2,14 +2,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AddCart } from '../../redux/cartSlice';
 import { addWish, removeWish } from "../../redux/wishSystem";
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AddCompre } from '../../redux/compareSlice';
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Card, Modal, Placeholder } from 'react-bootstrap';
 
 const SearchProduct = ({ searchProductData, SearchLabel }) => {
   const dispatch = useDispatch();
   const [modalItem, setModalItem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const AddToCart = (item) => {
     const imgUrl = item.thumbnail;
@@ -61,15 +62,53 @@ const SearchProduct = ({ searchProductData, SearchLabel }) => {
     setIsModalOpen(false);
   };
 
+  
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }, []);
   return (
     <div className="product-main">
-      {/* <h2 className="title">{SearchLabel}</h2> */}
+   
  <>
           {searchProductData?.length === 0 ? (
             <img src="https://codesground.com/public/frontend/image/product_not_found2.png" height="70%" width="60%" className='m-auto' alt="" />
           ) : (
             <div className="product-grid">
-              {searchProductData?.map((item, index) => (
+              {
+              isLoading ?
+              Array.from({ length: searchProductData?.length || 4 }).map((_, index) => (
+                <Card
+                  key={index}
+                  style={{
+                    width: "13rem",
+                    padding: "10px",
+                    borderRadius: "10px",
+                    flex: "1 1 calc(25% - 16px)",
+                    minWidth: "200px",
+                  }}
+                >
+                  <Placeholder as={Card.Img} variant="top" style={{ height: "250px", backgroundColor: "#e0e0e0" }} />
+                  <Card.Body>
+                    <Placeholder as={Card.Text} animation="glow">
+                      <Placeholder xs={4} />
+                    </Placeholder>
+                    <Placeholder as={Card.Title} animation="glow">
+                      <Placeholder xs={8} />
+                    </Placeholder>
+                    <Placeholder as={Card.Text} animation="glow">
+                      <Placeholder xs={6} />
+                    </Placeholder>
+                    <Placeholder as={Card.Text} animation="glow">
+                      <Placeholder xs={4} />
+                    </Placeholder>
+                  </Card.Body>
+                </Card>
+               
+              ))
+              : searchProductData?.map((item, index) => (
                 <div className="showcase" key={index}>
                   <div className="showcase-banner">
                     <div className='img-mm'>
@@ -130,7 +169,7 @@ const SearchProduct = ({ searchProductData, SearchLabel }) => {
           )}
         </>
       
-      {/* Bootstrap Modal */}
+   
       <Modal
         show={isModalOpen}
         onHide={modalClose}
