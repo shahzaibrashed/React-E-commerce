@@ -89,7 +89,7 @@ const CartPage = () => {
 
               <ul className="cartlist-list">
                 {isLoading
-                  ? [...Array(3)].map((_, i) => <CartSkeleton key={i} />)
+                  ? cart?.map((_, i) => <CartSkeleton key={i} />)
                   : cart.map((item) => (
                       <li key={item.id} className="cartlist-item mt-1 border-bottom d-flex align-items-center">
                         <img src={item.imgUrl} alt={item.title} className="item-image" />

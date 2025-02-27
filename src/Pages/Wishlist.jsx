@@ -73,7 +73,7 @@ const Wishlist = () => {
         </header>
 
         {isLoading ? (
-          [...Array(3)].map((_, i) => <WishlistSkeleton key={i} />)
+          wishlistItem?.map((_, i) => <WishlistSkeleton key={i} />)
         ) : wishlistItem.length === 0 ? (
           <div className="m-5">
             <p style={{ textAlign: "center" }}>Your wishlist is empty!</p>

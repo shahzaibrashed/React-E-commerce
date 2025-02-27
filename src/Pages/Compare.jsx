@@ -55,7 +55,7 @@ const Table = () => {
                   >
                     Actions
                   </th>
-                  {[...Array(4)].map((_, index) => (
+                  {compare?.map((_, index) => (
                     <th key={index} className="border">
                       <div className="skeleton" style={{ height: "30px" }}></div>
                     </th>
@@ -79,7 +79,7 @@ const Table = () => {
                     >
                       {label}
                     </th>
-                    {[...Array(4)].map((_, index) => (
+                    {compare?.map((_, index) => (
                       <td className="border" key={index}>
                         <div className="skeleton" style={{ height: "50px",}}></div>
                       </td>
@@ -130,7 +130,15 @@ const Table = () => {
 
               <tbody className="border">
                 <tr>
-                  <th className="border">Image</th>
+                  <th  style={{
+                      position: "sticky",
+                      left: -6,
+                      background: "#fff",
+                      color: "#343a40",
+                      textAlign: "center",
+                      padding: "10px",
+                      width: "250px",
+                    }} className="border">Image</th>
                   {compare.map((item, index) => (
                     <td className="border" key={index}>
                       <img
@@ -149,7 +157,17 @@ const Table = () => {
                   ))}
                 </tr>
                 <tr>
-                  <th className="border">Star</th>
+                  <th
+                   style={{
+                    position: "sticky",
+                    left: -6,
+                    background: "#fff",
+                    color: "#343a40",
+                    textAlign: "center",
+                    padding: "10px",
+                    width: "250px",
+                  }}
+                  className="border">Star</th>
                   {compare.map((item, index) => (
                     <td style={{ color: "orange" }} className="border" key={index}>
                       {item.star}
@@ -157,7 +175,17 @@ const Table = () => {
                   ))}
                 </tr>
                 <tr>
-                  <th className="border">Title</th>
+                  <th
+                   style={{
+                    position: "sticky",
+                    left: -6,
+                    background: "#fff",
+                    color: "#343a40",
+                    textAlign: "center",
+                    padding: "10px",
+                    width: "250px",
+                  }}
+                  className="border">Title</th>
                   {compare.map((item, index) => (
                     <td className="border" key={index}>
                       {item.title}
@@ -165,7 +193,17 @@ const Table = () => {
                   ))}
                 </tr>
                 <tr>
-                  <th className="border">Price</th>
+                  <th
+                   style={{
+                    position: "sticky",
+                    left: -6,
+                    background: "#fff",
+                    color: "#343a40",
+                    textAlign: "center",
+                    padding: "10px",
+                    width: "250px",
+                  }}
+                   className="border">Price</th>
                   {compare.map((item, index) => (
                     <td style={{ color: "var(--salmon-pink)" }} className="border" key={index}>
                       $ {item.price}
@@ -173,7 +211,17 @@ const Table = () => {
                   ))}
                 </tr>
                 <tr>
-                  <th className="border">Description</th>
+                  <th
+                   style={{
+                    position: "sticky",
+                    left: -6,
+                    background: "#fff",
+                    color: "#343a40",
+                    textAlign: "center",
+                    padding: "10px",
+                    width: "250px",
+                  }}
+                  className="border">Description</th>
                   {compare.map((item, index) => (
                     <td className="border" key={index}>
                       {item.disc}
@@ -181,7 +229,17 @@ const Table = () => {
                   ))}
                 </tr>
                 <tr>
-                  <th className="border">Order</th>
+                  <th
+                   style={{
+                    position: "sticky",
+                    left: -6,
+                    background: "#fff",
+                    color: "#343a40",
+                    textAlign: "center",
+                    padding: "10px",
+                    width: "250px",
+                  }}
+                  className="border">Order</th>
                   {compare.map((item, index) => (
                     <td className="border" key={index} style={{ textAlign: "center" }}>
                       <button

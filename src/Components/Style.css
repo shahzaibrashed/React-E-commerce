@@ -100,8 +100,7 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
-    /* background: hsl(0, 0%, 80%); */
-    background: var(--salmon-pink);
+    background: hsl(0, 0%, 80%);
     border: 3px solid var(--white);
     border-radius: 10px;
 }
@@ -3388,3 +3387,20 @@ footer {
     object-fit: cover; 
     border-radius: 5px;
   }
+
+
+  .testimonials-bg-img {
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('https://s3-alpha-sig.figma.com/img/8bef/d68e/677233306b4c628532d92b12ef9c6245?Expires=1741564800&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=HSik9FnXFSz2qWDWcDn0H7rbdBPfUF7-5I87qvgE0cn0Z~TYXMzVUj9evuQSWi7YYmssU87eCXrnK8qRAQ0~izxbCzGAXdScyAQ7qbbEIWgzVE2s7hibSIlVhEa9TluJh0MW-XIWizW4~pcJjFX~whbAVxUODYOzDvAZOy6FWb3pl429HmhfixtfZf-5y3SBfy05zDmm4dNmC5xAfudRxEuqWZApamCCgxNY8BnO9VvX~y2MOzEO268DCb5tKqkI6N4j6kFY-aXlSu33uFOMUEiu1Erv5lWN3nyrqYF7Oyt5sovI8CCuXT2e-WRcus~tgR5inx0SWR2XkN2zoVhQxQ__');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+    padding: 50px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
