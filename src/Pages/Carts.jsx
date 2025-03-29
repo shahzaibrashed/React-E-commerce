@@ -5,36 +5,33 @@ import Footer from "../Components/Footer";
 import { clearCart, DecrementQuantity, IncrementQuantity, RemoveProduct } from '../redux/cartSlice';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Placeholder } from "react-bootstrap";
+import { Placeholder, Badge, Button } from 'react-bootstrap';
+import { FaTrash, FaPlus, FaMinus, FaShoppingBasket } from 'react-icons/fa';
 
 // Skeleton Loader Component
 const CartSkeleton = () => {
   return (
-    <li className="cartlist-item mt-1 border-bottom d-flex align-items-center">
-      <div className="item-image">
-        <Placeholder animation="wave" className="rounded" style={{ width: "100px", height: "100px", background: "#e0e0e0" }} />
-      </div>
-      <div className="item-details flex-grow-1 mx-3">
-        <Placeholder className="rounded" style={{background: "#e0e0e0" }} as="h3" animation="wave">
-          <Placeholder style={{background: "#e0e0e0" }} xs={6} />
-        </Placeholder>
-        <Placeholder as="p" animation="wave">
-          <Placeholder style={{background: "#e0e0e0" }} className="rounded" xs={8} /> 
-        <Placeholder style={{background: "#e0e0e0" }} className="rounded" xs={6} />
-        </Placeholder>
-
-        <Placeholder as="p" animation="wave" className="price">
-          <Placeholder style={{background: "#e0e0e0" }} className="rounded"
-           xs={3} />
-        </Placeholder>
-        <div style={{ display: "flex", gap: "7px" }}>
-          <Placeholder as="button" animation="wave" className="rounded-circle" style={{ width: "27px", height: "27px",background: "#e0e0e0" }} />
-        
-          <Placeholder as="button" animation="wave" className="rounded-circle" style={{ width: "27px", height: "27px",background: "#e0e0e0" }} />
+    <div className="cart-item-skeleton mb-3 p-3 rounded">
+      <div className="d-flex">
+        <Placeholder animation="wave" className="rounded" style={{ width: "100px", height: "100px", background: "#f5f5f5" }} />
+        <div className="flex-grow-1 ms-3">
+          <Placeholder className="rounded mb-2" style={{ background: "#f5f5f5" }} as="h3" animation="wave">
+            <Placeholder style={{ background: "#f5f5f5" }} xs={6} />
+          </Placeholder>
+          <Placeholder as="p" animation="wave" className="mb-1">
+            <Placeholder style={{ background: "#f5f5f5" }} className="rounded" xs={8} />
+          </Placeholder>
+          <Placeholder as="p" animation="wave" className="mb-2">
+            <Placeholder style={{ background: "#f5f5f5" }} className="rounded" xs={4} />
+          </Placeholder>
+          <div className="d-flex align-items-center">
+            <Placeholder as="div" animation="wave" className="rounded me-2" style={{ width: "30px", height: "30px", background: "#f5f5f5" }} />
+            <Placeholder as="div" animation="wave" className="rounded mx-2" style={{ width: "40px", height: "20px", background: "#f5f5f5" }} />
+            <Placeholder as="div" animation="wave" className="rounded ms-2" style={{ width: "30px", height: "30px", background: "#f5f5f5" }} />
+          </div>
         </div>
       </div>
-   
-    </li>
+    </div>
   );
 };
 
@@ -46,7 +43,7 @@ const CartPage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 1500);
     return () => clearTimeout(timer);
   }, []);
 
@@ -59,7 +56,11 @@ const CartPage = () => {
   };
 
   const handleDecrement = (item) => {
-    dispatch(DecrementQuantity({ id: item.id }));
+    if (item.quantity > 1) {
+      dispatch(DecrementQuantity({ id: item.id }));
+    } else {
+      removeCart(item);
+    }
   };
 
   const calculateTotalPrice = () => {
@@ -67,117 +68,257 @@ const CartPage = () => {
   };
 
   const totalPrice = calculateTotalPrice();
-  const roundedTotalPrice = Math.round(totalPrice);
-  const total = totalPrice + 12 + 4;
-  const roundedTotal = Math.round(total);
+  const tax = 4;
+  const shipping = cart.length > 0 ? 12 : 0;
+  const total = totalPrice + shipping + tax;
 
   const clearAll = () => {
-    dispatch(clearCart());
+    if (window.confirm('Are you sure you want to clear your cart?')) {
+      dispatch(clearCart());
+    }
   };
 
   return (
     <>
       <Header />
-      <div className="container">
+      <div className="container py-4">
         {cart.length > 0 ? (
           <div className="row">
-            <div className="cartlist-container p-0">
-              <header className="cartlist-header flex justify-content-space-between">
-                <h1>Shopping Cart {cart.length}</h1>
-                <h1 onClick={clearAll} style={{ cursor: "pointer" }}>Clear All</h1>
-              </header>
-
-              <ul className="cartlist-list">
-                {isLoading
-                  ? cart?.map((_, i) => <CartSkeleton key={i} />)
-                  : cart.map((item) => (
-                      <li key={item.id} className="cartlist-item mt-1 border-bottom d-flex align-items-center">
-                        <img src={item.imgUrl} alt={item.title} className="item-image" />
-                        <div className="item-details">
-                          <p style={{ color: "orange" }}>{item.star}</p>
-                          <h3 className="item-title">{item.title}</h3>
-                          {item.disc && (
-                            <p>
-                              {item.disc.split(" ").slice(0, 10).join(" ")}
-                              {item.disc.split(" ").length > 10 && "..."}
-                            </p>
-                          )}
-                          <div style={{ display: "flex", gap: "7px" }}>
-                            <button className="quantity-btn" onClick={() => handleIncrement(item)}>+</button>
-                            <div>{item.quantity}</div>
-                            <button className="quantity-btn" onClick={() => handleDecrement(item)}>-</button>
+            <div className="col-lg-8">
+              <div className="card shadow-sm mb-4">
+                <div className="card-header bg-white d-flex justify-content-between align-items-center py-3">
+                  <h4 className="mb-0">
+                    <FaShoppingBasket className="me-2 text-salmon-pink" />
+                    Shopping Cart <Badge bg="salmon-pink" className="ms-2 text-white">{cart.length}</Badge>
+                  </h4>
+                  <Button
+                    variant="outline-danger"
+                    size="sm"
+                    onClick={clearAll}
+                    disabled={isLoading}
+                  >
+                    <FaTrash className="me-1" /> Clear All
+                  </Button>
+                </div>
+                <div className="card-body p-3">
+                  {isLoading
+                    ? Array(3).fill().map((_, i) => <CartSkeleton key={i} />)
+                    : cart.map((item) => (
+                      <div key={item.id} className="cart-item mb-3 p-3 rounded bg-light">
+                        <div className="d-flex">
+                          <img
+                            src={item.imgUrl}
+                            alt={item.title}
+                            className="item-image rounded shadow-sm"
+                            style={{ width: "100px", height: "100px", objectFit: "cover" }}
+                          />
+                          <div className="flex-grow-1 ms-3">
+                            <div className="d-flex justify-content-between">
+                              <h5 className="item-title mb-1">{item.title}</h5>
+                              <Button
+                                variant="link"
+                                size="sm"
+                                className="text-danger p-0"
+                                onClick={() => removeCart(item)}
+                              >
+                                <FaTrash />
+                              </Button>
+                            </div>
+                            {item.star && (
+                              <div className="mb-2">
+                                <div className="d-flex align-items-center">
+                                  <Badge
+                                    bg="light"
+                                    text="dark"
+                                    className="px-2 py-1 rounded-pill d-flex align-items-center shadow-sm"
+                                    style={{
+                                      backgroundColor: 'rgba(255, 193, 7, 0.2)',
+                                      border: '1px solid rgba(255, 193, 7, 0.3)',
+                                      backdropFilter: 'blur(2px)'
+                                    }}
+                                  >
+                                    <span
+                                      className="fw-bold me-1"
+                                      style={{
+                                        color: '#ff9800',
+                                        textShadow: '0 1px 2px rgba(0,0,0,0.1)'
+                                      }}
+                                    >
+                                      {item.star}
+                                    </span>
+                                    <span
+                                      className="d-flex align-items-center"
+                                      style={{
+                                        color: '#ffc107',
+                                        fontSize: '1.1em',
+                                        textShadow: '0 1px 3px rgba(0,0,0,0.2)'
+                                      }}
+                                    >
+                                      ★
+                                    </span>
+                                  </Badge>
+                                  <span className="ms-2 small text-muted">
+                                    {parseFloat(item.star) >= 4.5 ? 'Excellent' :
+                                      parseFloat(item.star) >= 4.0 ? 'Very Good' :
+                                        parseFloat(item.star) >= 3.0 ? 'Good' : 'Average'}
+                                  </span>
+                                </div>
+                              </div>
+                            )}
+                            {item.disc && (
+                              <p className="text-muted small mb-2">
+                                {item.disc.split(" ").slice(0, 15).join(" ")}
+                                {item.disc.split(" ").length > 15 && "..."}
+                              </p>
+                            )}
+                            <div className="d-flex align-items-center justify-content-between mt-2">
+                              <div className="d-flex align-items-center">
+                                <Button
+                                  variant="outline-secondary"
+                                  size="sm"
+                                  className="p-0 d-flex align-items-center justify-content-center"
+                                  style={{ width: "30px", height: "30px" }}
+                                  onClick={() => handleDecrement(item)}
+                                >
+                                  <FaMinus size={12} />
+                                </Button>
+                                <span className="mx-2 fw-bold">{item.quantity}</span>
+                                <Button
+                                  variant="outline-secondary"
+                                  size="sm"
+                                  className="p-0 d-flex align-items-center justify-content-center"
+                                  style={{ width: "30px", height: "30px" }}
+                                  onClick={() => handleIncrement(item)}
+                                >
+                                  <FaPlus size={12} />
+                                </Button>
+                              </div>
+                              <h5 className="mb-0 text-salmon-pink">
+                                ${(item.price * item.quantity).toFixed(2)}
+                              </h5>
+                            </div>
                           </div>
-                          <p style={{ color: "var(--salmon-pink)" }} className="price mt-2">Price: ${item.price}</p>
                         </div>
-                        <button onClick={() => removeCart(item)} className="remove-button">Remove</button>
-                      </li>
+                      </div>
                     ))}
-              </ul>
+                </div>
+              </div>
             </div>
 
-            <div className="col-lg-4 p-2 mb-2">
-              <div className="card p-2">
-                <header className="cartlist-header">
-                  <h1>Cart Summary</h1>
-                </header>
-                <p className="d-flex justify-content-between mt-2">Total Products: <span>{cart.length}</span></p>
-                <p className="d-flex justify-content-between">Subtotal: <span>${roundedTotalPrice}</span></p>
-                <p className="d-flex justify-content-between">Tax: <span>$4</span></p>
-                <p className="d-flex justify-content-between">Shipping: <span>$12</span></p>
-                <p className="d-flex justify-content-between fw-bold">Total: <span>${roundedTotal}</span></p>
-                <Link to={"/checkout"}>
-                  <button className="btn btn-success w-100">Proceed to Checkout</button>
-                </Link>
+            <div className="col-lg-4 " style={{ zIndex: 0 }}>
+              <div className="card shadow-sm sticky-top" style={{ top: "20px" }}>
+                <div className="card-header bg-white py-3">
+                  <h5 className="mb-0">Order Summary</h5>
+                </div>
+                <div className="card-body">
+                  <div className="mb-3">
+                    <div className="d-flex justify-content-between mb-1">
+                      <span className="text-muted">Subtotal ({cart.length} items)</span>
+                      <span>${totalPrice.toFixed(2)}</span>
+                    </div>
+                    <div className="d-flex justify-content-between mb-1">
+                      <span className="text-muted">Shipping</span>
+                      <span>${shipping.toFixed(2)}</span>
+                    </div>
+                    <div className="d-flex justify-content-between mb-1">
+                      <span className="text-muted">Tax</span>
+                      <span>${tax.toFixed(2)}</span>
+                    </div>
+                    <hr />
+                    <div className="d-flex justify-content-between fw-bold">
+                      <span>Total</span>
+                      <span>${total.toFixed(2)}</span>
+                    </div>
+                  </div>
+                  <Link to={"/checkout"} className="text-decoration-none">
+                    <Button variant="salmon-pink" className="w-100 py-2" size="lg">
+                      Proceed to Checkout
+                    </Button>
+                  </Link>
+                  <Link to={"/"} className="text-decoration-none">
+                    <Button variant="outline-secondary" className="w-100 mt-2">
+                      Continue Shopping
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         ) : (
-          <div className="text-center m-5">
-            <h4>Your cart is empty</h4>
-            <Link to={"/"} style={{ color: "var(--salmon-pink)" }}><p>Add some products to see them here!</p></Link>
+          <div className="text-center py-5 my-5">
+            <div className="mb-4">
+              <FaShoppingBasket size={48} className="text-muted" />
+            </div>
+            <h4 className="mb-3">Your cart is empty</h4>
+            <p className="text-muted mb-4">Looks like you haven't added anything to your cart yet</p>
+            <Link to={"/"}>
+              <Button variant="salmon-pink" size="lg">
+                Start Shopping
+              </Button>
+            </Link>
           </div>
         )}
       </div>
       <Footer />
       <style>{`
-        a {
+        :root {
+          --salmon-pink: #ff6b6b;
+          --salmon-pink-light: #ff8e8e;
+        }
+        
+        .bg-salmon-pink {
+          background-color: var(--salmon-pink);
+        }
+          a{
           text-decoration: none;
+          }
+
+        .text-salmon-pink {
+          color: var(--salmon-pink);
         }
-        .cartlist-container {
-          padding: 20px;
+        
+        .btn-salmon-pink {
+          background-color: var(--salmon-pink);
+          border-color: var(--salmon-pink);
+          color: white;
         }
-        .cartlist-item {
-          display: flex;
-          align-items: center;
+        
+        .btn-salmon-pink:hover {
+          background-color: var(--salmon-pink-light);
+          border-color: var(--salmon-pink-light);
+          color: white;
         }
+        
+        .cart-item {
+          transition: all 0.3s ease;
+          background-color: #f9f9f9;
+        }
+        
+        .cart-item:hover {
+          background-color: #f0f0f0;
+          transform: translateY(-2px);
+        }
+        
         .item-image {
-          width: 80px;
-          height: 80px;
-          object-fit: cover;
+          transition: transform 0.3s ease;
         }
-        .quantity-btn {
-          width: 27px;
-          height: 27px;
-          border-radius: 50%;
-          background-color: gray;
-          color: white;
-          font-size: 20px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          border: none;
+        
+        .item-image:hover {
+          transform: scale(1.05);
         }
-        .remove-button {
-          background-color: red;
-          color: white;
-          padding: 5px 10px;
-          border: none;
-          cursor: pointer;
+        
+        .cart-item-skeleton {
+          background-color: #f9f9f9;
         }
-        .skeleton-remove-btn {
-          width: 70px;
-          height: 30px;
+        
+        .sticky-top {
+          position: sticky;
+        }
+        
+        @media (max-width: 992px) {
+          .sticky-top {
+            position: static;
+          }
         }
       `}</style>
     </>

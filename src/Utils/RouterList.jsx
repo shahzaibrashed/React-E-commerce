@@ -23,6 +23,7 @@ import Contact from '../Pages/Contact'
 import Service from '../Pages/Service'
 import OurCompany from '../Pages/OurCompany'
 import Products from '../Pages/Products'
+import PaymentSuccess from '../Pages/PaymentSuccess'
 export const RouterList = [
 
 
@@ -126,5 +127,9 @@ export const RouterList = [
     {
         path: "/products",
         element: <Products />
+    },
+    {
+        path: "/payment-Success",
+        element: <PaymentSuccess/> 
     }
 ]
